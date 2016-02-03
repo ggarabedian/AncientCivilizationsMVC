@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.App_Start
+﻿namespace AncientCivilizations.Web.Config
 {
     using System.Data.Entity;
 

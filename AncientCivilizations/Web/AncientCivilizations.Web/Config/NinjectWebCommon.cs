@@ -1,7 +1,7 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AncientCivilizations.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AncientCivilizations.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AncientCivilizations.Web.Config.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AncientCivilizations.Web.Config.NinjectWebCommon), "Stop")]
 
-namespace AncientCivilizations.Web.App_Start
+namespace AncientCivilizations.Web.Config
 {
     using System;
     using System.Web;
