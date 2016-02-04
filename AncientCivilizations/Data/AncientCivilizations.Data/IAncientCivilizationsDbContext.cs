@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Data.Contracts
+﻿namespace AncientCivilizations.Data
 {
     using System;
     using System.Data.Entity;
@@ -17,6 +17,10 @@
         IDbSet<Video> Videos { get; set; }
 
         IDbSet<Image> Images { get; set; }
+
+        IDbSet<Civilization> Civilizations { get; set; }
+
+        IDbSet<Location> Locations { get; set; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 

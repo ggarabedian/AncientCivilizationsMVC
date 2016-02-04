@@ -8,8 +8,9 @@
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 
-    using Data.Contracts;
+    using Base;
     using Data.Models;
+    using Data.Repositories;
     using ViewModels.Users;
 
     public class UsersController : AdminController

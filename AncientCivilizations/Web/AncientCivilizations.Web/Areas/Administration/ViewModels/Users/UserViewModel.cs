@@ -20,11 +20,9 @@
 
         [Required]
         [Display(Name = "Registered On")]
-        public DateTime RegisteredOn { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [Display(Name = "Modified On")]
         public DateTime? ModifiedOn { get; set; }
-
-        public string Roles { get; set; }
     }
 }

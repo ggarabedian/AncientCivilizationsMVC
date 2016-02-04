@@ -10,8 +10,10 @@ namespace AncientCivilizations.Web.Config
 
     using Ninject;
     using Ninject.Web.Common;
-    using Data.Contracts;
+
+    using Data;
     using Data.Repositories;
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -49,6 +51,7 @@ namespace AncientCivilizations.Web.Config
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IAncientCivilizationsData>().To<AncientCivilizationsData>();
+            kernel.Bind<IAncientCivilizationsDbContext>().To<AncientCivilizationsDbContext>();
         }        
     }
 }

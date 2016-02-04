@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace AncientCivilizations.Web.Areas.Administration
+﻿namespace AncientCivilizations.Web.Areas.Administration
 {
+    using System.Web.Mvc;
+
     public class AdministrationAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
@@ -15,9 +15,10 @@ namespace AncientCivilizations.Web.Areas.Administration
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Administration_default",
-                "Administration/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name: "Administration_default",
+                url: "Administration/{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "AncientCivilizations.Web.Areas.Administration.Controllers" }
             );
         }
     }

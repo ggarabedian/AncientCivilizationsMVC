@@ -8,7 +8,9 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class User : IdentityUser
+    using Contracts;
+
+    public class User : IdentityUser, IAuditInfo
     {
         [Required]
         public string FullName { get; set; }
@@ -19,10 +21,11 @@
 
         public string Photo { get; set; }
 
-        [Required]
-        public DateTime RegisteredOn { get; set; }
-
         public DateTime? ModifiedOn { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

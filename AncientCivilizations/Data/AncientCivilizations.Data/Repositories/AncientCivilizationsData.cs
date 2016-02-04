@@ -2,14 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
 
     using Data.Contracts;
     using Models;
 
     public class AncientCivilizationsData : IAncientCivilizationsData
     {
-        private readonly DbContext context;
+        private readonly IAncientCivilizationsDbContext context;
 
         private readonly IDictionary<Type, object> repositories;
 
@@ -18,7 +17,7 @@
         {
         }
 
-        public AncientCivilizationsData(DbContext context)
+        public AncientCivilizationsData(IAncientCivilizationsDbContext context)
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
@@ -61,6 +60,22 @@
             get
             {
                 return this.GetRepository<Category>();
+            }
+        }
+
+        public IGenericRepository<Civilization> Civilizations
+        {
+            get
+            {
+                return this.GetRepository<Civilization>();
+            }
+        }
+
+        public IGenericRepository<Location> Locations
+        {
+            get
+            {
+                return this.GetRepository<Location>();
             }
         }
 

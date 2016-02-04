@@ -2,8 +2,8 @@
 {
     using System.Web.Mvc;
 
-    using Data.Contracts;
     using Data.Models;
+    using Data.Repositories;
 
     public abstract class BaseController : Controller
     {

@@ -194,8 +194,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
-    <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\Base\AdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ContentController.cs" />
+    <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\CategoryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserViewModel.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
@@ -588,6 +591,11 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Content\Articles.cshtml" />
+    <Content Include="Areas\Administration\Views\Content\Categories.cshtml" />
+    <Content Include="Areas\Administration\Views\Content\Civilizations.cshtml" />
+    <Content Include="Areas\Administration\Views\Content\Locations.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -647,6 +655,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Views\KendoGridAdministration\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

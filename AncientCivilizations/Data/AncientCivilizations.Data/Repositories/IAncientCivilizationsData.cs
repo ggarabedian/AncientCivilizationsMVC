@@ -1,5 +1,6 @@
-﻿namespace AncientCivilizations.Data.Contracts
+﻿namespace AncientCivilizations.Data.Repositories
 {
+    using Contracts;
     using Models;
 
     public interface IAncientCivilizationsData
@@ -13,6 +14,10 @@
         IGenericRepository<Image> Images { get; }
 
         IGenericRepository<Video> Videos { get; }
+
+        IGenericRepository<Civilization> Civilizations { get; }
+
+        IGenericRepository<Location> Locations { get; }
 
         int SaveChanges();
     }

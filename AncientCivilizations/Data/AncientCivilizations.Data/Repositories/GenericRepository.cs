@@ -9,7 +9,7 @@
 
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public GenericRepository(AncientCivilizationsDbContext context)
+        public GenericRepository(IAncientCivilizationsDbContext context)
         {
             if (context == null)
             {
@@ -22,7 +22,7 @@
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected AncientCivilizationsDbContext Context { get; set; }
+        protected IAncientCivilizationsDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {

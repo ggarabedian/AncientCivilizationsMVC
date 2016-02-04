@@ -37,7 +37,7 @@ namespace AncientCivilizations.Data.Migrations
                 var manager = new UserManager<User>(store);
                 manager.PasswordValidator = new MinimumLengthValidator(4);
 
-                var user = new User { UserName = "admin@admin.com", Email = "admin@admin.com", FullName = "Admin Admin", RegisteredOn = DateTime.Now };
+                var user = new User { UserName = "admin@admin.com", Email = "admin@admin.com", FullName = "Admin Admin", CreatedOn = DateTime.Now };
 
                 var result = manager.Create(user, "admin");
                 manager.AddToRole(user.Id, "Administrator");

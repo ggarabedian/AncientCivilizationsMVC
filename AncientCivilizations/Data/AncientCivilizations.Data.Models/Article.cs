@@ -5,7 +5,9 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Article
+    using Contracts;
+
+    public class Article : AuditInfo
     {
         public Article()
         {
