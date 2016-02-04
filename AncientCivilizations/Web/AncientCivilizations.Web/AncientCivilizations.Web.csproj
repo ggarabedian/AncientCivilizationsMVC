@@ -208,6 +208,10 @@
     <Compile Include="Areas\Administration\ViewModels\Content\CivilizationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\LocationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserViewModel.cs" />
+    <Compile Include="Areas\Contribution\ContributionAreaRegistration.cs" />
+    <Compile Include="Areas\Contribution\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Contribution\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Contribution\ViewModels\CreateArticleViewModel.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\DbConfig.cs" />
@@ -605,6 +609,11 @@
     <Content Include="Areas\Administration\Views\Civilizations\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Locations\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Articles\EditorTemplates\ArticleEditPopup.cshtml" />
+    <Content Include="Areas\Contribution\Views\web.config" />
+    <Content Include="Areas\Contribution\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Contribution\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Contribution\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Contribution\Views\Articles\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

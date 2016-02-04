@@ -1,0 +1,93 @@
+﻿@model AncientCivilizations.Web.Areas.Contribution.ViewModels.CreateArticleViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Create new article</h2>
+    </div>
+    @using (Html.BeginForm("Create", "Articles"))
+    {
+        <div class="row">
+            @Html.LabelFor(m => m.Title)
+        </div>
+        <div class="row">
+            @Html.EditorFor(m => m.Title)
+        </div>
+        <div class="row">
+            Location
+        </div>
+        <div class="row">
+            @(Html.Kendo().DropDownListFor(m => m.LocationId)
+          .OptionLabel("Select location...")
+          .DataTextField("Name")
+          .DataValueField("Id")
+          .DataSource(source =>
+          {
+              source.Read(read =>
+              {
+                  read.Action("GetLocations", "Articles");
+              });
+          })
+          .HtmlAttributes(new { style = "width: 100%" })
+            )
+        </div>
+        <div class="row">
+            Civilization
+        </div>
+        <div class="row">
+            @(Html.Kendo().DropDownListFor(m => m.CivilizationId)
+          .OptionLabel("Select civilization...")
+          .DataTextField("Name")
+          .DataValueField("Id")
+          .DataSource(source =>
+          {
+              source.Read(read =>
+              {
+                  read.Action("GetCivilizations", "Articles");
+              });
+          })
+          .HtmlAttributes(new { style = "width: 100%" })
+            )
+        </div>
+        <div class="row">
+            Category
+        </div>
+        <div class="row">
+            @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+            .OptionLabel("Select category...")
+            .DataTextField("Name")
+            .DataValueField("Id")
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("GetCategories", "Articles");
+                });
+            })
+            .HtmlAttributes(new { style = "width: 100%" })
+            )
+        </div>
+        <div class="row">
+            @Html.LabelFor(m => m.Content)
+        </div>
+        <div class="row">
+            @(Html.Kendo().EditorFor(m => m.Content)
+      .HtmlAttributes(new { style = "height:440px" })
+      .Resizable(resizable => resizable.Content(true).Toolbar(true))
+      //.ImageBrowser(imageBrowser => imageBrowser
+      //    .Image("~/Content/UserFiles/Images/{0}")
+      //    .Read("Read", "ImageBrowser")
+      //    .Create("Create", "ImageBrowser")
+      //    .Destroy("Destroy", "ImageBrowser")
+      //    .Upload("Upload", "ImageBrowser")
+      //    .Thumbnail("Thumbnail", "ImageBrowser")
+      )
+        </div>
+        <div class="row">
+            <input type="submit" value="Create" class="btn btn-default">
+        </div>
+    }
+</div>
+
