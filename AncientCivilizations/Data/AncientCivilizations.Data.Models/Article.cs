@@ -29,17 +29,43 @@
         public virtual Category Category { get; set; }
 
         [Required]
+        public int CivilizationId { get; set; }
+
+        [ForeignKey("CivilizationId")]
+        public virtual Civilization Civilization { get; set; }
+
+        [Required]
+        public int LocationId { get; set; }
+
+        [ForeignKey("LocationId")]
+        public virtual Location Location { get; set; }
+
+        [Required]
         public string CreatorId { get; set; }
 
         [ForeignKey("CreatorId")]
         public virtual User Creator { get; set; }
 
+        public string ApproverId { get; set; }
+
+        [ForeignKey("ApproverId")]
+        public virtual User Approver { get; set; }
+
+        public string LastEditorId { get; set; }
+
+        [ForeignKey("LastEditorId")]
+        public virtual User LastEditor { get; set; }
+
         public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public int TimePeriodFrom { get; set; }
+
+        public int TimePeriodTo { get; set; }
 
         public ICollection<Image> Images { get; set; }
 
         public ICollection<Video> Videos { get; set; }
-
-        // AprovedBy //LastEditedBy //LastEditedDate
     }
 }

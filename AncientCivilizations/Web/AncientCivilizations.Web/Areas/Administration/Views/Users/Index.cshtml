@@ -1,0 +1,32 @@
+﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Users
+@{
+    ViewBag.Title = "Users";
+    const string ControllerName = "Users";
+    const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo()
+      .Grid<UserViewModel>()
+      .Name("grid")
+      .Columns(cols =>
+      {
+          cols.Bound(pr => pr.Id).Hidden();
+          cols.Bound(pr => pr.FullName).ClientTemplate("<a href='http://www.google.com'> #= FullName # </a>");
+          cols.Bound(pr => pr.Email);
+          cols.Bound(pr => pr.RegisteredOn).Format(TimeFormat);
+          cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
+          cols.Bound(pr => pr.Roles);
+          cols.Command(com => com.Edit());
+          cols.Command(com => com.Destroy());
+      })
+      .ColumnMenu()
+      .Pageable(p => p.Refresh(true))
+      .Sortable()
+      .Editable(edit => edit.Mode(GridEditMode.PopUp))
+      .DataSource(data => data.Ajax()
+                              .Model(m => m.Id(u => u.Id))
+                              .Read(read => read.Action("Read", ControllerName))
+                              .Update(update => update.Action("Update", ControllerName))
+                              .Destroy(destroy => destroy.Action("Destroy", ControllerName))))

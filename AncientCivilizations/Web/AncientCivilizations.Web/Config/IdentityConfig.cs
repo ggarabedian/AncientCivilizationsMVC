@@ -37,6 +37,7 @@
         public ApplicationUserManager(IUserStore<User> store)
             : base(store)
         {
+            this.PasswordValidator = new MinimumLengthValidator(3);
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
@@ -52,7 +53,7 @@
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 3,
+                RequiredLength = 5,
                 RequireNonLetterOrDigit = false,
                 RequireDigit = false,
                 RequireLowercase = false,

@@ -1,6 +1,12 @@
 namespace AncientCivilizations.Data.Migrations
 {
+    using System;
+    using System.Linq;
     using System.Data.Entity.Migrations;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using Models;
 
     public sealed class Configuration : DbMigrationsConfiguration<AncientCivilizationsDbContext>
     {
@@ -13,18 +19,29 @@ namespace AncientCivilizations.Data.Migrations
 
         protected override void Seed(AncientCivilizationsDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            if (!context.Roles.Any(r => r.Name == "Administrator"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+                var adminRole = new IdentityRole { Name = "Administrator" };
+                manager.Create(adminRole);
+
+                var userRole = new IdentityRole { Name = "User" };
+                manager.Create(userRole);
+            }
+
+            if (!context.Users.Any(u => u.UserName == "admin@admin.com"))
+            {
+                var store = new UserStore<User>(context);
+                var manager = new UserManager<User>(store);
+                manager.PasswordValidator = new MinimumLengthValidator(4);
+
+                var user = new User { UserName = "admin@admin.com", Email = "admin@admin.com", FullName = "Admin Admin", RegisteredOn = DateTime.Now };
+
+                var result = manager.Create(user, "admin");
+                manager.AddToRole(user.Id, "Administrator");
+            }
         }
     }
 }
