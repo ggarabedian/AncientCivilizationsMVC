@@ -1,6 +1,5 @@
 ﻿namespace AncientCivilizations.Data.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -60,9 +59,9 @@
         [ForeignKey("LastEditorId")]
         public virtual User LastEditor { get; set; }
 
-        public int TimePeriodFrom { get; set; }
+        public int? TimePeriodFrom { get; set; }
 
-        public int TimePeriodTo { get; set; }
+        public int? TimePeriodTo { get; set; }
 
         public ICollection<Image> Images { get; set; }
 

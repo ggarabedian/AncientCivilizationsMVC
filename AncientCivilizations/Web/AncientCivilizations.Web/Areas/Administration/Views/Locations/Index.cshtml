@@ -1,14 +1,14 @@
 ﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Content
 @{
-    ViewBag.Title = "Categories";
-    const string ControllerName = "Categories";
+    ViewBag.Title = "Locations";
+    const string ControllerName = "Locations";
     const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Locations</h2>
 
 @(Html.Kendo()
-      .Grid<CategoryViewModel>()
+      .Grid<LocationViewModel>()
       .Name("grid")
       .Columns(cols =>
       {

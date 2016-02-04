@@ -2,7 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Location
+    using Contracts;
+
+    public class Location : AuditInfo
     {
         [Key]
         public int Id { get; set; }

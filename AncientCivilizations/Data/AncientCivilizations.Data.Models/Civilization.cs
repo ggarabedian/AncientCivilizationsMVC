@@ -2,7 +2,9 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Civilization
+    using Contracts;
+
+    public class Civilization : AuditInfo
     {
         [Key]
         public int Id { get; set; }

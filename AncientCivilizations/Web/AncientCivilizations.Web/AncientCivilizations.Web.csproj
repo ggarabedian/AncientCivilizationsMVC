@@ -194,13 +194,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CivilizationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\ArticlesViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Content\CategoryViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\CivilizationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Content\LocationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Users\UserViewModel.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
@@ -594,10 +600,11 @@
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Content\Articles.cshtml" />
+    <Content Include="Areas\Administration\Views\Articles\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Content\Civilizations.cshtml" />
-    <Content Include="Areas\Administration\Views\Content\Locations.cshtml" />
+    <Content Include="Areas\Administration\Views\Civilizations\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Locations\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Articles\EditorTemplates\ArticleEditPopup.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

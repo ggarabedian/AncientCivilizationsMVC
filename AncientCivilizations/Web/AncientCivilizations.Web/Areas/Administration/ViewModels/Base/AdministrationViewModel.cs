@@ -6,7 +6,7 @@
     public abstract class AdministrationViewModel
     {
         [Required]
-        [Display(Name = "Registered On")]
+        [Display(Name = "Created On")]
         public DateTime CreatedOn { get; set; }
 
         [Display(Name = "Modified On")]

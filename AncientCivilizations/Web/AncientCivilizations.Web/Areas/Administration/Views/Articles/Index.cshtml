@@ -1,20 +1,21 @@
 ﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Content
 @{
-    ViewBag.Title = "Categories";
-    const string ControllerName = "Categories";
+    ViewBag.Title = "Articles";
+    const string ControllerName = "Articles";
     const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Articles</h2>
 
 @(Html.Kendo()
-      .Grid<CategoryViewModel>()
+      .Grid<ArticlesViewModel>()
       .Name("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
-          cols.Bound(pr => pr.Name);
-          cols.Bound(pr => pr.Description);
+          cols.Bound(pr => pr.Title);
+          cols.Bound(pr => pr.Content);
+          cols.Bound(pr => pr.Category.Name);
           cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
           cols.Command(com => com.Edit());
@@ -25,10 +26,9 @@
       .Sortable()
       .Filterable()
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
-      .ToolBar(toolbar => toolbar.Create())
       .DataSource(data => data.Ajax()
                               .Model(m => m.Id(u => u.Id))
                               .Read(read => read.Action("Read", ControllerName))
-                              .Create(create => create.Action("Create", ControllerName))
                               .Update(update => update.Action("Update", ControllerName))
                               .Destroy(destroy => destroy.Action("Destroy", ControllerName))))
+
