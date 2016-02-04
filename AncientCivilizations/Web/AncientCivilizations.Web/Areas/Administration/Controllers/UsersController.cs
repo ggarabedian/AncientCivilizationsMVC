@@ -1,11 +1,8 @@
 ﻿namespace AncientCivilizations.Web.Areas.Administration.Controllers
 {
-    using System;
-    using System.Linq;
+    using System.Collections;
     using System.Web.Mvc;
 
-    using AutoMapper;
-    using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
 
     using Base;
@@ -13,58 +10,42 @@
     using Data.Repositories;
     using ViewModels.Users;
 
-    public class UsersController : AdminController
+    public class UsersController : KendoGridAdministrationController
     {
         public UsersController(IAncientCivilizationsData data)
             : base(data)
         {
-
         }
 
-        // GET: Administration/Users
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Read([DataSourceRequest]DataSourceRequest request)
+        protected override IEnumerable GetData()
         {
-            var users = this.Data
-                            .Users
-                            .All()
-                            .ToDataSourceResult(request);
+            return this.Data.Users.All();
+        }
 
-            return this.Json(users);
+
+        protected override object GetById(object id)
+        {
+            return this.Data.Users.GetById(id);
         }
 
         [HttpPost]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserViewModel model)
         {
-            if (model != null && ModelState.IsValid)
-            {
-                model.ModifiedOn = DateTime.Now;
-
-                var modelToUpdate = this.Data.Users.All().Where(u => u.Id == model.Id).FirstOrDefault();          
-                Mapper.Map(model, modelToUpdate);
-
-                this.Data.SaveChanges();
-            }
-
-            return this.Json(new[] { model }.ToDataSourceResult(request, ModelState));
+            var updatedModel = base.Update(model, model.Id);
+            return this.GridOperation(updatedModel, request);
         }
 
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, UserViewModel model)
         {
-            if (model != null && ModelState.IsValid)
-            {
-                var user = Mapper.Map<User>(model);
-                this.Data.Users.Delete(user);
-                this.Data.SaveChanges();
-            }
+            base.Delete<User>(model);
 
-            return this.Json(new[] { model }.ToDataSourceResult(request, ModelState));
+            return this.GridOperation(model, request);
         }
     }
 }

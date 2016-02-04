@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User Administrations</h2>
+@Html.ActionLink("Edit Users", "Index", "Users", new { area = "Administration" }, null)
+
+<h2>Content Administrations</h2>
+@Html.ActionLink("Edit Categories", "Index", "Categories", new { area = "Administration" }, null)
+@Html.ActionLink("Edit Articles", "Index", "Articles", new { area = "Administration" }, null)
+@Html.ActionLink("Edit Civilizations", "Index", "Civilizations", new { area = "Administration" }, null)
+@Html.ActionLink("Edit Locations", "Index", "Locations", new { area = "Administration" }, null)

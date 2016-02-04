@@ -48,6 +48,8 @@
         [ForeignKey("CreatorId")]
         public virtual User Creator { get; set; }
 
+        public bool IsApproved { get; set; }
+
         public string ApproverId { get; set; }
 
         [ForeignKey("ApproverId")]
@@ -57,10 +59,6 @@
 
         [ForeignKey("LastEditorId")]
         public virtual User LastEditor { get; set; }
-
-        public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
 
         public int TimePeriodFrom { get; set; }
 

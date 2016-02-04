@@ -12,6 +12,7 @@
 
         private readonly IDictionary<Type, object> repositories;
 
+        // TODO: Remove?
         public AncientCivilizationsData()
             : this(new AncientCivilizationsDbContext())
         {
@@ -21,6 +22,14 @@
         {
             this.context = context;
             this.repositories = new Dictionary<Type, object>();
+        }
+
+        public IAncientCivilizationsDbContext Context
+        {
+            get
+            {
+                return this.context;
+            }
         }
 
         public IGenericRepository<User> Users

@@ -5,6 +5,8 @@
 
     public interface IAncientCivilizationsData
     {
+        IAncientCivilizationsDbContext Context { get; }
+
         IGenericRepository<User> Users { get; }
 
         IGenericRepository<Article> Articles { get; }

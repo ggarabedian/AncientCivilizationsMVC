@@ -1,13 +1,13 @@
 ﻿namespace AncientCivilizations.Web.Areas.Administration.ViewModels.Users
 {
-    using System;
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
+    using Base;
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class UserViewModel : IMapFrom<User>
+    public class UserViewModel : AdministrationViewModel, IMapFrom<User>
     {
         [HiddenInput(DisplayValue = false)]
         public string Id { get; set; }
@@ -17,12 +17,5 @@
 
         [Required]
         public string Email { get; set; }
-
-        [Required]
-        [Display(Name = "Registered On")]
-        public DateTime CreatedOn { get; set; }
-
-        [Display(Name = "Modified On")]
-        public DateTime? ModifiedOn { get; set; }
     }
 }

@@ -1,21 +1,20 @@
-﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Users
-
+﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Content
 @{
-    ViewBag.Title = "Users";
-    const string ControllerName = "Users";
+    ViewBag.Title = "Categories";
+    const string ControllerName = "Categories";
     const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>ViewBag.Title</h2>
 
 @(Html.Kendo()
-      .Grid<UserViewModel>()
+      .Grid<CategoryViewModel>()
       .Name("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
-          cols.Bound(pr => pr.FullName).ClientTemplate("<a href='http://www.google.com'> #= FullName # </a>");
-          cols.Bound(pr => pr.Email);
+          cols.Bound(pr => pr.Name);
+          cols.Bound(pr => pr.Description);
           cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
           cols.Command(com => com.Edit());
@@ -26,8 +25,10 @@
       .Sortable()
       .Filterable()
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
+      .ToolBar(toolbar => toolbar.Create())
       .DataSource(data => data.Ajax()
                               .Model(m => m.Id(u => u.Id))
                               .Read(read => read.Action("Read", ControllerName))
+                              .Create(create => create.Action("Create", ControllerName))
                               .Update(update => update.Action("Update", ControllerName))
                               .Destroy(destroy => destroy.Action("Destroy", ControllerName))))
