@@ -17,11 +17,5 @@
 
         [Required]
         public string Content { get; set; }
-
-        //public int CategoryId { get; set; }
-
-        [Required]
-        [Display(Name = "Category")]
-        public Category Category { get; set; }
     }
 }

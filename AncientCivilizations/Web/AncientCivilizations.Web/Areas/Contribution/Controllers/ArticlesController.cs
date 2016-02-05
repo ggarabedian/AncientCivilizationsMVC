@@ -1,5 +1,6 @@
 ﻿namespace AncientCivilizations.Web.Areas.Contribution.Controllers
 {
+    using System.Web;
     using System.Web.Mvc;
 
     using Microsoft.AspNet.Identity;
@@ -28,6 +29,7 @@
         {
             if (model != null && ModelState.IsValid)
             {
+                model.Content = HttpUtility.HtmlDecode(model.Content);
                 var dbModel = Mapper.Map<Article>(model);
                 dbModel.CreatorId = this.User.Identity.GetUserId();
                 this.Data.Articles.Add(dbModel);

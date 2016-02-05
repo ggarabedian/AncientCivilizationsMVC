@@ -33,6 +33,7 @@
             return this.Data.Articles.GetById(id);
         }
 
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, ArticlesViewModel model)
         {
@@ -40,6 +41,7 @@
             return this.GridOperation(updatedModel, request);
         }
 
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ArticlesViewModel model)
         {

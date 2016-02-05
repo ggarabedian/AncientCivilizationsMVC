@@ -1,24 +1,33 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
-    public class HomeController : Controller
+    using AutoMapper.QueryableExtensions;
+
+    using Data.Repositories;
+    using ViewModels.Home;
+
+    public class HomeController : BaseController
     {
+        public HomeController(IAncientCivilizationsData data)
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
-            return View();
-        }
+            var data = this.Data.Articles
+                                .All()
+                                .OrderByDescending(a => a.CreatedOn)
+                                .Take(5)
+                                .ProjectTo<HomePageArticleViewModel>()
+                                .ToList();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            if (data != null)
+            {
+                return View(data);
+            }
 
             return View();
         }

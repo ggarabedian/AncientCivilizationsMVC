@@ -15,7 +15,6 @@
           cols.Bound(pr => pr.Id).Hidden();
           cols.Bound(pr => pr.Title);
           cols.Bound(pr => pr.Content);
-          cols.Bound(pr => pr.Category.Name);
           cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
           cols.Command(com => com.Edit());

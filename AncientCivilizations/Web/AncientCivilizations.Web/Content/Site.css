@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#article-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 150px;
+}

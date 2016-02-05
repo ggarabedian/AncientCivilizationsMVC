@@ -14,6 +14,7 @@
         [Required]
         public string Title { get; set; }
 
+        [AllowHtml]
         [Required]
         public string Content { get; set; }
 
