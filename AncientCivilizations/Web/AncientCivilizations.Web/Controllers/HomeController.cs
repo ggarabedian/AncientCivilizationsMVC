@@ -19,6 +19,7 @@
         {
             var data = this.Data.Articles
                                 .All()
+                                .Where(ar => ar.IsApproved)
                                 .OrderByDescending(a => a.CreatedOn)
                                 .Take(5)
                                 .ProjectTo<HomePageArticleViewModel>()

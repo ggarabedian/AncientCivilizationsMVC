@@ -15,7 +15,9 @@
         [Required]
         public string Title { get; set; }
 
-        [Required]
+        [HiddenInput(DisplayValue = false)]
         public string Content { get; set; }
+
+        public bool IsApproved { get; set; }
     }
 }

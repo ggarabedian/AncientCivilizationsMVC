@@ -14,11 +14,22 @@
       {
           cols.Bound(pr => pr.Id).Hidden();
           cols.Bound(pr => pr.Title);
-          cols.Bound(pr => pr.Content);
+          cols.Bound(pr => pr.Content).Hidden();
           cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
-          cols.Command(com => com.Edit());
-          cols.Command(com => com.Destroy());
+          cols.Bound(pr => pr.IsApproved);
+          cols.Template(pr => pr.IsApproved)
+              .ClientTemplate("#if(!IsApproved){#" +
+                              "<a class='k-button k-button-icontext' href='" +
+                              Url.Action("ApproveArticle", "Articles") +
+                              "/#= Id #'" +
+                              "><span class='k-icon k-add'></span>Approve</a>" +
+                              "#} #").Width(123);
+          cols.Command(commands =>
+          {
+              commands.Edit();
+              commands.Destroy();
+          }).Width(185);
       })
       .ColumnMenu()
       .Pageable(p => p.Refresh(true))
@@ -30,4 +41,3 @@
                               .Read(read => read.Action("Read", ControllerName))
                               .Update(update => update.Action("Update", ControllerName))
                               .Destroy(destroy => destroy.Action("Destroy", ControllerName))))
-

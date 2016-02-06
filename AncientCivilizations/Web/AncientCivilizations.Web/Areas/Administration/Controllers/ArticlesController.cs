@@ -3,6 +3,8 @@
     using System.Collections;
     using System.Web.Mvc;
 
+    using Microsoft.AspNet.Identity;
+
     using Kendo.Mvc.UI;
 
     using Base;
@@ -31,6 +33,17 @@
         protected override object GetById(object id)
         {
             return this.Data.Articles.GetById(id);
+        }
+
+        public ActionResult ApproveArticle(int id)
+        {
+            var article = this.Data.Articles.GetById(id);
+            article.IsApproved = true;
+            article.ApproverId = User.Identity.GetUserId();
+            this.Data.Articles.Update(article);
+            this.Data.Articles.SaveChanges();
+
+            return this.RedirectToAction("Index");
         }
 
         [ValidateInput(false)]
