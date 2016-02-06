@@ -7,9 +7,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-    @(Html.Kendo()
-      .Grid<CivilizationViewModel>()
-      .Name("grid")
+@(Html.CustomGrid<CivilizationViewModel>("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
@@ -20,10 +18,6 @@
           cols.Command(com => com.Edit());
           cols.Command(com => com.Destroy());
       })
-      .ColumnMenu()
-      .Pageable(p => p.Refresh(true))
-      .Sortable()
-      .Filterable()
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
       .ToolBar(toolbar => toolbar.Create())
       .DataSource(data => data.Ajax()

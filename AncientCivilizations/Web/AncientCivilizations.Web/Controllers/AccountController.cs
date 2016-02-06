@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -18,7 +17,7 @@
     using Data.Models;
     using Data.Repositories;
     using ViewModels.Profile;
-    using AncientCivilizations.Web.Common.Helpers;
+    using Web.Common.Extensions;
 
     [Authorize]
     public class AccountController : Controller

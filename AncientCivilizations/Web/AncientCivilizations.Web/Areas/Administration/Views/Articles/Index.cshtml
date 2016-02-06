@@ -1,4 +1,5 @@
 ﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Content
+@using AncientCivilizations.Web.Common.HtmlHelperExtensions
 @{
     ViewBag.Title = "Articles";
     const string ControllerName = "Articles";
@@ -7,9 +8,7 @@
 
 <h2>Articles</h2>
 
-@(Html.Kendo()
-      .Grid<ArticlesViewModel>()
-      .Name("grid")
+@(Html.CustomGrid<ArticlesViewModel>("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
@@ -17,24 +16,29 @@
           cols.Bound(pr => pr.Content).Hidden();
           cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
-          cols.Bound(pr => pr.IsApproved);
-          cols.Template(pr => pr.IsApproved)
-              .ClientTemplate("#if(!IsApproved){#" +
-                              "<a class='k-button k-button-icontext' href='" +
-                              Url.Action("ApproveArticle", "Articles") +
-                              "/#= Id #'" +
-                              "><span class='k-icon k-add'></span>Approve</a>" +
-                              "#} #").Width(123);
+          cols.Template(pr => pr.IsApproved).Title("Approved by")
+                .ClientTemplate("#if(IsApproved){#" +
+                                  "<a href='" +
+                                  Url.Action("UserProfile", "Account", new { area = "" }, null) +
+                                  "/#= ApproverId #'>" +
+                                  " #= ApproverFullName #" +
+                                  "</a>" +
+                                  "# } #");
+          cols.Template(pr => pr.IsApproved).Title("Status")
+                .ClientTemplate("#if(!IsApproved){#" +
+                                  "<a class='k-button k-button-icontext' href='" +
+                                  Url.Action("ApproveArticle", "Articles") +
+                                  "/#= Id #'" +
+                                  "><span class='k-icon k-add'></span>Approve</a>" +
+                                  "#} else {#" +
+                                  "Approved" +
+                                  "# } #").Width(123);
           cols.Command(commands =>
           {
               commands.Edit();
               commands.Destroy();
           }).Width(185);
       })
-      .ColumnMenu()
-      .Pageable(p => p.Refresh(true))
-      .Sortable()
-      .Filterable()
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
       .DataSource(data => data.Ajax()
                               .Model(m => m.Id(u => u.Id))

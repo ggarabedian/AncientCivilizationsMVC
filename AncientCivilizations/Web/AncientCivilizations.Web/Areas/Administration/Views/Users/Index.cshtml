@@ -1,5 +1,4 @@
 ﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Users
-
 @{
     ViewBag.Title = "Users";
     const string ControllerName = "Users";
@@ -8,23 +7,26 @@
 
 <h2>@ViewBag.Title</h2>
 
-@(Html.Kendo()
-      .Grid<UserViewModel>()
-      .Name("grid")
+@(Html.CustomGrid<UserViewModel>("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
-          cols.Bound(pr => pr.FullName).ClientTemplate("<a href='http://www.google.com'> #= FullName # </a>");
+          cols.Template(pr => pr.FullName).Title("Full Name")
+              .ClientTemplate("<a href='" +
+                                Url.Action("UserProfile", "Account", new { area = "" }, null) +
+                                "/#= Id #'>" +
+                                " #= FullName #" +
+                                "</a>");
           cols.Bound(pr => pr.Email);
           cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
-          cols.Command(com => com.Edit());
-          cols.Command(com => com.Destroy());
-      })
-      .ColumnMenu()
-      .Pageable(p => p.Refresh(true))
-      .Sortable()
-      .Filterable()
+
+          cols.Command(commands =>
+          {
+              commands.Edit();
+              commands.Destroy();
+          }).Width(185);
+      })      
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
       .DataSource(data => data.Ajax()
                               .Model(m => m.Id(u => u.Id))

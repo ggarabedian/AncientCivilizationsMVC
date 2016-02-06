@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Common.Helpers
+﻿namespace AncientCivilizations.Web.Common.Extensions
 {
     using System;
     using System.IO;

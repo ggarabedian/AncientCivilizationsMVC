@@ -1,4 +1,5 @@
 ﻿@using AncientCivilizations.Web.Areas.Administration.ViewModels.Content
+@using AncientCivilizations.Web.Common.HtmlHelperExtensions
 @{
     ViewBag.Title = "Locations";
     const string ControllerName = "Locations";
@@ -7,9 +8,7 @@
 
 <h2>Locations</h2>
 
-@(Html.Kendo()
-      .Grid<LocationViewModel>()
-      .Name("grid")
+@(Html.CustomGrid<LocationViewModel>("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
@@ -20,10 +19,6 @@
           cols.Command(com => com.Edit());
           cols.Command(com => com.Destroy());
       })
-      .ColumnMenu()
-      .Pageable(p => p.Refresh(true))
-      .Sortable()
-      .Filterable()
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
       .ToolBar(toolbar => toolbar.Create())
       .DataSource(data => data.Ajax()

@@ -6,6 +6,7 @@
     using Microsoft.AspNet.Identity;
 
     using Kendo.Mvc.UI;
+    using AutoMapper.QueryableExtensions;
 
     using Base;
     using Data.Models;
@@ -26,7 +27,7 @@
 
         protected override IEnumerable GetData()
         {
-            return this.Data.Articles.All();
+            return this.Data.Articles.All().ProjectTo<ArticlesViewModel>();
         }
 
 
