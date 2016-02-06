@@ -10,7 +10,7 @@
     {
         public Article()
         {
-            this.Images = new HashSet<Image>();
+            this.Images = new HashSet<Picture>();
             this.Videos = new HashSet<Video>();
         }
 
@@ -63,7 +63,9 @@
 
         public int? TimePeriodTo { get; set; }
 
-        public ICollection<Image> Images { get; set; }
+        public string KeyWords { get; set; }
+
+        public ICollection<Picture> Images { get; set; }
 
         public ICollection<Video> Videos { get; set; }
     }

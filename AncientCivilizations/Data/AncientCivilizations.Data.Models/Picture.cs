@@ -3,7 +3,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Image
+    public class Picture
     {
         [Key]
         public int Id { get; set; }
@@ -22,5 +22,7 @@
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public string KeyWords { get; set; }
     }
 }

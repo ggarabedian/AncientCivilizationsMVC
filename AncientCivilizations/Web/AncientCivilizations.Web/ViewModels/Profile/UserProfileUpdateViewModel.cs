@@ -22,6 +22,7 @@
 
         public string Photo { get; set; }
 
+        public byte[] Avatar { get; set; }
         // Password field
     }
 }

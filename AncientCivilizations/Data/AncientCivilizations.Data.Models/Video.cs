@@ -22,5 +22,7 @@
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public string KeyWords { get; set; }
     }
 }

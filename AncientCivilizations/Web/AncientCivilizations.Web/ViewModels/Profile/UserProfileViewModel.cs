@@ -2,8 +2,6 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    using AutoMapper;
-
     using Data.Models;
     using Infrastructure.Mapping;
 
@@ -18,6 +16,8 @@
         public string Summary { get; set; }
 
         public string Biography { get; set; }
+
+        public byte[] Avatar { get; set; }
 
         public string Photo { get; set; }
     }

@@ -18,7 +18,7 @@
 
         public string CreatorName { get; set; }
 
-        public string CreatorImage { get; set; }
+        public byte[] CreatorAvatar { get; set; }
 
         public string CreatorId { get; set; }
 
@@ -27,7 +27,7 @@
             configuration.CreateMap<Article, HomePageArticleViewModel>("")
                 .ForMember(m => m.CreatorName, opt => opt.MapFrom(u => u.Creator.FullName));
             configuration.CreateMap<Article, HomePageArticleViewModel>("")
-                .ForMember(m => m.CreatorImage, opt => opt.MapFrom(u => u.Creator.Avatar.ContentType));
+                .ForMember(m => m.CreatorAvatar, opt => opt.MapFrom(u => u.Creator.Avatar));
             configuration.CreateMap<Article, HomePageArticleViewModel>("")
                 .ForMember(m => m.CreatorId, opt => opt.MapFrom(u => u.Creator.Id));
         }

@@ -16,7 +16,7 @@
 
         IDbSet<Video> Videos { get; set; }
 
-        IDbSet<Image> Images { get; set; }
+        IDbSet<Picture> Images { get; set; }
 
         IDbSet<Civilization> Civilizations { get; set; }
 

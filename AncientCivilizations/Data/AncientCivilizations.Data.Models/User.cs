@@ -18,7 +18,7 @@
             :base()
         {
             this.Articles = new HashSet<Article>();
-            this.Images = new HashSet<Image>();
+            this.Images = new HashSet<Picture>();
             this.Videos = new HashSet<Video>();
         }
 
@@ -29,10 +29,7 @@
 
         public string Biography { get; set; }
 
-        public int AvatarId { get; set; }
-
-        [ForeignKey("AvatarId")]
-        public virtual Avatar Avatar { get; set; }
+        public byte[] Avatar { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
@@ -40,9 +37,7 @@
 
         public bool PreserveCreatedOn { get; set; }
 
-        public string KeyWords { get; set; }
-
-        public ICollection<Image> Images { get; set; }
+        public ICollection<Picture> Images { get; set; }
 
         public ICollection<Video> Videos { get; set; }
 

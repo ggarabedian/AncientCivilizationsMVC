@@ -709,6 +709,10 @@
       <Project>{981b2a45-c954-4121-998e-35b4774bf8be}</Project>
       <Name>AncientCivilizations.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AncientCivilizations.Web.Common\AncientCivilizations.Web.Common.csproj">
+      <Project>{0ad61dc7-8d69-48fb-941e-40bd27f210d1}</Project>
+      <Name>AncientCivilizations.Web.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

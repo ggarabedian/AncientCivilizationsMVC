@@ -48,11 +48,11 @@
             }
         }
 
-        public IGenericRepository<Image> Images
+        public IGenericRepository<Picture> Images
         {
             get
             {
-                return this.GetRepository<Image>();
+                return this.GetRepository<Picture>();
             }
         }
 

@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E2C7EDE8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Tests", "Tests\AncientCivilizations.Web.Tests\AncientCivilizations.Web.Tests.csproj", "{D1197C14-2FCA-4BF5-A970-9CBC5B1BD308}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Common", "Web\AncientCivilizations.Web.Common\AncientCivilizations.Web.Common.csproj", "{0AD61DC7-8D69-48FB-941E-40BD27F210D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{D1197C14-2FCA-4BF5-A970-9CBC5B1BD308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1197C14-2FCA-4BF5-A970-9CBC5B1BD308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1197C14-2FCA-4BF5-A970-9CBC5B1BD308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +79,6 @@ Global
 		{981B2A45-C954-4121-998E-35B4774BF8BE} = {C0F63020-30AC-415B-BF3D-CF370651CCA2}
 		{6F1B07E4-2F6B-4201-94B9-20A4FD20CAE0} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
 		{D1197C14-2FCA-4BF5-A970-9CBC5B1BD308} = {E2C7EDE8-D8EF-4680-8CC3-779A530DA4DC}
+		{0AD61DC7-8D69-48FB-941E-40BD27F210D1} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
 	EndGlobalSection
 EndGlobal

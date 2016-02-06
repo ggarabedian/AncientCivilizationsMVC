@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -17,6 +18,7 @@
     using Data.Models;
     using Data.Repositories;
     using ViewModels.Profile;
+    using AncientCivilizations.Web.Common.Helpers;
 
     [Authorize]
     public class AccountController : Controller
@@ -94,15 +96,23 @@
         }
 
         [HttpPost]
-        public ActionResult UpdateUserProfile(IEnumerable<HttpPostedFileBase> image, UserProfileUpdateViewModel model, string id)
+        public ActionResult UpdateUserProfile(UserProfileUpdateViewModel model, IEnumerable<HttpPostedFileBase> images, string id)
         {
-            if (model != null || ModelState.IsValid)
+            if (model != null)
             {
-                var dbUser = this.Data.Users.GetById(id);
-                Mapper.Map(model, dbUser);
-                this.Data.Users.SaveChanges();
+                if (images.Count() != 0)
+                {
+                    model.Avatar = AvatarImageEditor.ResizeImage(images.FirstOrDefault());
+                }
 
-                return RedirectToAction("UserProfile", new { id = id });
+                if (ModelState.IsValid)
+                {
+                    var dbUser = this.Data.Users.GetById(id);
+                    Mapper.Map(model, dbUser);
+                    this.Data.Users.SaveChanges();
+
+                    return RedirectToAction("UserProfile", new { id = id });
+                }
             }
 
             return RedirectToAction("_UserProfileSettingsPartial", model);
