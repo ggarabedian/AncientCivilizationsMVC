@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="Avatar.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Civilization.cs" />
     <Compile Include="Image.cs" />

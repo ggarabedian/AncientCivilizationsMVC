@@ -1,5 +1,20 @@
 ﻿@model AncientCivilizations.Web.ViewModels.Articles.ArticleDetailedViewModel
-<h1>
-    Detailed view of: 
-    @Model.Title
-</h1>
+
+<div class="row">
+    <h1 class="border-bottom">
+        @Model.Title
+    </h1>
+</div>
+<div class="row">
+    <h2>
+        Article
+    </h2>
+</div>
+<div class="row">
+    by
+    @Html.DisplayFor(m => Model.CreatorName)
+</div>
+<div class="row">
+    published on
+    @Html.DisplayFor(m => Model.CreatedOn)
+</div>

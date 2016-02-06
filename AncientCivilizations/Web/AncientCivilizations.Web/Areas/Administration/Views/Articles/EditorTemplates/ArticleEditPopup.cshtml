@@ -1,0 +1,66 @@
+﻿@model AncientCivilizations.Web.Areas.Administration.ViewModels.Content.ArticlesViewModel
+
+<div class="row text-center">
+    @Html.LabelFor(m => m.Title, new { @class = "col-md-3"})
+    @Html.EditorFor(m => m.Title)
+</div>
+<dl>
+    <dt>
+        @Html.LabelFor(m => m.Category):
+    </dt>
+    <dd>
+        @(Html.Kendo().DropDownListFor(m => m.Category)
+                  .ValuePrimitive(true)
+                  .DataTextField("Name")
+                  .DataValueField("Id")
+                  .DataSource(dataSource =>
+                  {
+                      dataSource.Read(read => read.Action("GetCategories", "Articles"))
+                                .ServerFiltering(true);
+                  })
+        )
+        @Html.ValidationMessageFor(m => m.Category.Id)
+    </dd>
+</dl>
+@*<dl>
+        <dt>
+            @Html.LabelFor(m => m.VendorId):
+        </dt>
+        <dd>
+            @(Html.Kendo().DropDownListFor(m => m.VendorId)
+                  .AutoBind(false)
+                  .ValuePrimitive(true)
+                  .OptionLabel("Select Vendor...")
+                  .DataTextField("VendorName")
+                  .DataValueField("VendorId")
+                  .DataSource(dataSource =>
+                  {
+                      dataSource.Read(read => read.Action("GetVendors", "Home").Data("filterVendors"))
+                                .ServerFiltering(true);
+                  })
+                  .CascadeFrom("CustomerId")
+            )
+            @Html.ValidationMessageFor(m => m.VendorId)
+        </dd>
+    </dl>
+    <dl>
+        <dt>
+            @Html.LabelFor(m => m.ProductId):
+        </dt>
+        <dd>
+            @(Html.Kendo().DropDownListFor(m => m.ProductId)
+                  .AutoBind(false)
+                  .ValuePrimitive(true)
+                  .OptionLabel("Select Product...")
+                  .DataTextField("ProductName")
+                  .DataValueField("ProductId")
+                  .DataSource(dataSource =>
+                  {
+                      dataSource.Read(read => read.Action("GetProducts", "Home").Data("filterProducts"))
+                                .ServerFiltering(true);
+                  })
+                  .CascadeFrom("VendorId")
+            )
+            @Html.ValidationMessageFor(m => m.ProductId)
+        </dd>
+    </dl>*@

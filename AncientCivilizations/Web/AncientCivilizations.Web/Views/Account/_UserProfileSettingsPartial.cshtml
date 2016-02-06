@@ -1,0 +1,73 @@
+﻿@model AncientCivilizations.Web.ViewModels.Profile.UserProfileUpdateViewModel
+
+@{
+    Layout = null;
+}
+
+<h2>User Control Panel</h2>
+
+<div>
+    @using (Html.BeginForm("UpdateUserProfile", "Account", new { id = Model.Id }))
+    {
+        <div class="row">
+            <h3 class="row">
+                @Html.LabelFor(m => m.FullName)
+            </h3>
+            <div class="row">
+                Please enter your real name, using first and last names.
+            </div>
+            <div class="row">
+                @Html.EditorFor(m => m.FullName)
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="row">
+                @Html.LabelFor(m => m.Summary)
+            </h3>
+            <div class="row">
+                Please write a short summary of who you are. This will be displayed below each of your submissions.
+            </div>
+            <div class="row">
+                @Html.TextAreaFor(m => m.Summary)
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="row">
+                @Html.LabelFor(m => m.Biography)
+            </h3>
+            <div class="row">
+                Please tell us a bit about yourself, your profession and why you love ancient history. This will be displayed on your profile page.
+            </div>
+            <div class="row">
+                @Html.TextAreaFor(m => m.Biography)
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="row">
+                @Html.LabelFor(m => m.Photo)
+            </h3>
+            <div class="row">
+                Please upload a photo of yourself.
+            </div>
+            <div class="row">
+                @(Html.Kendo().Upload()
+                    .Name("image")
+                )
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="row">
+                @Html.LabelFor(m => m.Email)
+            </h3>
+            <div class="row">
+                We will never reveal your email address to the public. Editors need to be able to contact you if you send us a submission, and you'll need it if you forget your password.
+            </div>
+            <div class="row">
+                @Html.EditorFor(m => m.Email)
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn btn-default">
+        </div>
+    }
+</div>

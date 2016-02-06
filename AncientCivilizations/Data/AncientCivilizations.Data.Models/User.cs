@@ -1,7 +1,9 @@
 ﻿namespace AncientCivilizations.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
@@ -12,6 +14,14 @@
 
     public class User : IdentityUser, IAuditInfo
     {
+        public User()
+            :base()
+        {
+            this.Articles = new HashSet<Article>();
+            this.Images = new HashSet<Image>();
+            this.Videos = new HashSet<Video>();
+        }
+
         [Required]
         public string FullName { get; set; }
 
@@ -19,13 +29,24 @@
 
         public string Biography { get; set; }
 
-        public string Photo { get; set; }
+        public int AvatarId { get; set; }
+
+        [ForeignKey("AvatarId")]
+        public virtual Avatar Avatar { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
+
+        public string KeyWords { get; set; }
+
+        public ICollection<Image> Images { get; set; }
+
+        public ICollection<Video> Videos { get; set; }
+
+        public ICollection<Article> Articles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
@@ -35,6 +56,10 @@
             return userIdentity;
         }
 
+        public string FacebookAccountLink { get; set; }
+        public string TwitterAccountLink { get; set; }
+        public string GoogleAccountLink { get; set; }
+        public string LinkedInAccountLink { get; set; }
         //Social media accounts
         //Last modified from
     }

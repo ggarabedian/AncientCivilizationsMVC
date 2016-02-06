@@ -19,7 +19,7 @@
                         </div>
                         <div class="row text-right">
                             by
-                            @Html.DisplayFor(m => item.CreatorName)
+                            @Html.ActionLink(item.CreatorName, "UserProfile", "Account", new { id = item.CreatorId, area = "" }, null)
                         </div>
                         <div class="row text-right">
                             published on
@@ -27,7 +27,7 @@
                         </div>
                         <div class="row">
                             <div class="text-center">
-                                <div id="article-content">@Html.Raw(item.Content)</div>
+                                <div id="article-content">@Html.Raw(item.Content)</div>...
                                 @Html.ActionLink("Read More", "DetailedView", "Articles", new { id = @item.Id, area = "" }, new { @class = "pull-right" })
                             </div>
                         </div>

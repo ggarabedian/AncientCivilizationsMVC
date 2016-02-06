@@ -1,6 +1,7 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -10,8 +11,12 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
+    using AutoMapper;
+
     using Web.Models;
     using Data.Models;
+    using Data.Repositories;
+    using ViewModels.Profile;
 
     [Authorize]
     public class AccountController : Controller
@@ -19,8 +24,9 @@
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        public AccountController(IAncientCivilizationsData data)
         {
+            this.Data = data;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -53,6 +59,8 @@
             }
         }
 
+        protected IAncientCivilizationsData Data { get; set; }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -60,6 +68,44 @@
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserProfile(string id)
+        {
+            var data = this.Data.Users.GetById(id);
+            var viewModel = Mapper.Map<UserProfileViewModel>(data);
+            return View(viewModel);
+        }
+
+        public ActionResult _UserProfileInfoPartial(string id)
+        {
+            // TODO: Implement using Viewbag?
+            var data = this.Data.Users.GetById(id);
+            var viewModel = Mapper.Map<UserProfileViewModel>(data);
+            return PartialView(viewModel);
+        }
+
+        public ActionResult _UserProfileSettingsPartial(string id)
+        {
+            var data = this.Data.Users.GetById(id);
+            var viewModel = Mapper.Map<UserProfileUpdateViewModel>(data);
+            return PartialView(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateUserProfile(IEnumerable<HttpPostedFileBase> image, UserProfileUpdateViewModel model, string id)
+        {
+            if (model != null || ModelState.IsValid)
+            {
+                var dbUser = this.Data.Users.GetById(id);
+                Mapper.Map(model, dbUser);
+                this.Data.Users.SaveChanges();
+
+                return RedirectToAction("UserProfile", new { id = id });
+            }
+
+            return RedirectToAction("_UserProfileSettingsPartial", model);
         }
 
         //

@@ -20,16 +20,16 @@
 
         public string CreatorImage { get; set; }
 
-        public string CreateorId { get; set; }
+        public string CreatorId { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Article, HomePageArticleViewModel>("")
                 .ForMember(m => m.CreatorName, opt => opt.MapFrom(u => u.Creator.FullName));
             configuration.CreateMap<Article, HomePageArticleViewModel>("")
-                .ForMember(m => m.CreatorImage, opt => opt.MapFrom(u => u.Creator.Photo));
+                .ForMember(m => m.CreatorImage, opt => opt.MapFrom(u => u.Creator.Avatar.ContentType));
             configuration.CreateMap<Article, HomePageArticleViewModel>("")
-                .ForMember(m => m.CreateorId, opt => opt.MapFrom(u => u.Creator.Id));
+                .ForMember(m => m.CreatorId, opt => opt.MapFrom(u => u.Creator.Id));
         }
     }
 }
