@@ -13,7 +13,7 @@
 
         IGenericRepository<Category> Categories { get; }
 
-        IGenericRepository<Picture> Images { get; }
+        IGenericRepository<Picture> Pictures { get; }
 
         IGenericRepository<Video> Videos { get; }
 

@@ -1,13 +1,10 @@
 ﻿@model AncientCivilizations.Web.Models.Contribution.ContributeArticleViewModel
-@{
-    ViewBag.Title = "Edit";
-}
 
 <div class="container">
     <div class="row">
         <h2>Create new article</h2>
     </div>
-    @using (Html.BeginForm("Edit", "Articles", FormMethod.Post))
+    @using (Html.BeginForm("Edit", Controllers.Articles, FormMethod.Post))
     {
         @Html.Partial("_ArticleFormPartial")
         <div class="row">

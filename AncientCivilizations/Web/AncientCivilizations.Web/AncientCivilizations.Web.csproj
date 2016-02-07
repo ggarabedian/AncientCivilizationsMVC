@@ -205,6 +205,7 @@
     <Compile Include="Areas\Contribution\ContributionAreaRegistration.cs" />
     <Compile Include="Areas\Contribution\Controllers\ArticlesController.cs" />
     <Compile Include="Areas\Contribution\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Contribution\Controllers\PicturesController.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\DbConfig.cs" />
@@ -607,6 +608,7 @@
     <Content Include="Areas\Contribution\Views\Articles\Create.cshtml" />
     <Content Include="Areas\Contribution\Views\Articles\Edit.cshtml" />
     <Content Include="Areas\Contribution\Views\Articles\_ArticleFormPartial.cshtml" />
+    <Content Include="Areas\Contribution\Views\Pictures\Add.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

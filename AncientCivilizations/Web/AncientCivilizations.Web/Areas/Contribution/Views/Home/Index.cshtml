@@ -1,11 +1,6 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Contribute</h2>
-@Html.ActionLink("Article", "Create", "Articles", new { area = "Contribution" }, null)
-@Html.ActionLink("Definiton", "Index", "Definitons", new { area = "Contribution" }, null)
-@Html.ActionLink("Image", "Index", "Images", new { area = "Contribution" }, null)
-@Html.ActionLink("Video", "Index", "Videos", new { area = "Contribution" }, null)
+﻿<h2>Contribute</h2>
+@Html.ActionLink("Article", "Create", Controllers.Articles, new { area = Areas.Contribution }, null)
+@Html.ActionLink("Definition", Actions.Index, Controllers.Definitions, new { area = Areas.Contribution }, null)
+@Html.ActionLink("Image", "Add", Controllers.Pictures, new { area = Areas.Contribution }, null)
+@Html.ActionLink("Video", Actions.Index, Controllers.Videos, new { area = Areas.Contribution }, null)
 

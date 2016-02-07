@@ -22,7 +22,7 @@
 
         public IDbSet<Video> Videos { get; set; }
 
-        public IDbSet<Picture> Images { get; set; }
+        public IDbSet<Picture> Pictures { get; set; }
 
         public IDbSet<Civilization> Civilizations { get; set; }
 

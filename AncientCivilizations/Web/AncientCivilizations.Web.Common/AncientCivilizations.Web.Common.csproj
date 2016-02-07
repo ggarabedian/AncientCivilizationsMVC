@@ -73,6 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Actions.cs" />
+    <Compile Include="Constants\Areas.cs" />
+    <Compile Include="Constants\Controllers.cs" />
+    <Compile Include="Constants\Globals.cs" />
     <Compile Include="Extensions\AvatarImageEditor.cs" />
     <Compile Include="HtmlHelperExtensions\KendoHtmlHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

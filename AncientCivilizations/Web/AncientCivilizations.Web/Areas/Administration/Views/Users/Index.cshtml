@@ -1,11 +1,6 @@
 ﻿@using AncientCivilizations.Web.Models.Administration
-@{
-    ViewBag.Title = "Users";
-    const string ControllerName = "Users";
-    const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
-}
 
-<h2>@ViewBag.Title</h2>
+<h2>Users</h2>
 
 @(Html.CustomGrid<UserViewModel>("grid")
       .Columns(cols =>
@@ -13,13 +8,13 @@
           cols.Bound(pr => pr.Id).Hidden();
           cols.Template(pr => pr.FullName).Title("Full Name")
               .ClientTemplate("<a href='" +
-                                Url.Action("UserProfile", "Account", new { area = "" }, null) +
+                                Url.Action("UserProfile", Controllers.Account, new { area = Areas.Default }, null) +
                                 "/#= Id #'>" +
                                 " #= FullName #" +
                                 "</a>");
           cols.Bound(pr => pr.Email);
-          cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
-          cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
+          cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
+          cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
 
           cols.Command(commands =>
           {
@@ -30,6 +25,6 @@
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
       .DataSource(data => data.Ajax()
                               .Model(m => m.Id(u => u.Id))
-                              .Read(read => read.Action("Read", ControllerName))
-                              .Update(update => update.Action("Update", ControllerName))
-                              .Destroy(destroy => destroy.Action("Destroy", ControllerName))))
+                              .Read(read => read.Action("Read", Controllers.Users))
+                              .Update(update => update.Action("Update", Controllers.Users))
+                              .Destroy(destroy => destroy.Action("Destroy", Controllers.Users))))

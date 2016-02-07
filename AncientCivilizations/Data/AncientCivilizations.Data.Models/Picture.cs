@@ -23,6 +23,12 @@
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
 
+        [Required]
+        public string ContributorId { get; set; }
+
+        [ForeignKey("ContributorId")]
+        public virtual User Contributor { get; set; }
+
         public string KeyWords { get; set; }
     }
 }

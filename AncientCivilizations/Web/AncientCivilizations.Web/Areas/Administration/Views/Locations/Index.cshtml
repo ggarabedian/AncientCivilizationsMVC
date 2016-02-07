@@ -1,10 +1,4 @@
 ﻿@using AncientCivilizations.Web.Models.Administration
-@using AncientCivilizations.Web.Common.HtmlHelperExtensions
-@{
-    ViewBag.Title = "Locations";
-    const string ControllerName = "Locations";
-    const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
-}
 
 <h2>Locations</h2>
 
@@ -14,8 +8,8 @@
           cols.Bound(pr => pr.Id).Hidden();
           cols.Bound(pr => pr.Name);
           cols.Bound(pr => pr.Description);
-          cols.Bound(pr => pr.CreatedOn).Format(TimeFormat);
-          cols.Bound(pr => pr.ModifiedOn).Format(TimeFormat);
+          cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
+          cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
           cols.Command(com => com.Edit());
           cols.Command(com => com.Destroy());
       })
@@ -23,7 +17,7 @@
       .ToolBar(toolbar => toolbar.Create())
       .DataSource(data => data.Ajax()
                               .Model(m => m.Id(u => u.Id))
-                              .Read(read => read.Action("Read", ControllerName))
-                              .Create(create => create.Action("Create", ControllerName))
-                              .Update(update => update.Action("Update", ControllerName))
-                              .Destroy(destroy => destroy.Action("Destroy", ControllerName))))
+                              .Read(read => read.Action("Read", Controllers.Locations))
+                              .Create(create => create.Action("Create", Controllers.Locations))
+                              .Update(update => update.Action("Update", Controllers.Locations))
+                              .Destroy(destroy => destroy.Action("Destroy", Controllers.Locations))))

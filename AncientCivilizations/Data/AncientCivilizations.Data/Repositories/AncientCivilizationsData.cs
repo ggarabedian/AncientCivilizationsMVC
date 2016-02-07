@@ -48,7 +48,7 @@
             }
         }
 
-        public IGenericRepository<Picture> Images
+        public IGenericRepository<Picture> Pictures
         {
             get
             {

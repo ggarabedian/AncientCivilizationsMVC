@@ -19,7 +19,7 @@
           {
               source.Read(read =>
               {
-                  read.Action("GetLocations", "Articles");
+                  read.Action("GetLocations", Controllers.Articles);
               });
           })
           .HtmlAttributes(new { style = "width: 100%" })
@@ -37,7 +37,7 @@
           {
               source.Read(read =>
               {
-                  read.Action("GetCivilizations", "Articles");
+                  read.Action("GetCivilizations", Controllers.Articles);
               });
           })
           .HtmlAttributes(new { style = "width: 100%" })
@@ -55,7 +55,7 @@
             {
                 source.Read(read =>
                 {
-                    read.Action("GetCategories", "Articles");
+                    read.Action("GetCategories", Controllers.Articles);
                 });
             })
             .HtmlAttributes(new { style = "width: 100%" })
