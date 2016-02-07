@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Areas.Administration.ViewModels.Content
+﻿namespace AncientCivilizations.Web.Models.Administration
 {
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
@@ -7,7 +7,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class LocationViewModel : AdministrationViewModel, IMapFrom<Location>
+    public class CivilizationViewModel : AdministrationViewModel, IMapFrom<Civilization>
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }

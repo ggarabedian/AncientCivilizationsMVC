@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.ViewModels.Articles
+﻿namespace AncientCivilizations.Web.Models.Public
 {
     using System;
     using System.ComponentModel.DataAnnotations;

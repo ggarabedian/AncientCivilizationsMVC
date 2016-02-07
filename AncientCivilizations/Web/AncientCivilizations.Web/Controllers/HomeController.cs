@@ -6,7 +6,7 @@
     using AutoMapper.QueryableExtensions;
 
     using Data.Repositories;
-    using ViewModels.Home;
+    using Models.Public;
 
     public class HomeController : BaseController
     {

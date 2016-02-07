@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Areas.Contribution.ViewModels
+﻿namespace AncientCivilizations.Web.Models.Contribution
 {
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
@@ -8,7 +8,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class CreateArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
+    public class ContributeArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
@@ -38,7 +38,7 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Article, CreateArticleViewModel>("")
+            configuration.CreateMap<Article, ContributeArticleViewModel>("")
                 .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id));
         }
     }

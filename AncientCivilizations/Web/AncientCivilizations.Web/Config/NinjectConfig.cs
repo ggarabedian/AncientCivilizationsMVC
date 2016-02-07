@@ -1,5 +1,5 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AncientCivilizations.Web.Config.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AncientCivilizations.Web.Config.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(AncientCivilizations.Web.Config.NinjectConfig), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(AncientCivilizations.Web.Config.NinjectConfig), "Stop")]
 
 namespace AncientCivilizations.Web.Config
 {
@@ -14,7 +14,7 @@ namespace AncientCivilizations.Web.Config
     using Data;
     using Data.Repositories;
 
-    public static class NinjectWebCommon 
+    public static class NinjectConfig 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 

@@ -10,7 +10,7 @@
 
     using Data.Models;
     using Data.Repositories;
-    using ViewModels;
+    using Models.Contribution;
     using Web.Controllers;
 
     public class ArticlesController : BaseController
@@ -27,7 +27,7 @@
         }
 
         [HttpPost]
-        public ActionResult Create(CreateArticleViewModel model)
+        public ActionResult Create(ContributeArticleViewModel model)
         {
             if (model != null && ModelState.IsValid)
             {
@@ -45,12 +45,12 @@
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var model = this.Data.Articles.All().Where(a => a.Id == id).ProjectTo<CreateArticleViewModel>().FirstOrDefault();
+            var model = this.Data.Articles.All().Where(a => a.Id == id).ProjectTo<ContributeArticleViewModel>().FirstOrDefault();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(CreateArticleViewModel model)
+        public ActionResult Edit(ContributeArticleViewModel model)
         {
             if (model != null && ModelState.IsValid)
             {

@@ -6,14 +6,13 @@
     using System.Reflection;
 
     using AutoMapper;
-
     using Infrastructure.Mapping;
 
     public class AutoMapperConfig
     {
         public void Execute()
         {
-            var types = Assembly.GetExecutingAssembly().GetExportedTypes();
+            var types = Assembly.Load("AncientCivilizations.Web.Models").GetExportedTypes();
 
             LoadStandardMappings(types);
 

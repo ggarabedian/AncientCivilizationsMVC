@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.ViewModels.Home
+﻿namespace AncientCivilizations.Web.Models.Public
 {
     using System;
 

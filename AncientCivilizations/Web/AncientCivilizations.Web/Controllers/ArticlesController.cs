@@ -5,7 +5,7 @@
     using AutoMapper;
 
     using Data.Repositories;
-    using ViewModels.Articles;
+    using Models.Public;
 
     public class ArticlesController : BaseController
     {

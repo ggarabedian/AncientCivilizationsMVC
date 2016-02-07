@@ -1,11 +1,11 @@
-﻿namespace AncientCivilizations.Web.ViewModels.Profile
+﻿namespace AncientCivilizations.Web.Models.Public
 {
     using System.ComponentModel.DataAnnotations;
 
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class UserProfileUpdateViewModel : IMapFrom<User>
+    public class UserProfileViewModel : IMapFrom<User>
     {
         public string Id { get; set; }
 
@@ -13,16 +13,12 @@
         [Display(Name = "Real name")]
         public string FullName { get; set; }
 
-        [Required]
-        public string Email { get; set; }
-
         public string Summary { get; set; }
 
         public string Biography { get; set; }
 
-        public string Photo { get; set; }
-
         public byte[] Avatar { get; set; }
-        // Password field
+
+        public string Photo { get; set; }
     }
 }

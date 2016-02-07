@@ -8,7 +8,7 @@
     using Base;
     using Data.Models;
     using Data.Repositories;
-    using ViewModels.Content;
+    using Models.Administration;
 
     public class CategoriesController : KendoGridAdministrationController
     {

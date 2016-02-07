@@ -8,7 +8,7 @@
     using Base;
     using Data.Models;
     using Data.Repositories;
-    using ViewModels.Users;
+    using Models.Administration;
 
     public class UsersController : KendoGridAdministrationController
     {

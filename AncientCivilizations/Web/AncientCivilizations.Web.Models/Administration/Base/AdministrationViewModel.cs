@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Areas.Administration.ViewModels.Base
+﻿namespace AncientCivilizations.Web.Models.Administration.Base
 {
     using System;
     using System.ComponentModel.DataAnnotations;

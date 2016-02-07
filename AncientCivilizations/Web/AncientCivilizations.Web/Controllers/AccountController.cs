@@ -13,10 +13,10 @@
 
     using AutoMapper;
 
-    using Web.Models;
     using Data.Models;
     using Data.Repositories;
-    using ViewModels.Profile;
+    using Models.Account;
+    using Models.Public;
     using Web.Common.Extensions;
 
     [Authorize]
@@ -122,7 +122,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(AccountViewModels.LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -157,7 +157,7 @@
             {
                 return View("Error");
             }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            return View(new AccountViewModels.VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
         //
@@ -165,7 +165,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
+        public async Task<ActionResult> VerifyCode(AccountViewModels.VerifyCodeViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -203,7 +203,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(AccountViewModels.RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -255,7 +255,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(AccountViewModels.ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -299,7 +299,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ResetPassword(AccountViewModels.ResetPasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -351,7 +351,7 @@
             }
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            return View(new AccountViewModels.SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
         //
@@ -359,7 +359,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> SendCode(SendCodeViewModel model)
+        public async Task<ActionResult> SendCode(AccountViewModels.SendCodeViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -400,7 +400,7 @@
                     // If the user does not have an account, then prompt the user to create an account
                     ViewBag.ReturnUrl = returnUrl;
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    return View("ExternalLoginConfirmation", new AccountViewModels.ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
             }
         }
 
@@ -409,7 +409,7 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(AccountViewModels.ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
             {
