@@ -3,10 +3,12 @@
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
+    using AutoMapper;
+
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class CreateArticleViewModel : IMapFrom<Article>
+    public class CreateArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
@@ -30,5 +32,14 @@
         public int? TimePeriodFrom { get; set; }
 
         public int? TimePeriodTo { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string LastEditorId { get; set; }
+
+        public void CreateMappings(IConfiguration configuration)
+        {
+            configuration.CreateMap<Article, CreateArticleViewModel>("")
+                .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id));
+        }
     }
 }

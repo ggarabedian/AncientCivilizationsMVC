@@ -81,6 +81,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\AncientCivilizations.Data.Contracts\AncientCivilizations.Data.Contracts.csproj">
+      <Project>{b977fe27-3dc2-4680-89d5-6135bff68c4f}</Project>
+      <Name>AncientCivilizations.Data.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

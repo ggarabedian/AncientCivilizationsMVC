@@ -615,12 +615,13 @@
     <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Civilizations\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Locations\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Articles\EditorTemplates\ArticleEditPopup.cshtml" />
     <Content Include="Areas\Contribution\Views\web.config" />
     <Content Include="Areas\Contribution\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Contribution\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Contribution\Views\Home\Index.cshtml" />
     <Content Include="Areas\Contribution\Views\Articles\Create.cshtml" />
+    <Content Include="Areas\Contribution\Views\Articles\Edit.cshtml" />
+    <Content Include="Areas\Contribution\Views\Articles\_ArticleFormPartial.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

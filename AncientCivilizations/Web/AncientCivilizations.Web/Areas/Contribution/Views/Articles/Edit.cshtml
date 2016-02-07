@@ -1,18 +1,20 @@
 ﻿@model AncientCivilizations.Web.Areas.Contribution.ViewModels.CreateArticleViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
 <div class="container">
     <div class="row">
         <h2>Create new article</h2>
     </div>
-    @using (Html.BeginForm("Create", "Articles"))
+    @using (Html.BeginForm("Edit", "Articles", FormMethod.Post))
     {
         @Html.Partial("_ArticleFormPartial")
         <div class="row">
-            <input type="submit" value="Create" class="btn btn-default">
+            <input type="submit" value="Save Changes" class="btn btn-default">
         </div>
     }
 </div>
+
+
 

@@ -29,12 +29,22 @@
         [HiddenInput(DisplayValue = false)]
         public string ApproverFullName { get; set; }
 
+        [HiddenInput(DisplayValue = false)]
+        public string LastEditorId { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string LastEditorFullName { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticlesViewModel>("")
                 .ForMember(m => m.ApproverId, opt => opt.MapFrom(a => a.Approver.Id));
             configuration.CreateMap<Article, ArticlesViewModel>("")
                 .ForMember(m => m.ApproverFullName, opt => opt.MapFrom(u => u.Approver.FullName));
+            configuration.CreateMap<Article, ArticlesViewModel>("")
+                .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id));
+            configuration.CreateMap<Article, ArticlesViewModel>("")
+                .ForMember(m => m.LastEditorFullName, opt => opt.MapFrom(u => u.LastEditor.FullName));
         }
     }
 }
