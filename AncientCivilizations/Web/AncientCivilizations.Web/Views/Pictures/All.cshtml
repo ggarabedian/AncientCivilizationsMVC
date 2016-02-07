@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.AllPicturesViewModel>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="product">
+        <img src="@Url.Content("~/Content/Pictures/#:Url#")" alt="#:Url# image" />
+    </div>
+</script>
+
+<div class="demo-section k-content wide">
+    @(Html.Kendo().Window()
+        .Name("window").Scrollable(false)
+        .Title("")
+        .Draggable()
+        .Resizable()
+        .Width(800)
+        .Actions(actions => actions.Close())
+        .Events(ev => ev.Close("onClose"))
+        .Visible(false)
+    )
+    @(Html.Kendo().ListView<AncientCivilizations.Web.Models.Public.AllPicturesViewModel>(Model)
+    .Name("listView")
+    .TagName("div")
+    .ClientTemplateId("template")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("Read", "Pictures", new { area = Areas.Default }));
+        dataSource.PageSize(15);
+    })
+    .Pageable()
+    .Selectable(selectable => selectable.Mode(ListViewSelectionMode.Single))
+    .Events(events => events.Change("onChange"))
+    )
+</div>
+
+<span id="undo" style="display:none"></span>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/custom")
+}

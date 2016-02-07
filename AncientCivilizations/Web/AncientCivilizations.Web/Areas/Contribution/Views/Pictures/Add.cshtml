@@ -1,0 +1,67 @@
+﻿@model AncientCivilizations.Web.Models.Contribution.ContributePictureViewModel
+
+<div class="container">
+    <div class="row">
+        <h2>Add new image</h2>
+    </div>
+    
+    @using (Html.BeginForm("Add", Controllers.Pictures, FormMethod.Post))
+    {
+        <div class="row">
+            @Html.LabelFor(m => m.Title)
+        </div>
+        <div class="row">
+            @Html.EditorFor(m => m.Title)
+            @Html.ValidationMessageFor(m => m.Title)
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(m => m.Description)
+        </div>
+        <div class="row">
+            @Html.TextAreaFor(m => m.Description)
+            @Html.ValidationMessageFor(m => m.Description)
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(m => m.KeyWords)
+        </div>
+        <div class="row">
+            @Html.EditorFor(m => m.KeyWords)
+        </div>
+
+        <div class="row">
+            @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+            .OptionLabel("Select category...")
+            .DataTextField("Name")
+            .DataValueField("Id")
+            .DataSource(source =>
+            {
+                source.Read(read =>
+                {
+                    read.Action("GetCategories", Controllers.Pictures);
+                });
+            })
+            .HtmlAttributes(new { style = "width: 100%" })
+            )
+            @Html.ValidationMessageFor(m => m.CategoryId)
+        </div>
+
+        <div class="row">
+            <h3 class="row">
+                @Html.LabelFor(m => m.Url)
+            </h3>
+            <div class="row">
+                Please upload the image.
+            </div>
+            <div class="row">
+                @(Html.Kendo().Upload()
+                    .Name("images")
+                )
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Add" class="btn btn-default">
+        </div>
+    }    
+</div>

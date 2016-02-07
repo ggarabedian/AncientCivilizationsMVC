@@ -204,6 +204,7 @@
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Contribution\ContributionAreaRegistration.cs" />
     <Compile Include="Areas\Contribution\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Contribution\Controllers\Base\ContributionsController.cs" />
     <Compile Include="Areas\Contribution\Controllers\HomeController.cs" />
     <Compile Include="Areas\Contribution\Controllers\PicturesController.cs" />
     <Compile Include="Config\AutoMapperConfig.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -610,6 +612,7 @@
     <Content Include="Areas\Contribution\Views\Articles\_ArticleFormPartial.cshtml" />
     <Content Include="Areas\Contribution\Views\Pictures\Add.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\image-gallery.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -670,6 +673,7 @@
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Account\_UserProfileSettingsPartial.cshtml" />
     <Content Include="Views\Account\_UserProfileInfoPartial.cshtml" />
+    <Content Include="Views\Pictures\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

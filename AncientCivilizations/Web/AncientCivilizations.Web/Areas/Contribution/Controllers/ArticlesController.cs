@@ -8,12 +8,12 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
+    using Base;
     using Data.Models;
     using Data.Repositories;
     using Models.Contribution;
-    using Web.Controllers;
 
-    public class ArticlesController : BaseController
+    public class ArticlesController : ContributionsController
     {
         public ArticlesController(IAncientCivilizationsData data)
             : base(data)
@@ -64,24 +64,6 @@
             }
 
             return View(model);
-        }
-
-        public ActionResult GetCategories()
-        {
-            var data = this.Data.Categories.All();
-            return this.Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult GetCivilizations()
-        {
-            var data = this.Data.Civilizations.All();
-            return this.Json(data, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult GetLocations()
-        {
-            var data = this.Data.Locations.All();
-            return this.Json(data, JsonRequestBehavior.AllowGet);
         }
     }
 }

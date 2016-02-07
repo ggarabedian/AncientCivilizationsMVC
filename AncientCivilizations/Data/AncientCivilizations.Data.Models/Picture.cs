@@ -3,7 +3,9 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class Picture
+    using Contracts;
+
+    public class Picture : AuditInfo
     {
         [Key]
         public int Id { get; set; }

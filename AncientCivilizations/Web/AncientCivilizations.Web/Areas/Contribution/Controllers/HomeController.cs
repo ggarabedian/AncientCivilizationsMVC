@@ -2,10 +2,10 @@
 {
     using System.Web.Mvc;
 
+    using Base;
     using Data.Repositories;
-    using Web.Controllers;
 
-    public class HomeController : BaseController
+    public class HomeController : ContributionsController
     {
         public HomeController(IAncientCivilizationsData data) 
             : base(data)

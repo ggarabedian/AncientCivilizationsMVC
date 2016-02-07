@@ -1,19 +1,34 @@
 ﻿namespace AncientCivilizations.Web.Common.Extensions
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.IO;
     using System.Drawing;
     using System.Drawing.Drawing2D;
     using System.Drawing.Imaging;
     using System.Web;
 
-    public static class AvatarImageEditor
+    public static class ImageEditor
     {
-        public static byte[] ResizeImage(HttpPostedFileBase image)
+        public static string SaveImageToServer(IEnumerable<HttpPostedFileBase> images, string userId)
+        {
+            var image = images.FirstOrDefault();
+            var fileName = Path.GetFileName(image.FileName);
+
+            string serverPath = HttpContext.Current.Server.MapPath("~/Content/Pictures/") + userId;
+            Directory.CreateDirectory(serverPath);
+            var filePath = Path.Combine(serverPath, fileName);
+            image.SaveAs(filePath);
+
+            return userId + "/" + fileName;
+        }
+
+        public static byte[] ResizeImage(IEnumerable<HttpPostedFileBase> images)
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                image.InputStream.CopyTo(ms);
+                images.FirstOrDefault().InputStream.CopyTo(ms);
                 using (MemoryStream resizedMs = (MemoryStream)ResizeImageToStream(ms))
                 {
                     byte[] resizedImage = resizedMs.GetBuffer();

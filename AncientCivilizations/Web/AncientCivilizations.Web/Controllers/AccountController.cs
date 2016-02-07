@@ -79,6 +79,7 @@
             return View(viewModel);
         }
 
+        [AllowAnonymous]
         public ActionResult _UserProfileInfoPartial(string id)
         {
             // TODO: Implement using Viewbag?
@@ -101,7 +102,7 @@
             {
                 if (images.Count() != 0)
                 {
-                    model.Avatar = AvatarImageEditor.ResizeImage(images.FirstOrDefault());
+                    model.Avatar = ImageEditor.ResizeImage(images);
                 }
 
                 if (ModelState.IsValid)

@@ -77,7 +77,7 @@
     <Compile Include="Constants\Areas.cs" />
     <Compile Include="Constants\Controllers.cs" />
     <Compile Include="Constants\Globals.cs" />
-    <Compile Include="Extensions\AvatarImageEditor.cs" />
+    <Compile Include="Extensions\ImageEditor.cs" />
     <Compile Include="HtmlHelperExtensions\KendoHtmlHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

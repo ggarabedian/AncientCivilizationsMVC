@@ -20,18 +20,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Ancient Civilizations", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Ancient Civilizations", Actions.Index, Controllers.Home, new { area = Areas.Default }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = Areas.Default }, null)</li>
+                    <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
                     @if (User.IsInRole("User") || User.IsInRole("Administrator"))
                     {
-                        <li>@Html.ActionLink("Contribute", "Index", "Home", new { area = "Contribution" }, null)</li>
+                        <li>@Html.ActionLink("Contribute", Actions.Index, Controllers.Home, new { area = Areas.Contribution }, null)</li>
                     }
                     @if (User.IsInRole("Administrator"))
                     {
-                        <li>@Html.ActionLink("Administration", "Index", "Home", new { area = "Administration" }, null)</li>
+                        <li>@Html.ActionLink("Administration", Actions.Index, Controllers.Home, new { area = Areas.Administration }, null)</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -44,7 +45,7 @@
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
+    </div>   
     @Scripts.Render("~/bundles/jqueryunobtrusiveajax")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
