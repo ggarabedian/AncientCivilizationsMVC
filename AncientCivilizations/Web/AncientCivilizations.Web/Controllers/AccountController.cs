@@ -102,7 +102,7 @@
             {
                 if (images.Count() != 0)
                 {
-                    model.Avatar = ImageEditor.ResizeImage(images);
+                    model.Avatar = ImageEditor.ResizeImageToBitArray(images);
                 }
 
                 if (ModelState.IsValid)

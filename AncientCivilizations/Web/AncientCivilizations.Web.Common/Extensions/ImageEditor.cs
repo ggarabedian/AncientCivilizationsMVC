@@ -24,7 +24,7 @@
             return userId + "/" + fileName;
         }
 
-        public static byte[] ResizeImage(IEnumerable<HttpPostedFileBase> images)
+        public static byte[] ResizeImageToBitArray(IEnumerable<HttpPostedFileBase> images)
         {
             using (MemoryStream ms = new MemoryStream())
             {

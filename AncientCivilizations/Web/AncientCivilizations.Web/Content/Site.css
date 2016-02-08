@@ -64,7 +64,7 @@ textarea {
         border-top: 0;
     }
 
-    .demo-section .k-listview:after {
+    .gallery-window .k-listview:after {
         content: ".";
         display: block;
         height: 0;

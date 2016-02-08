@@ -67,13 +67,11 @@
 <div class="row">
     @(Html.Kendo().EditorFor(m => m.Content)
       .HtmlAttributes(new { style = "height:440px" })
-      .Resizable(resizable => resizable.Content(true).Toolbar(true))
-            //.ImageBrowser(imageBrowser => imageBrowser
-            //    .Image("~/Content/UserFiles/Images/{0}")
-            //    .Read("Read", "ImageBrowser")
-            //    .Create("Create", "ImageBrowser")
-            //    .Destroy("Destroy", "ImageBrowser")
-            //    .Upload("Upload", "ImageBrowser")
-            //    .Thumbnail("Thumbnail", "ImageBrowser")
-    )
+      .Tools(tools => tools.FontColor())
+      .Resizable(resizable => resizable.Content(true)
+            .Toolbar(true))
+            .ImageBrowser(imageBrowser => imageBrowser
+                .Image("~/Content/Pictures/{0}")
+                .Read("Read", "ImageBrowser")
+                .Thumbnail("Thumbnail", "ImageBrowser")))
 </div>

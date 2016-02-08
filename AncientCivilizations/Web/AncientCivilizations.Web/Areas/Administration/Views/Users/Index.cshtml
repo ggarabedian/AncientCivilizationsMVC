@@ -2,7 +2,7 @@
 
 <h2>Users</h2>
 
-@(Html.CustomGrid<UserViewModel>("grid")
+@(Html.CustomGrid<UserViewModel>(Controllers.Users, m => m.Id)
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
@@ -21,10 +21,5 @@
               commands.Edit();
               commands.Destroy();
           }).Width(185);
-      })      
-      .Editable(edit => edit.Mode(GridEditMode.PopUp))
-      .DataSource(data => data.Ajax()
-                              .Model(m => m.Id(u => u.Id))
-                              .Read(read => read.Action("Read", Controllers.Users))
-                              .Update(update => update.Action("Update", Controllers.Users))
-                              .Destroy(destroy => destroy.Action("Destroy", Controllers.Users))))
+      })
+      .Editable(edit => edit.Mode(GridEditMode.PopUp)))
