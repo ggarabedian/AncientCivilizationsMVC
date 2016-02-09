@@ -669,16 +669,16 @@
     <Content Include="Scripts\Kendo\jquery.min.map" />
     <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
-    <Content Include="Views\Home\_LatestContentPartial.cshtml" />
+    <Content Include="Views\Home\_ContentPartial.cshtml" />
     <Content Include="Views\Articles\DetailedView.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Account\_UserProfileSettingsPartial.cshtml" />
     <Content Include="Views\Account\_UserProfileInfoPartial.cshtml" />
     <Content Include="Views\Pictures\All.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ImageBrowser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

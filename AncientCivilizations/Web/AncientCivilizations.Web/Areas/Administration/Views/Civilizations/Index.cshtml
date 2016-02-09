@@ -2,7 +2,7 @@
 
 <h2>Civilizations</h2>
 
-@(Html.CustomGrid<CivilizationViewModel>(Controllers.Civilizations, m => m.Id)
+@(Html.CustomGrid<CivilizationViewModel>("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
@@ -14,4 +14,10 @@
           cols.Command(com => com.Destroy());
       })
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
-      .ToolBar(toolbar => toolbar.Create()))
+      .ToolBar(toolbar => toolbar.Create())
+      .DataSource(data => data.Ajax()
+                            .Model(m => m.Id(u => u.Id))
+                            .Read(read => read.Action("Read", Controllers.Civilizations))
+                            .Create(create => create.Action("Create", Controllers.Civilizations))
+                            .Update(update => update.Action("Update", Controllers.Civilizations))
+                            .Destroy(destroy => destroy.Action("Destroy", Controllers.Civilizations))))

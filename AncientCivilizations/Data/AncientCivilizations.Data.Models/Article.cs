@@ -8,12 +8,6 @@
 
     public class Article : AuditInfo
     {
-        public Article()
-        {
-            this.Images = new HashSet<Picture>();
-            this.Videos = new HashSet<Video>();
-        }
-
         [Key]
         public int Id { get; set; }
 
@@ -64,9 +58,5 @@
         public int? TimePeriodTo { get; set; }
 
         public string KeyWords { get; set; }
-
-        public ICollection<Picture> Images { get; set; }
-
-        public ICollection<Video> Videos { get; set; }
     }
 }

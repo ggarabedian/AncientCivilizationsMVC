@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.ArticleViewModel>
+
+<h2>Latest Articles</h2>
+@{
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h5 class="panel-title"></h5>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <h3 class="text-center">
+                            @Html.ActionLink(item.Title, "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
+                        </h3>
+                    </div>
+                    <div id="home-article-user-image" class="row">
+                        @Html.DisplayFor(m => item, "ArticleCreatorAndDate")
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <div id="article-content">@Html.Raw(item.Content)</div>...
+                            @Html.ActionLink("[Read More]", "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

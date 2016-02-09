@@ -37,11 +37,11 @@
 
         public bool PreserveCreatedOn { get; set; }
 
-        public ICollection<Picture> Images { get; set; }
+        public virtual ICollection<Picture> Images { get; set; }
 
-        public ICollection<Video> Videos { get; set; }
+        public virtual ICollection<Video> Videos { get; set; }
 
-        public ICollection<Article> Articles { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

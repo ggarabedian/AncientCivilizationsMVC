@@ -1,0 +1,22 @@
+﻿@model AncientCivilizations.Web.Models.Public.ArticleViewModel
+
+@{
+    var imgSrc = "";
+    if (Model.CreatorAvatar != null)
+    {
+        var base64 = Convert.ToBase64String(Model.CreatorAvatar);
+        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+}
+
+<img src="@imgSrc" class="col-md-1 nopadding user-image-small" alt="img" />
+<div class="col-md-4 nopadding article-info">
+    <div class="row">
+        by
+        @Html.ActionLink(Model.CreatorName, "UserProfile", Controllers.Account, new { id = Model.CreatorId, area = Areas.Default }, null)
+    </div>
+    <div class="row">
+        published on
+        @Html.DisplayFor(m => Model.CreatedOn)
+    </div>
+</div>

@@ -12,6 +12,7 @@
     using Microsoft.Owin.Security;
 
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
 
     using Data.Models;
     using Data.Repositories;
@@ -82,9 +83,11 @@
         [AllowAnonymous]
         public ActionResult _UserProfileInfoPartial(string id)
         {
+            //var userArticles = this.Data.Articles.All().Where(a => a.CreatorId == id).ProjectTo<ArticleViewModel>().ToList();
             // TODO: Implement using Viewbag?
             var data = this.Data.Users.GetById(id);
             var viewModel = Mapper.Map<UserProfileViewModel>(data);
+            //viewModel.Articles = userArticles;
             return PartialView(viewModel);
         }
 

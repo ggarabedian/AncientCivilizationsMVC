@@ -33,7 +33,8 @@
             {
                 model.Content = HttpUtility.HtmlDecode(model.Content);
                 var dbModel = Mapper.Map<Article>(model);
-                dbModel.CreatorId = this.User.Identity.GetUserId();
+                var creatorId = this.User.Identity.GetUserId();
+                dbModel.CreatorId = creatorId;
                 this.Data.Articles.Add(dbModel);
                 this.Data.SaveChanges();
                 return this.RedirectToAction("Index", "Home", new { area = "Contribution" });

@@ -1,20 +1,22 @@
-﻿@model AncientCivilizations.Web.Models.Public.ArticleDetailedViewModel
+﻿@model AncientCivilizations.Web.Models.Public.ArticleViewModel
 
-<div class="row">
-    <h1 class="border-bottom">
-        @Model.Title
-    </h1>
+<div class="col-md-8 nopadding">
+    <div class="row">
+        <h1 class="border-bottom">
+            @Model.Title
+        </h1>
+    </div>
+    <div class="row">
+        <h2>
+            Article
+        </h2>
+    </div>
+    
+    <div class="row">
+        @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
+    </div>
 </div>
-<div class="row">
-    <h2>
-        Article
-    </h2>
-</div>
-<div class="row">
-    by
-    @Html.DisplayFor(m => Model.CreatorName)
-</div>
-<div class="row">
-    published on
-    @Html.DisplayFor(m => Model.CreatedOn)
-</div>
+
+@section rightPanel{
+    <div class="col-md-4 nopadding">Might interest you</div>
+}

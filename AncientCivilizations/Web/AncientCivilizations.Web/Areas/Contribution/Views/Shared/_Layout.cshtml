@@ -2,15 +2,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@RenderSection("leftPanel", false)
+
 @section styles{
-    @Styles.Render("~/Content/kendo")
     @RenderSection("styles", required: false)
 }
 
-
 @RenderBody()
 
+@RenderSection("rightPanel", false)
 @section scripts {
-    @Scripts.Render("~/bundles/kendo")
     @RenderSection("scripts", required: false)
 }

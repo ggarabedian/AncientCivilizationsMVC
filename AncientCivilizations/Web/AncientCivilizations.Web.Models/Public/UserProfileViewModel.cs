@@ -4,7 +4,7 @@
 
     using Data.Models;
     using Infrastructure.Mapping;
-
+    using System.Collections.Generic;
     public class UserProfileViewModel : IMapFrom<User>
     {
         public string Id { get; set; }
@@ -20,5 +20,7 @@
         public byte[] Avatar { get; set; }
 
         public string Photo { get; set; }
+
+        //public List<ArticleViewModel> Articles { get; set; }
     }
 }

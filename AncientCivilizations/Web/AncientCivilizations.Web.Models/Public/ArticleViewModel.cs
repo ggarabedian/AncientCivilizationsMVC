@@ -8,7 +8,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class ArticleDetailedViewModel : IMapFrom<Article>, IHaveCustomMappings
+    public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
     {
         // TODO: Delete ?!
         public int Id { get; set; }
@@ -28,11 +28,11 @@
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Article, ArticleDetailedViewModel>("")
+            configuration.CreateMap<Article, ArticleViewModel>("")
                 .ForMember(m => m.CreatorName, opt => opt.MapFrom(u => u.Creator.FullName));
-            configuration.CreateMap<Article, ArticleDetailedViewModel>("")
+            configuration.CreateMap<Article, ArticleViewModel>("")
                 .ForMember(m => m.CreatorAvatar, opt => opt.MapFrom(u => u.Creator.Avatar));
-            configuration.CreateMap<Article, ArticleDetailedViewModel>("")
+            configuration.CreateMap<Article, ArticleViewModel>("")
                 .ForMember(m => m.CreatorId, opt => opt.MapFrom(u => u.Creator.Id));
         }
     }

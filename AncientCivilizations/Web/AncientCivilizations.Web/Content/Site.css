@@ -1,27 +1,42 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-size: 14px;
+    line-height: 18px;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
+a{
+    color: #B52600;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#home-article-user-image{
+    margin-left: 10px;
+}
+
+.article-info{
+    color: #9C9386;
+}
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
-}
+}*/
 
 #article-content {
     overflow: hidden;
@@ -34,40 +49,51 @@ textarea {
     padding-bottom: 10px;
 }
 
- .product {
+/*user color-profile start*/
+.user-image-small{
+    border: 0;
+    border-radius: 20px;
+    width: 32px;
+    height: 32px;
+    margin-right: 30px !important;
+    margin-top: 3px !important;
+}
+
+/*image gallery start*/
+.product {
+    float: left;
+    width: 215px;
+    height: 215px;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+    .product img {
         float: left;
         width: 215px;
         height: 215px;
+    }
+
+    .product h3 {
         margin: 0;
-        padding: 5px;
-        cursor: pointer;
+        padding: 10px 0 0 10px;
+        font-size: .9em;
+        overflow: hidden;
+        font-weight: normal;
+        float: left;
+        max-width: 100px;
+        text-transform: uppercase;
     }
 
-        .product img {
-            float: left;
-            width: 215px;
-            height: 215px;
-        }
+.k-pager-wrap {
+    border-top: 0;
+}
 
-        .product h3 {
-            margin: 0;
-            padding: 10px 0 0 10px;
-            font-size: .9em;
-            overflow: hidden;
-            font-weight: normal;
-            float: left;
-            max-width: 100px;
-            text-transform: uppercase;
-        }
-
-    .k-pager-wrap {
-        border-top: 0;
-    }
-
-    .gallery-window .k-listview:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden;
-    }
+.gallery-window .k-listview:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}

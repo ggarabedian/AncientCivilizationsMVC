@@ -22,7 +22,7 @@
                                 .Where(ar => ar.IsApproved)
                                 .OrderByDescending(a => a.CreatedOn)
                                 .Take(5)
-                                .ProjectTo<HomePageArticleViewModel>()
+                                .ProjectTo<ArticleViewModel>()
                                 .ToList();
 
             if (data != null)

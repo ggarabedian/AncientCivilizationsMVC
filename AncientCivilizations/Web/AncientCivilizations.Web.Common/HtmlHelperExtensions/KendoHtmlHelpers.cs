@@ -9,22 +9,15 @@
 
     public static class KendoHtmlHelpers
     {
-        public static GridBuilder<T> CustomGrid<T>(this HtmlHelper helper, string controllerName, Expression<Func<T, object>> modelIdExpression)
-            where T : class
+        public static GridBuilder<T> CustomGrid<T>(this HtmlHelper helper, string name)
+           where T : class
         {
             return helper.Kendo().Grid<T>()
-                .Name("grid")
+                .Name(name)
                 .Pageable(p => p.Refresh(true))
                 .Sortable()
                 .Filterable()
-                .ColumnMenu()
-                .DataSource(data => data.Ajax()
-                                        .Model(m => m.Id(modelIdExpression))
-                                        .Read(read => read.Action("Read", controllerName))
-                                        .Create(create => create.Action("Create", controllerName))
-                                        .Update(update => update.Action("Update", controllerName))
-                                        .Destroy(destroy => destroy.Action("Destroy", controllerName))
-                                        );
+                .ColumnMenu();
         }
     }
 }

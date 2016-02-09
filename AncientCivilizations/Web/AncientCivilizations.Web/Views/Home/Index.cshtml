@@ -2,6 +2,14 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container">
-    @Html.Partial("_LatestContentPartial")
+@section leftPanel{
+    <div class="col-md-3">About</div>
+}
+
+<div class="col-md-6">
+    @Html.Partial("_ContentPartial")
 </div>
+
+@section rightPanel{
+    <div class="col-md-3">Featured Image</div>
+}

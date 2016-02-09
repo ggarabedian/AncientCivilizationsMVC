@@ -2,7 +2,7 @@
 
 <h2>Locations</h2>
 
-@(Html.CustomGrid<LocationViewModel>(Controllers.Locations, m => m.Id)
+@(Html.CustomGrid<LocationViewModel>("grid")
       .Columns(cols =>
       {
           cols.Bound(pr => pr.Id).Hidden();
@@ -14,4 +14,10 @@
           cols.Command(com => com.Destroy());
       })
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
-      .ToolBar(toolbar => toolbar.Create()))
+      .ToolBar(toolbar => toolbar.Create())
+      .DataSource(data => data.Ajax()
+                              .Model(m => m.Id(u => u.Id))
+                              .Read(read => read.Action("Read", Controllers.Locations))
+                              .Create(create => create.Action("Create", Controllers.Locations))
+                              .Update(update => update.Action("Update", Controllers.Locations))
+                              .Destroy(destroy => destroy.Action("Destroy", Controllers.Locations))))
