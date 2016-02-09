@@ -1,7 +1,5 @@
 ﻿namespace AncientCivilizations.Web.Common.HtmlHelperExtensions
 {
-    using System;
-    using System.Linq.Expressions;
     using System.Web.Mvc;
 
     using Kendo.Mvc.UI;

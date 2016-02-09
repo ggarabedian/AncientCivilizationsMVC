@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.ArticleViewModel>
+
+<div class="row contributions-container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6">
+            <div class="content-item">
+                <div class="row content-item-header">
+                    <div class="col-md-4">
+                        <img class="content-item-header-img" src="~/Content/Pictures/5b4f5e54-9e7d-4a8b-a445-648d1d75638d/4412.jpg" />
+                    </div>
+                    <h2 class="text-center col-md-8">
+                        @Html.ActionLink(item.Title, "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
+                    </h2>
+                </div>            
+                <div class="row content-item-info">
+                    @Html.DisplayFor(m => @item, "ArticleCreatorAndDate")
+                </div>
+                <div class="row content-item-text">
+                    <div id="article-content">@Html.Raw(item.Content)</div>
+                    @Html.ActionLink("[Read More]", "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                </div>
+            </div>
+        </div>
+    }
+</div>

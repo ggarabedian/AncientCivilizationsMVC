@@ -5,10 +5,14 @@
     line-height: 18px;
 }
 
-a{
+a {
     color: #B52600;
     font-weight: bold;
     text-decoration: none;
+}
+
+p{
+    font-size: 14px !important;
 }
 
 .nopadding {
@@ -16,27 +20,17 @@ a{
     margin: 0 !important;
 }
 
-#home-article-user-image{
+#home-article-user-image {
     margin-left: 10px;
 }
 
-.article-info{
+.article-info {
     color: #9C9386;
 }
-/*.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}*/
 
 .dl-horizontal dt {
     white-space: normal;
 }
-
-/*input,
-select,
-textarea {
-    max-width: 280px;
-}*/
 
 #article-content {
     overflow: hidden;
@@ -49,8 +43,41 @@ textarea {
     padding-bottom: 10px;
 }
 
-/*user color-profile start*/
-.user-image-small{
+/*user-profile start*/
+
+.menu-header {
+    margin-bottom: 30px;
+}
+
+.btn-navigation {
+    display: block;
+    margin-bottom: 10px;
+    width: 190px;
+    font-weight: bold;
+    border: 2px solid #B52600;
+    background-color: white;
+    color: #B52600;
+    padding: 6px;
+}
+
+    .btn-navigation:hover {
+        background-color: #B52600;
+        color: white;
+    }
+
+.user-image-large {
+    border: 0;
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+}
+
+#user-biography {
+    font-size: 13pt;
+    line-height: 25px;
+}
+
+.user-image-small {
     border: 0;
     border-radius: 20px;
     width: 32px;
@@ -58,6 +85,71 @@ textarea {
     margin-right: 30px !important;
     margin-top: 3px !important;
 }
+
+#ta-user-settings, input[type=text] {
+    color: #666;
+    border: 1px solid #D2C2A9;
+    border-radius: 5px;
+    padding: 6px 10px;
+}
+
+.placeholder {
+    height: 75px;
+    visibility: hidden;
+}
+
+.bottom-bar {
+    background-color: #353535;
+    width: 100%;
+    border-top: 3px solid #B52600;
+}
+
+    .bottom-bar .btn-bottom-bar {
+        display: block;
+        margin: 15px auto;
+        width: 160px;
+        font-weight: bold;
+        border: 2px solid #B52600;
+        background-color: white;
+        color: #B52600;
+    }
+
+        .bottom-bar .btn-bottom-bar:hover {
+            background-color: #B52600;
+            color: white;
+        }
+
+.contributions-container {
+    margin-top: 20px;
+}
+
+    .contributions-container .content-item {
+        border: 1px solid #F5F5F5 !important;
+        box-shadow: 0 7px 10px -10px #555555;
+        padding: 0 20px 20px 20px;
+        border-radius: 5px;
+    }
+
+        .contributions-container .content-item .content-item-header {
+            margin-bottom: 30px;
+        }
+
+            .contributions-container .content-item .content-item-header .content-item-header-img {
+                border: 4px solid #EEE;
+                max-height: 100px;
+                box-shadow: 0 7px 15px -6px #3a3a3a;
+                margin-top: -10px;
+                margin-left: -5px;
+            }
+
+        .contributions-container .content-item .content-item-info {
+            margin-left: 0;
+        }
+
+        .contributions-container .content-item .content-item-text {
+            padding: 12px;
+        }
+       
 
 /*image gallery start*/
 .product {

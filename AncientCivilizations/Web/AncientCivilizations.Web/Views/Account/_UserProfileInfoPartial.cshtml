@@ -6,5 +6,38 @@
     var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 }
 
-<h2>Biography</h2>
-<img src="@imgSrc" class="user-image-large"/>
+<div class="row">
+    <h2 class="menu-header">Biography</h2>
+</div>
+<div class="row">
+    <div class="col-md-3 nopadding">
+        <img src="@imgSrc" class="user-image-large" />
+    </div>
+    <div class="col-md-9 nopadding">
+        <p id="user-biography">
+            @Model.Biography
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="menu-header">Contributions</h2>
+    @Ajax.ActionLink("ALL", "_UserProfileContributionsPartial", new { id = Model.Id, sort = "all" },
+                        new AjaxOptions
+                        {
+                            UpdateTargetId = "contributions-container",
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace
+                        }, new { @class = "btn btn-navigation col-md-3" })
+    @Ajax.ActionLink("ARTICLES", "_UserProfileContributionsPartial", new { id = Model.Id, sort = "articles" },
+                        new AjaxOptions
+                        {
+                            UpdateTargetId = "contributions-container",
+                            HttpMethod = "GET",
+                            InsertionMode = InsertionMode.Replace
+                        }, new { @class = "btn btn-navigation col-md-3" })
+</div>
+
+<div id="contributions-container">
+    
+</div>

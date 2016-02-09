@@ -39,8 +39,8 @@
 
         private static Stream ResizeImageToStream(Stream stream)
         {
-            int height = 100;
-            int width = 100;
+            int height = 200;
+            int width = 200;
 
             Image originalImage = Image.FromStream(stream);
 

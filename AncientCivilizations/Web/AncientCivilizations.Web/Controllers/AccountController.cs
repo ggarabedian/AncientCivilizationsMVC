@@ -76,41 +76,76 @@
         public ActionResult UserProfile(string id)
         {
             var data = this.Data.Users.GetById(id);
+            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).ProjectTo<ArticleViewModel>().ToList();
             var viewModel = Mapper.Map<UserProfileViewModel>(data);
+            viewModel.Articles = articles;
+
             return View(viewModel);
         }
 
         [AllowAnonymous]
         public ActionResult _UserProfileInfoPartial(string id)
         {
-            //var userArticles = this.Data.Articles.All().Where(a => a.CreatorId == id).ProjectTo<ArticleViewModel>().ToList();
-            // TODO: Implement using Viewbag?
             var data = this.Data.Users.GetById(id);
+            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).ProjectTo<ArticleViewModel>().ToList();
             var viewModel = Mapper.Map<UserProfileViewModel>(data);
-            //viewModel.Articles = userArticles;
+            viewModel.Articles = articles;
+
             return PartialView(viewModel);
         }
 
         public ActionResult _UserProfileSettingsPartial(string id)
         {
             var data = this.Data.Users.GetById(id);
-            var viewModel = Mapper.Map<UserProfileUpdateViewModel>(data);
+            var viewModel = Mapper.Map<UserProfileViewModel>(data);
             return PartialView(viewModel);
         }
 
+        public ActionResult _UserProfilePendingPartial(string id)
+        {
+            var data = new List<ArticleViewModel>();
+
+            data = this.Data.Articles.All().Where(a => a.CreatorId == id && !a.IsApproved).ProjectTo<ArticleViewModel>().ToList();
+
+            return PartialView(data);
+        }
+
+        public ActionResult _UserProfileContributionsPartial(string id, string sort)
+        {
+            var data = new List<ArticleViewModel>();
+
+            if (sort == "all")
+            {
+                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).ProjectTo<ArticleViewModel>().ToList();
+            }
+            else if (sort == "articles")
+            {
+                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).ProjectTo<ArticleViewModel>().ToList();
+            }
+
+            return PartialView(data);
+        }
+
+
         [HttpPost]
-        public ActionResult UpdateUserProfile(UserProfileUpdateViewModel model, IEnumerable<HttpPostedFileBase> images, string id)
+        public ActionResult UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images, string id)
         {
             if (model != null)
             {
-                if (images.Count() != 0)
+                var dbUser = this.Data.Users.GetById(id);
+
+                if (images != null && images.Count() != 0)
                 {
                     model.Avatar = ImageEditor.ResizeImageToBitArray(images);
+                }
+                else
+                {
+                    model.Avatar = dbUser.Avatar;
                 }
 
                 if (ModelState.IsValid)
                 {
-                    var dbUser = this.Data.Users.GetById(id);
+
                     Mapper.Map(model, dbUser);
                     this.Data.Users.SaveChanges();
 

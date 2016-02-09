@@ -114,7 +114,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\AllPicturesViewModel.cs" />
     <Compile Include="Public\ArticleViewModel.cs" />
-    <Compile Include="Public\UserProfileUpdateViewModel.cs" />
     <Compile Include="Public\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
