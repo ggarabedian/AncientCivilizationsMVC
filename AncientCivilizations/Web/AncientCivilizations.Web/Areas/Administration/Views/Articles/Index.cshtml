@@ -26,7 +26,7 @@
                                   " #= ApproverFullName #" +
                                   "</a>" +
                                   "# } #");
-          cols.Template(pr => pr.IsApproved).Title("Status").Width(123)
+          cols.Template(pr => pr.IsApproved).Title("Status").Width(130)
                 .ClientTemplate("#if(!IsApproved){#" +
                                   "<a class='k-button k-button-icontext' href='" +
                                   Url.Action("ApproveArticle", Controllers.Articles) +
@@ -43,7 +43,7 @@
           cols.Command(commands =>
           {
               commands.Destroy();
-          }).Width(110);
+          }).Width(120);
       }).DataSource(data => data.Ajax()
                                 .Model(m => m.Id(u => u.Id))
                                 .Read(read => read.Action("Read", Controllers.Articles))

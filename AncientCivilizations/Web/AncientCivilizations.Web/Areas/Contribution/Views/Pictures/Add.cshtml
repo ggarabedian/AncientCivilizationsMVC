@@ -2,35 +2,38 @@
 
 <div class="container">
     <div class="row">
-        <h2>Add new image</h2>
+        <h2>Submit Image</h2>
     </div>
-    
+
     @using (Html.BeginForm("Add", Controllers.Pictures, FormMethod.Post))
     {
-        <div class="row">
+        <div>
             @Html.LabelFor(m => m.Title)
         </div>
-        <div class="row">
+        <div>
             @Html.EditorFor(m => m.Title)
             @Html.ValidationMessageFor(m => m.Title)
         </div>
 
-        <div class="row">
+        <div>
             @Html.LabelFor(m => m.Description)
         </div>
-        <div class="row">
-            @Html.TextAreaFor(m => m.Description)
+        <div>
+            @Html.TextAreaFor(m => m.Description, new { rows = "6", cols = "80", id = "ta-user-settings" })
             @Html.ValidationMessageFor(m => m.Description)
         </div>
 
-        <div class="row">
+        <div>
             @Html.LabelFor(m => m.KeyWords)
         </div>
-        <div class="row">
+        <div>
             @Html.EditorFor(m => m.KeyWords)
         </div>
 
-        <div class="row">
+        <div>
+            @Html.LabelFor(m => m.CategoryId)
+        </div>
+        <div>
             @(Html.Kendo().DropDownListFor(m => m.CategoryId)
             .OptionLabel("Select category...")
             .DataTextField("Name")
@@ -42,19 +45,19 @@
                     read.Action("GetCategories", Controllers.Pictures);
                 });
             })
-            .HtmlAttributes(new { style = "width: 100%" })
+            .HtmlAttributes(new { style = "col-md-6" })
             )
             @Html.ValidationMessageFor(m => m.CategoryId)
         </div>
 
         <div class="row">
-            <h3 class="row">
+            <h3>
                 @Html.LabelFor(m => m.Url)
             </h3>
-            <div class="row">
+            <h5>
                 Please upload the image.
-            </div>
-            <div class="row">
+            </h5>
+            <div class="col-md-4 nopadding">
                 @(Html.Kendo().Upload()
                     .Name("images")
                 )
@@ -63,5 +66,5 @@
         <div class="row">
             <input type="submit" value="Add" class="btn btn-default">
         </div>
-    }    
+    }
 </div>

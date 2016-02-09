@@ -12,7 +12,7 @@
     using Data.Models;
     using Data.Repositories;
     using Models.Contribution;
-
+    using Common.Extensions;
     public class ArticlesController : ContributionsController
     {
         public ArticlesController(IAncientCivilizationsData data)
@@ -32,6 +32,7 @@
             if (model != null && ModelState.IsValid)
             {
                 model.Content = HttpUtility.HtmlDecode(model.Content);
+
                 var dbModel = Mapper.Map<Article>(model);
                 var creatorId = this.User.Identity.GetUserId();
                 dbModel.CreatorId = creatorId;

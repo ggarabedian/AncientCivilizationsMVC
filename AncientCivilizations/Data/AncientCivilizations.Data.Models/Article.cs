@@ -53,6 +53,8 @@
         [ForeignKey("LastEditorId")]
         public virtual User LastEditor { get; set; }
 
+        public string HeaderImagePath { get; set; }
+
         public int? TimePeriodFrom { get; set; }
 
         public int? TimePeriodTo { get; set; }

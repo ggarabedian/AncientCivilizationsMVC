@@ -4,14 +4,11 @@
     ViewBag.Title = "UserProfile";
 }
 
-<div class="row">
-    <h1 class="border-bottom">@Model.FullName</h1>
-</div>
-<div class="row">
-    <div class="col-md-3">
-        <div class="row">
-            <h2 class="menu-header">Navigation</h2>
-            @Ajax.ActionLink("PROFILE", "_UserProfileInfoPartial", new { id = Model.Id },
+<h1 class="border-bottom">@Model.FullName</h1>
+<div class="col-md-3">
+    <div class="row">
+        <h2 class="menu-header">Navigation</h2>
+        @Ajax.ActionLink("PROFILE", "_UserProfileInfoPartial", new { id = Model.Id },
                         new AjaxOptions
                         {
                             UpdateTargetId = "profile-container",
@@ -19,9 +16,9 @@
                             InsertionMode = InsertionMode.Replace
                         }, new { @class = "btn btn-navigation" })
 
-            @if (User.Identity.GetUserId() == Model.Id)
+        @if (User.Identity.GetUserId() == Model.Id)
             {
-                @Ajax.ActionLink("SETTINGS", "_UserProfileSettingsPartial", new { id = Model.Id },
+            @Ajax.ActionLink("SETTINGS", "_UserProfileSettingsPartial", new { id = Model.Id },
                         new AjaxOptions
                         {
                             UpdateTargetId = "profile-container",
@@ -29,17 +26,16 @@
                             InsertionMode = InsertionMode.Replace
                         }, new { @class = "btn btn-navigation" })
 
-                @Ajax.ActionLink("PENDING SUBMISSIONS", "_UserProfilePendingPartial", new { id = Model.Id },
+            @Ajax.ActionLink("PENDING SUBMISSIONS", "_UserProfilePendingPartial", new { id = Model.Id },
                         new AjaxOptions
                         {
                             UpdateTargetId = "profile-container",
                             HttpMethod = "GET",
                             InsertionMode = InsertionMode.Replace
                         }, new { @class = "btn btn-navigation" })
-            }
-        </div>
+        }
     </div>
-    <div class="col-md-9" id="profile-container">
-        @Html.Partial("_UserProfileInfoPartial")
-    </div>
+</div>
+<div class="col-md-9" id="profile-container">
+    @Html.Partial("_UserProfileInfoPartial")
 </div>

@@ -10,8 +10,7 @@
           cols.Bound(pr => pr.Description);
           cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
-          cols.Command(com => com.Edit());
-          cols.Command(com => com.Destroy());
+          cols.Command(com => { com.Edit(); com.Destroy(); }).Width(190);
       })
       .Editable(edit => edit.Mode(GridEditMode.PopUp))
       .ToolBar(toolbar => toolbar.Create())

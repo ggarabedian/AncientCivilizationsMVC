@@ -33,6 +33,8 @@
 
         public int? TimePeriodTo { get; set; }
 
+        public string HeaderImagePath { get; set; }
+
         [HiddenInput(DisplayValue = false)]
         public string LastEditorId { get; set; }
 

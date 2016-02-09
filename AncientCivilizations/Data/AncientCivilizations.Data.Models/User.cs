@@ -14,14 +14,6 @@
 
     public class User : IdentityUser, IAuditInfo
     {
-        public User()
-            :base()
-        {
-            this.Articles = new HashSet<Article>();
-            this.Images = new HashSet<Picture>();
-            this.Videos = new HashSet<Video>();
-        }
-
         [Required]
         public string FullName { get; set; }
 
@@ -36,12 +28,6 @@
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
-
-        public virtual ICollection<Picture> Images { get; set; }
-
-        public virtual ICollection<Video> Videos { get; set; }
-
-        public virtual ICollection<Article> Articles { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

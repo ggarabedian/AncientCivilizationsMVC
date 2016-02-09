@@ -16,12 +16,12 @@
             var image = images.FirstOrDefault();
             var fileName = Path.GetFileName(image.FileName);
 
-            string serverPath = HttpContext.Current.Server.MapPath("~/Content/Pictures/") + userId;
+            string serverPath = HttpContext.Current.Server.MapPath("~/Content/Pictures/");
             Directory.CreateDirectory(serverPath);
             var filePath = Path.Combine(serverPath, fileName);
             image.SaveAs(filePath);
 
-            return userId + "/" + fileName;
+            return fileName;
         }
 
         public static byte[] ResizeImageToBitArray(IEnumerable<HttpPostedFileBase> images)

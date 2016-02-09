@@ -8,7 +8,7 @@
     using Infrastructure.Mapping;
 
     public class ContributePictureViewModel : IMapFrom<Picture>, IHaveCustomMappings
-    { 
+    {
         [Required]
         public string Title { get; set; }
 
@@ -18,6 +18,7 @@
         public string Url { get; set; }
 
         [Required]
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         public string ContributorId { get; set; }

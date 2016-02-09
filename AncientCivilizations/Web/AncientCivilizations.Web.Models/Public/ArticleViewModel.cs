@@ -26,6 +26,8 @@
 
         public string CreatorId { get; set; }
 
+        public string HeaderImagePath { get; set; }
+
         public void CreateMappings(IConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticleViewModel>("")
