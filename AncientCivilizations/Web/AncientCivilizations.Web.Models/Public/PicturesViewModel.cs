@@ -8,7 +8,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class AllPicturesViewModel : IMapFrom<Picture>, IHaveCustomMappings
+    public class PicturesViewModel : IMapFrom<Picture>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -23,22 +23,26 @@
 
         public string KeyWords { get; set; }
 
-        public string CategoryName { get; set; }
-
         public string ContributorId { get; set; }
 
         public string ContrubitorFullName { get; set; }
+
+        public byte[] ContrubitorAvatar { get; set; }
+
+        public string CategoryName { get; set; }
 
         [UIHint("DateTimeFormat")]
         public DateTime CreatedOn { get; set; }
 
         public void CreateMappings(IConfiguration configuration)
         {
-            configuration.CreateMap<Picture, AllPicturesViewModel>("")
+            configuration.CreateMap<Picture, PicturesViewModel>("")
                 .ForMember(m => m.ContributorId, opt => opt.MapFrom(u => u.Contributor.Id));
-            configuration.CreateMap<Picture, AllPicturesViewModel>("")
+            configuration.CreateMap<Picture, PicturesViewModel>("")
                 .ForMember(m => m.ContrubitorFullName, opt => opt.MapFrom(u => u.Contributor.FullName));
-            configuration.CreateMap<Picture, AllPicturesViewModel>("")
+            configuration.CreateMap<Picture, PicturesViewModel>("")
+                .ForMember(m => m.ContrubitorAvatar, opt => opt.MapFrom(u => u.Contributor.Avatar));
+            configuration.CreateMap<Picture, PicturesViewModel>("")
                 .ForMember(m => m.CategoryName, opt => opt.MapFrom(u => u.Category.Name));
         }
     }

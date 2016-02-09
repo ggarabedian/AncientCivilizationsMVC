@@ -1,0 +1,27 @@
+﻿@model AncientCivilizations.Web.Models.Public.PicturesViewModel
+
+<div class="row">
+    <h1 id="detailed-picture-header" class="border-bottom">
+        @Model.Title
+    </h1>
+</div>
+<div class="col-md-4 nopadding">
+
+    <div class="row">
+        @Html.DisplayFor(m => @Model, "PictureCreatorAndDate")
+    </div>
+
+
+    <div id="detailed-picture-desc" class="row">
+        <p>@Model.Description</p>
+    </div>
+</div>
+
+@section rightPanel{
+    <div class="col-md-8 nopadding text-center">
+        <div class="row">
+            <img id="detailed-picture" src="~/Content/Pictures/@Model.Url" />
+        </div>
+    </div>
+}
+

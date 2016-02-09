@@ -669,7 +669,7 @@
     <Content Include="Scripts\Kendo\jquery.min.map" />
     <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
-    <Content Include="Views\Home\_ContentPartial.cshtml" />
+    <Content Include="Views\Home\_LatestArticlesPartial.cshtml" />
     <Content Include="Views\Articles\DetailedView.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Account\_UserProfileSettingsPartial.cshtml" />
@@ -678,6 +678,10 @@
     <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
     <Content Include="Views\Account\_UserProfilePendingPartial.cshtml" />
     <Content Include="Views\Account\_UserProfileContributionsPartial.cshtml" />
+    <Content Include="Views\Home\_FeaturedPicturesPartial.cshtml" />
+    <Content Include="Views\Home\_AboutPartial.cshtml" />
+    <Content Include="Views\Pictures\DetailedView.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PictureCreatorAndDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -703,10 +707,6 @@
     <ProjectReference Include="..\..\Data\AncientCivilizations.Data\AncientCivilizations.Data.csproj">
       <Project>{cdd14d79-2ff0-4f0e-a4ce-5e8264608e2a}</Project>
       <Name>AncientCivilizations.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Services\AncientCivilizations.Services\AncientCivilizations.Services.csproj">
-      <Project>{981b2a45-c954-4121-998e-35b4774bf8be}</Project>
-      <Name>AncientCivilizations.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\AncientCivilizations.Web.Common\AncientCivilizations.Web.Common.csproj">
       <Project>{0ad61dc7-8d69-48fb-941e-40bd27f210d1}</Project>

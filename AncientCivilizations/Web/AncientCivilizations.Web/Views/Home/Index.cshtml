@@ -1,15 +1,15 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@section leftPanel{
+    <div id="about-container" class="col-md-2">
+        @Html.Partial("_AboutPartial")
+    </div>
 }
 
-@section leftPanel{
-    <div class="col-md-3">About</div>
-}
-
-<div class="col-md-6">
-    @Html.Partial("_ContentPartial")
+<div id="latest-articles-container" class="col-md-7">
+    @Html.Partial("_LatestArticlesPartial")
 </div>
 
 @section rightPanel{
-    <div class="col-md-3">Featured Image</div>
+    <div id="latest-images-container" class="col-md-3">
+        @Html.Partial("_FeaturedPicturesPartial")
+    </div>
 }

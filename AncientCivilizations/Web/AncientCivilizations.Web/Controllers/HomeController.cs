@@ -17,13 +17,22 @@
 
         public ActionResult Index()
         {
-            var data = this.Data.Articles
+            var articles = this.Data.Articles
                                 .All()
                                 .Where(ar => ar.IsApproved)
                                 .OrderByDescending(a => a.CreatedOn)
                                 .Take(5)
                                 .ProjectTo<ArticleViewModel>()
                                 .ToList();
+
+            var pictures = this.Data.Pictures
+                               .All()
+                               .OrderByDescending(p => p.CreatedOn)
+                               .Take(3)
+                               .ProjectTo<PicturesViewModel>()
+                               .ToList();
+
+            var data = new HomePageViewModel() { Articles = articles, Pictures = pictures };
 
             if (data != null)
             {

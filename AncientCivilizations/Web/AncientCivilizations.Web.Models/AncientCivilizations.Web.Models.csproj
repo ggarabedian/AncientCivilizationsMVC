@@ -112,8 +112,9 @@
     <Compile Include="Contribution\ContributeArticleViewModel.cs" />
     <Compile Include="Contribution\ContributePictureViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Public\AllPicturesViewModel.cs" />
+    <Compile Include="Public\PicturesViewModel.cs" />
     <Compile Include="Public\ArticleViewModel.cs" />
+    <Compile Include="Public\HomePageViewModel.cs" />
     <Compile Include="Public\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup />

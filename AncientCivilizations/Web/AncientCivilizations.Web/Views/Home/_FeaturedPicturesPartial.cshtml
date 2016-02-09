@@ -1,0 +1,11 @@
+﻿@model AncientCivilizations.Web.Models.Public.HomePageViewModel
+
+<h2>Latest Images</h2>
+@{
+    foreach (var item in @Model.Pictures)
+    {
+        <a href="@Url.Action("DetailedView", "Pictures", new { id = @item.Id, area = Areas.Default })">
+            <img class="latest-images" src="~/Content/Pictures/@item.Url" />
+        </a>
+    }
+}

@@ -1,10 +1,10 @@
 ﻿@model AncientCivilizations.Web.Models.Contribution.ContributePictureViewModel
 
-<div class="container">
-    <div class="row">
-        <h2>Submit Image</h2>
-    </div>
+<div class="row">
+    <h2>Submit Image</h2>
+</div>
 
+<div class="row">
     @using (Html.BeginForm("Add", Controllers.Pictures, FormMethod.Post))
     {
         <div>
@@ -15,26 +15,26 @@
             @Html.ValidationMessageFor(m => m.Title)
         </div>
 
-        <div>
-            @Html.LabelFor(m => m.Description)
-        </div>
-        <div>
-            @Html.TextAreaFor(m => m.Description, new { rows = "6", cols = "80", id = "ta-user-settings" })
-            @Html.ValidationMessageFor(m => m.Description)
-        </div>
+            <div>
+                @Html.LabelFor(m => m.Description)
+            </div>
+            <div>
+                @Html.TextAreaFor(m => m.Description, new { rows = "6", cols = "80", id = "ta-user-settings" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
 
-        <div>
-            @Html.LabelFor(m => m.KeyWords)
-        </div>
-        <div>
-            @Html.EditorFor(m => m.KeyWords)
-        </div>
+            <div>
+                @Html.LabelFor(m => m.KeyWords)
+            </div>
+            <div>
+                @Html.EditorFor(m => m.KeyWords)
+            </div>
 
-        <div>
-            @Html.LabelFor(m => m.CategoryId)
-        </div>
-        <div>
-            @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+            <div>
+                @Html.LabelFor(m => m.CategoryId)
+            </div>
+            <div>
+                @(Html.Kendo().DropDownListFor(m => m.CategoryId)
             .OptionLabel("Select category...")
             .DataTextField("Name")
             .DataValueField("Id")
@@ -46,25 +46,28 @@
                 });
             })
             .HtmlAttributes(new { style = "col-md-6" })
-            )
-            @Html.ValidationMessageFor(m => m.CategoryId)
-        </div>
-
-        <div class="row">
-            <h3>
-                @Html.LabelFor(m => m.Url)
-            </h3>
-            <h5>
-                Please upload the image.
-            </h5>
-            <div class="col-md-4 nopadding">
-                @(Html.Kendo().Upload()
-                    .Name("images")
                 )
+                @Html.ValidationMessageFor(m => m.CategoryId)
             </div>
-        </div>
-        <div class="row">
-            <input type="submit" value="Add" class="btn btn-default">
-        </div>
+
+            <div>
+                <h3>
+                    @Html.LabelFor(m => m.Url)
+                </h3>
+                <h5>
+                    Please upload the image.
+                </h5>
+                <div class="col-md-4 nopadding">
+                    @(Html.Kendo().Upload()
+                    .Name("images")
+                    )
+                </div>
+            </div>
+            <div class="placeholder">
+
+            </div>
+            <div class="navbar-fixed-bottom bottom-bar">
+                <input type="submit" value="ADD" class="btn text-center btn-bottom-bar">
+            </div>
     }
 </div>

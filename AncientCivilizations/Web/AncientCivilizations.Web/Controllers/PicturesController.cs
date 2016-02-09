@@ -1,5 +1,6 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -9,7 +10,7 @@
 
     using Data.Repositories;
     using Models.Public;
-    using System.Collections.Generic;
+
     public class PicturesController : BaseController
     {
         public PicturesController(IAncientCivilizationsData data) 
@@ -19,17 +20,16 @@
 
         public ActionResult All()
         {
-            return View(this.GetPictures());
+            var pictures = this.Data.Pictures.All().ProjectTo<PicturesViewModel>().ToList();
+
+            return View(pictures);
         }
 
-        public ActionResult Read([DataSourceRequest] DataSourceRequest request)
-        {           
-            return this.Json(this.GetPictures().ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
-        }
-
-        private IEnumerable<AllPicturesViewModel> GetPictures()
+        public ActionResult DetailedView(int? id)
         {
-            return this.Data.Pictures.All().ProjectTo<AllPicturesViewModel>().ToList();
+            var picture = this.Data.Pictures.All().Where(p => p.Id == id).ProjectTo<PicturesViewModel>().FirstOrDefault();
+
+            return View(picture);
         }
     }
 }
