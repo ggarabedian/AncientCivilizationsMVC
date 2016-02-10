@@ -12,7 +12,7 @@
     using Data.Models;
     using Data.Repositories;
     using Models.Contribution;
-    using Common.Extensions;
+    using Models.Public;
     public class ArticlesController : ContributionsController
     {
         public ArticlesController(IAncientCivilizationsData data)
@@ -42,6 +42,21 @@
             }
 
             return View(model);
+        }
+
+        public ActionResult GetPictures(string query)
+        {
+            var dbPictures = this.Data.Pictures.All();
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
+            }
+
+            var pictures = dbPictures.ProjectTo<ContributePictureViewModel>()
+                                     .ToList();
+
+            return PartialView("_SelectPicturePartial", pictures);
         }
 
         [HttpGet]

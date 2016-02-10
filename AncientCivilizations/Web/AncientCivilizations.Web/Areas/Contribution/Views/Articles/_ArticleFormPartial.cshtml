@@ -63,15 +63,57 @@
 </div>
 <div class="row">
     @Html.LabelFor(m => m.Content)
+
+    @(Html.Kendo().Window()
+            .Name("select-image")
+            .Title("Select Picture")
+            .Scrollable(true)
+            .Draggable()
+            .Events(ev => ev.Close("onClose"))
+            .Resizable()
+            .Visible(false).Width(800).Height(600)
+    )
 </div>
 <div class="row">
-    @(Html.Kendo().EditorFor(m => m.Content)
-      .HtmlAttributes(new { style = "height:440px" })
-      .Tools(tools => tools.FontColor())
-      .Resizable(resizable => resizable.Content(true)
-            .Toolbar(true))
-            .ImageBrowser(imageBrowser => imageBrowser
-                .Image("~/Content/Pictures/{0}")
-                .Read("Read", "ImageBrowser")
-                .Thumbnail("Thumbnail", "ImageBrowser")))
+    <div class="col-md-9">
+        <div class="row">
+            @(Html.Kendo().EditorFor(m => m.Content)
+                          .HtmlAttributes(new { style = "height:440px", id = "article-editor" })
+                          .Tools(tools => tools.FontColor())
+                          .Resizable(resizable => resizable.Content(true)
+                          .Toolbar(true))
+                          .ImageBrowser(imageBrowser => imageBrowser
+                                                        .Image("~/Content/Pictures/{0}")
+                                                        .Read("Read", "ImageBrowser")
+                                                        .Thumbnail("Thumbnail", "ImageBrowser")))
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            @Html.TextBox("tb-search", null, new { @class = "col-md-8 col-md-offset-3" })
+            <div id="btn-search" class="btn btn-default pull-right">
+                Search
+            </div>
+        </div>
+
+        <script>
+            function onClose() {
+                $("#btn-search").show();
+            }
+
+            $(document).ready(function () {
+
+                $("#btn-search").bind("click", function () {
+                    var searchQuery = $("#tb-search").val();
+                    var dialog = $("#select-image").data("kendoWindow");
+                    dialog.refresh({
+                        url: "GetPictures",
+                        data: { query: searchQuery }
+                    }).open();
+                    $("#undo").hide();
+                });
+            });
+        </script>
+
+    </div>
 </div>

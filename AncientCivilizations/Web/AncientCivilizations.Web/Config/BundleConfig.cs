@@ -23,6 +23,9 @@
             bundles.Add(new StyleBundle("~/Content/css")
                         .Include("~/Content/bootstrap.css"));
 
+            bundles.Add(new StyleBundle("~/Content/jqueryui")
+                        .Include("~/Content/themes/base/resizable.css"));
+
             bundles.Add(new StyleBundle("~/Content/custom")
                         .Include("~/Content/site.css"));
         }
@@ -34,7 +37,9 @@
 
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                         .Include("~/Scripts/Kendo/jquery.min.js"));
-                //.Include("~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui")
+                        .Include("~/Scripts/jquery-ui-1.11.4.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval")
                         .Include("~/Scripts/jquery.validate*", "~/Scripts/jquery.unobtrusive-ajax.js"));
