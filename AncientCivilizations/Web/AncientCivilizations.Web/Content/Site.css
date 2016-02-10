@@ -162,9 +162,9 @@ p {
 
 
 /*image gallery start*/
-#gallery-header #tb-search {
+
+#gallery-header #gallery-search {
     margin-top: 20px;
-    margin-right: 20px;
 }
 
 #gallery-container {

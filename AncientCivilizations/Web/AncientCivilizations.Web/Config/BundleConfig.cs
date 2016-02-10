@@ -1,6 +1,5 @@
 ﻿namespace AncientCivilizations.Web
 {
-    using System;
     using System.Web.Optimization;
 
     public class BundleConfig
@@ -30,9 +29,6 @@
 
         private static void RegisterScriptBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/custom")
-                        .Include("~/Scripts/Custom/image-gallery.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/kendo")
                         .Include("~/Scripts/Kendo/kendo.all.min.js", "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
 

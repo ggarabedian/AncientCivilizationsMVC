@@ -13,14 +13,22 @@
 
     public class PicturesController : BaseController
     {
-        public PicturesController(IAncientCivilizationsData data) 
+        public PicturesController(IAncientCivilizationsData data)
             : base(data)
         {
         }
 
-        public ActionResult All()
+        public ActionResult All(string query)
         {
-            var pictures = this.Data.Pictures.All().ProjectTo<PicturesViewModel>().ToList();
+            var dbPictures = this.Data.Pictures.All();
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
+            }
+
+            var pictures = dbPictures.ProjectTo<PicturesViewModel>()
+                                     .ToList();
 
             return View(pictures);
         }
