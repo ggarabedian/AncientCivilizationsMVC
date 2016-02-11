@@ -12,7 +12,7 @@
     using Data.Models;
     using Data.Repositories;
     using Models.Contribution;
-    using Models.Public;
+
     public class ArticlesController : ContributionsController
     {
         public ArticlesController(IAncientCivilizationsData data)
@@ -60,7 +60,7 @@
         }
 
         [HttpGet]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             var model = this.Data.Articles.All().Where(a => a.Id == id).ProjectTo<ContributeArticleViewModel>().FirstOrDefault();
             return View(model);

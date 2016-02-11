@@ -11,7 +11,7 @@
                 <div class="content-item">
                     <div class="row content-item-header">
                         <div class="col-md-4">
-                            <img class="content-item-header-img" src="~/Content/Pictures/5b4f5e54-9e7d-4a8b-a445-648d1d75638d/4412.jpg" />
+                            <img class="content-item-header-img" src="~/Content/Pictures/@item.HeaderImagePath" />
                         </div>
                         <h2 class="text-center col-md-8">
                             @Html.ActionLink(item.Title, "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })

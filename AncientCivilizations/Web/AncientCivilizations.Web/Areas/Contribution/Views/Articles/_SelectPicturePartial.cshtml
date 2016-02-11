@@ -27,6 +27,10 @@
             $("#article-editor").data("kendoEditor")
                                 .exec("insertHtml", { value: template({ id: id, path: path }) });
 
+            if ($("#article-header-image-path").val() == "") {
+                $("#article-header-image-path").val(path);
+            }
+
             $("#select-image").data("kendoWindow").close();
         });
     });

@@ -11,6 +11,9 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
+                        <div class="col-md-4">
+                            <img src="/Content/Pictures/@item.HeaderImagePath" class="home-article-header-img" alt="Alternate Text" />
+                        </div>
                         <h3 class="text-center">
                             @Html.ActionLink(item.Title, "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
                         </h3>

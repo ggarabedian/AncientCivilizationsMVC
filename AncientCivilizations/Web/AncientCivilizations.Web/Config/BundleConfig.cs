@@ -23,9 +23,6 @@
             bundles.Add(new StyleBundle("~/Content/css")
                         .Include("~/Content/bootstrap.css"));
 
-            bundles.Add(new StyleBundle("~/Content/jqueryui")
-                        .Include("~/Content/themes/base/resizable.css"));
-
             bundles.Add(new StyleBundle("~/Content/custom")
                         .Include("~/Content/site.css"));
         }
@@ -38,18 +35,11 @@
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                         .Include("~/Scripts/Kendo/jquery.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryui")
-                        .Include("~/Scripts/jquery-ui-1.11.4.min.js"));
-
             bundles.Add(new ScriptBundle("~/bundles/jqueryval")
                         .Include("~/Scripts/jquery.validate*", "~/Scripts/jquery.unobtrusive-ajax.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryunobtrusiveajax")
                         .Include("~/Scripts/jquery.unobtrusive-ajax.js"));
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr")
-                        .Include("~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
                         .Include("~/Scripts/bootstrap.js", "~/Scripts/respond.js"));

@@ -2,14 +2,13 @@
 
 <div class="container">
     <div class="row">
-        <h2>Create new article</h2>
+        <h2>Edit Article</h2>
     </div>
-    @using (Html.BeginForm("Edit", Controllers.Articles, FormMethod.Post))
+
+    @using (Html.BeginForm("Edit", Controllers.Articles))
     {
         @Html.Partial("_ArticleFormPartial")
-        <div class="placeholder">
 
-        </div>
         <div class="navbar-fixed-bottom bottom-bar">
             <input type="submit" value="SAVE CHANGES" class="btn text-center btn-bottom-bar">
         </div>
