@@ -6,11 +6,11 @@
     using Microsoft.AspNet.Identity;
 
     using Kendo.Mvc.UI;
-    using AutoMapper.QueryableExtensions;
 
     using Base;
     using Data.Models;
     using Data.Repositories;
+    using Infrastructure.Mapping;
     using Models.Administration;
 
     public class ArticlesController : KendoGridAdministrationController
@@ -27,7 +27,7 @@
 
         protected override IEnumerable GetData()
         {
-            return this.Data.Articles.All().ProjectTo<ArticlesViewModel>();
+            return this.Data.Articles.All().To<ArticlesViewModel>();
         }
 
 

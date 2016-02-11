@@ -6,7 +6,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class UserProfileViewModel : IMapFrom<User>
+    public class UserProfileViewModel : IMapFrom<User>, IMapTo<User>
     {
         public string Id { get; set; }
 

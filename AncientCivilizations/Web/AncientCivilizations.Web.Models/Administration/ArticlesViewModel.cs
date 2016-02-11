@@ -9,7 +9,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class ArticlesViewModel : AdministrationViewModel, IMapFrom<Article>, IHaveCustomMappings
+    public class ArticlesViewModel : AdministrationViewModel, IMapFrom<Article>, IMapTo<Article>, IHaveCustomMappings
     {
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
@@ -35,7 +35,7 @@
         [HiddenInput(DisplayValue = false)]
         public string LastEditorFullName { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticlesViewModel>("")
                 .ForMember(m => m.ApproverId, opt => opt.MapFrom(a => a.Approver.Id));

@@ -2,8 +2,10 @@
 {
     using System.Web.Mvc;
 
-    using Data.Models;
+    using AutoMapper;
+
     using Data.Repositories;
+    using Infrastructure.Mapping;
 
     public abstract class BaseController : Controller
     {
@@ -14,6 +16,12 @@
 
         protected IAncientCivilizationsData Data { get; set; }
 
-        public User CurrentUser { get; set; }
+        protected IMapper Mapper
+        {
+            get
+            {
+                return AutoMapperConfig.Configuration.CreateMapper();
+            }
+        }
     }
 }

@@ -207,7 +207,6 @@
     <Compile Include="Areas\Contribution\Controllers\Base\ContributionsController.cs" />
     <Compile Include="Areas\Contribution\Controllers\HomeController.cs" />
     <Compile Include="Areas\Contribution\Controllers\PicturesController.cs" />
-    <Compile Include="Config\AutoMapperConfig.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\DbConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />

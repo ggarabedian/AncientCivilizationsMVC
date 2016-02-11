@@ -5,12 +5,12 @@
     using System.Linq;
 
     using Microsoft.AspNet.Identity;
-    using AutoMapper;
     using AutoMapper.QueryableExtensions;
 
     using Base;
     using Data.Models;
     using Data.Repositories;
+    using Infrastructure.Mapping;
     using Models.Contribution;
 
     public class ArticlesController : ContributionsController
@@ -53,7 +53,7 @@
                 dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
             }
 
-            var pictures = dbPictures.ProjectTo<ContributePictureViewModel>()
+            var pictures = dbPictures.To<ContributePictureViewModel>()
                                      .ToList();
 
             return PartialView("_SelectPicturePartial", pictures);
@@ -62,7 +62,7 @@
         [HttpGet]
         public ActionResult Edit(int? id)
         {
-            var model = this.Data.Articles.All().Where(a => a.Id == id).ProjectTo<ContributeArticleViewModel>().FirstOrDefault();
+            var model = this.Data.Articles.All().Where(a => a.Id == id).To<ContributeArticleViewModel>().FirstOrDefault();
             return View(model);
         }
 

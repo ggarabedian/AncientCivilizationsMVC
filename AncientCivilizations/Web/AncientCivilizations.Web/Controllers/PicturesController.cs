@@ -1,14 +1,12 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
-    using Kendo.Mvc.UI;
     using Kendo.Mvc.Extensions;
 
     using Data.Repositories;
+    using Infrastructure.Mapping;
     using Models.Public;
 
     public class PicturesController : BaseController
@@ -27,7 +25,7 @@
                 dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
             }
 
-            var pictures = dbPictures.ProjectTo<PicturesViewModel>()
+            var pictures = dbPictures.To<PicturesViewModel>()
                                      .ToList();
 
             return View(pictures);
@@ -35,7 +33,7 @@
 
         public ActionResult DetailedView(int? id)
         {
-            var picture = this.Data.Pictures.All().Where(p => p.Id == id).ProjectTo<PicturesViewModel>().FirstOrDefault();
+            var picture = this.Data.Pictures.All().Where(p => p.Id == id).To<PicturesViewModel>().FirstOrDefault();
 
             return View(picture);
         }

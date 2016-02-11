@@ -3,9 +3,8 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
-
     using Data.Repositories;
+    using Infrastructure.Mapping;
     using Models.Public;
 
     public class HomeController : BaseController
@@ -22,14 +21,14 @@
                                 .Where(ar => ar.IsApproved)
                                 .OrderByDescending(a => a.CreatedOn)
                                 .Take(5)
-                                .ProjectTo<ArticleViewModel>()
+                                .To<ArticleViewModel>()
                                 .ToList();
 
             var pictures = this.Data.Pictures
                                .All()
                                .OrderByDescending(p => p.CreatedOn)
                                .Take(3)
-                               .ProjectTo<PicturesViewModel>()
+                               .To<PicturesViewModel>()
                                .ToList();
 
             var data = new HomePageViewModel() { Articles = articles, Pictures = pictures };

@@ -1,11 +1,13 @@
 ﻿namespace AncientCivilizations.Web
 {
+    using System.Reflection;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
 
     using Config;
+    using Infrastructure.Mapping;
 
     public class MvcApplication : HttpApplication
     {
@@ -21,7 +23,7 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute();
+            autoMapperConfig.Execute(Assembly.Load("AncientCivilizations.Web.Models"));
         }
     }
 }

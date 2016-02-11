@@ -11,27 +11,26 @@
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
 
-    using AutoMapper;
-    using AutoMapper.QueryableExtensions;
-
     using Data.Models;
     using Data.Repositories;
+    using Infrastructure.Mapping;
     using Models.Account;
     using Models.Public;
     using Web.Common.Extensions;
 
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public AccountController(IAncientCivilizationsData data)
+            : base(data)
         {
-            this.Data = data;
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IAncientCivilizationsData data)
+            : base(data)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -61,8 +60,6 @@
             }
         }
 
-        protected IAncientCivilizationsData Data { get; set; }
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -76,7 +73,7 @@
         public ActionResult UserProfile(string id)
         {
             var data = this.Data.Users.GetById(id);
-            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).ProjectTo<ArticleViewModel>().ToList();
+            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).To<ArticleViewModel>().ToList();
             var viewModel = Mapper.Map<UserProfileViewModel>(data);
             viewModel.Articles = articles;
 
@@ -87,7 +84,7 @@
         public ActionResult _UserProfileInfoPartial(string id)
         {
             var data = this.Data.Users.GetById(id);
-            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).ProjectTo<ArticleViewModel>().ToList();
+            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).To<ArticleViewModel>().ToList();
             var viewModel = Mapper.Map<UserProfileViewModel>(data);
             viewModel.Articles = articles;
 
@@ -105,7 +102,7 @@
         {
             var data = new List<ArticleViewModel>();
 
-            data = this.Data.Articles.All().Where(a => a.CreatorId == id && !a.IsApproved).ProjectTo<ArticleViewModel>().ToList();
+            data = this.Data.Articles.All().Where(a => a.CreatorId == id && !a.IsApproved).To<ArticleViewModel>().ToList();
 
             return PartialView(data);
         }
@@ -116,11 +113,11 @@
 
             if (sort == "all")
             {
-                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).ProjectTo<ArticleViewModel>().ToList();
+                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).To<ArticleViewModel>().ToList();
             }
             else if (sort == "articles")
             {
-                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).ProjectTo<ArticleViewModel>().ToList();
+                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).To<ArticleViewModel>().ToList();
             }
 
             return PartialView(data);

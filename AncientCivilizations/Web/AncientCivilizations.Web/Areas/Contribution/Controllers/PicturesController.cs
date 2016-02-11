@@ -6,8 +6,6 @@
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
 
-    using AutoMapper;
-
     using Base;
     using Common.Constants;
     using Common.Extensions;

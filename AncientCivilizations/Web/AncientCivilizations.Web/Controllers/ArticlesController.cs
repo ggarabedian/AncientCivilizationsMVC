@@ -2,8 +2,6 @@
 {
     using System.Web.Mvc;
 
-    using AutoMapper;
-
     using Data.Repositories;
     using Models.Public;
 

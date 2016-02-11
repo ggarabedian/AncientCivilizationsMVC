@@ -8,7 +8,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class ArticleViewModel : IMapFrom<Article>, IHaveCustomMappings
+    public class ArticleViewModel : IMapFrom<Article>, IMapTo<Article>, IHaveCustomMappings
     {
         // TODO: Delete ?!
         public int Id { get; set; }
@@ -28,7 +28,7 @@
 
         public string HeaderImagePath { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticleViewModel>("")
                 .ForMember(m => m.CreatorName, opt => opt.MapFrom(u => u.Creator.FullName));

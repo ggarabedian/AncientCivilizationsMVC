@@ -34,7 +34,7 @@
         [UIHint("DateTimeFormat")]
         public DateTime CreatedOn { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Picture, PicturesViewModel>("")
                 .ForMember(m => m.ContributorId, opt => opt.MapFrom(u => u.Contributor.Id));

@@ -38,7 +38,7 @@
         [HiddenInput(DisplayValue = false)]
         public string LastEditorId { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Article, ContributeArticleViewModel>("")
                 .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id));

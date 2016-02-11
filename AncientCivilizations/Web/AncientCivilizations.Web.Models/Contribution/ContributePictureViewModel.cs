@@ -27,7 +27,7 @@
 
         public string KeyWords { get; set; }
 
-        public void CreateMappings(IConfiguration configuration)
+        public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Picture, ContributePictureViewModel>("")
                 .ForMember(m => m.ContributorId, opt => opt.MapFrom(u => u.Contributor.Id));
