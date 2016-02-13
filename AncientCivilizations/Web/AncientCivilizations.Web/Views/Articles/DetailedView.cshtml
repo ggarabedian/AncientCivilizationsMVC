@@ -15,6 +15,10 @@
     <div class="row">
         @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
     </div>
+
+    <div class="row">
+        @Html.Raw(Model.Content)
+    </div>
 </div>
 
 @section rightPanel{

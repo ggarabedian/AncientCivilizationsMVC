@@ -8,7 +8,7 @@
     <h2>User Control Panel</h2>
 </div>
 <div>
-    @using (Html.BeginForm("UpdateUserProfile", "Account", new { id = Model.Id }))
+    @using (Html.BeginForm("UpdateUserProfile", Controllers.Profile, new { id = Model.Id }))
     {
         <div class="row">
             <h3>

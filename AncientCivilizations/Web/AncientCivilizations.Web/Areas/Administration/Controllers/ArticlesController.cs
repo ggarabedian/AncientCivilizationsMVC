@@ -47,14 +47,6 @@
             return this.RedirectToAction("Index");
         }
 
-        //[ValidateInput(false)]
-        //[HttpPost]
-        //public ActionResult Update([DataSourceRequest]DataSourceRequest request, ArticlesViewModel model)
-        //{
-        //    var updatedModel = base.Update(model, model.Id);
-        //    return this.GridOperation(updatedModel, request);
-        //}
-
         [ValidateInput(false)]
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ArticlesViewModel model)

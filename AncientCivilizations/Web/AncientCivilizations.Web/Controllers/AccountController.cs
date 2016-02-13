@@ -1,7 +1,7 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
     using System;
-    using System.Collections.Generic;
+
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -12,11 +12,8 @@
     using Microsoft.Owin.Security;
 
     using Data.Models;
-    using Data.Repositories;
-    using Infrastructure.Mapping;
     using Models.Account;
-    using Models.Public;
-    using Web.Common.Extensions;
+    using Data.Repositories;
 
     [Authorize]
     public class AccountController : BaseController
@@ -24,16 +21,15 @@
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController(IAncientCivilizationsData data)
-            : base(data)
-        {
-        }
-
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IAncientCivilizationsData data)
             : base(data)
         {
             UserManager = userManager;
             SignInManager = signInManager;
+        }
+
+        public AccountController(IAncientCivilizationsData data) : base(data)
+        {
         }
 
         public ApplicationSignInManager SignInManager
@@ -67,90 +63,6 @@
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
-        }
-
-        [AllowAnonymous]
-        public ActionResult UserProfile(string id)
-        {
-            var data = this.Data.Users.GetById(id);
-            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).To<ArticleViewModel>().ToList();
-            var viewModel = Mapper.Map<UserProfileViewModel>(data);
-            viewModel.Articles = articles;
-
-            return View(viewModel);
-        }
-
-        [AllowAnonymous]
-        public ActionResult _UserProfileInfoPartial(string id)
-        {
-            var data = this.Data.Users.GetById(id);
-            var articles = this.Data.Articles.All().Where(a => a.CreatorId == id).To<ArticleViewModel>().ToList();
-            var viewModel = Mapper.Map<UserProfileViewModel>(data);
-            viewModel.Articles = articles;
-
-            return PartialView(viewModel);
-        }
-
-        public ActionResult _UserProfileSettingsPartial(string id)
-        {
-            var data = this.Data.Users.GetById(id);
-            var viewModel = Mapper.Map<UserProfileViewModel>(data);
-            return PartialView(viewModel);
-        }
-
-        public ActionResult _UserProfilePendingPartial(string id)
-        {
-            var data = new List<ArticleViewModel>();
-
-            data = this.Data.Articles.All().Where(a => a.CreatorId == id && !a.IsApproved).To<ArticleViewModel>().ToList();
-
-            return PartialView(data);
-        }
-
-        public ActionResult _UserProfileContributionsPartial(string id, string sort)
-        {
-            var data = new List<ArticleViewModel>();
-
-            if (sort == "all")
-            {
-                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).To<ArticleViewModel>().ToList();
-            }
-            else if (sort == "articles")
-            {
-                data = this.Data.Articles.All().Where(a => a.CreatorId == id && a.IsApproved).To<ArticleViewModel>().ToList();
-            }
-
-            return PartialView(data);
-        }
-
-
-        [HttpPost]
-        public ActionResult UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images, string id)
-        {
-            if (model != null)
-            {
-                var dbUser = this.Data.Users.GetById(id);
-
-                if (images != null && images.Count() != 0)
-                {
-                    model.Avatar = ImageEditor.ResizeImageToBitArray(images);
-                }
-                else
-                {
-                    model.Avatar = dbUser.Avatar;
-                }
-
-                if (ModelState.IsValid)
-                {
-
-                    Mapper.Map(model, dbUser);
-                    this.Data.Users.SaveChanges();
-
-                    return RedirectToAction("UserProfile", new { id = id });
-                }
-            }
-
-            return RedirectToAction("_UserProfileSettingsPartial", model);
         }
 
         //

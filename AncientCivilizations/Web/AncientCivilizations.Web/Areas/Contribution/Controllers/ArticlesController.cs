@@ -5,7 +5,6 @@
     using System.Linq;
 
     using Microsoft.AspNet.Identity;
-    using AutoMapper.QueryableExtensions;
 
     using Base;
     using Data.Models;
@@ -33,11 +32,13 @@
             {
                 model.Content = HttpUtility.HtmlDecode(model.Content);
 
+                model.CreatorId = this.User.Identity.GetUserId();
                 var dbModel = Mapper.Map<Article>(model);
-                var creatorId = this.User.Identity.GetUserId();
-                dbModel.CreatorId = creatorId;
+                //var creatorId = this.User.Identity.GetUserId();
+                //dbModel.CreatorId = this.User.Identity.GetUserId();
                 this.Data.Articles.Add(dbModel);
                 this.Data.SaveChanges();
+
                 return this.RedirectToAction("Index", "Home", new { area = "Contribution" });
             }
 
