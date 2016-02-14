@@ -13,33 +13,27 @@
           cols.Template(pr => pr.IsApproved).Hidden().Title("Last edited by")
                 .ClientTemplate("#if(LastEditorFullName != null){#" +
                                   "<a href='" +
-                                  Url.Action("UserProfile", Controllers.Account, new { area = Areas.Default }, null) +
-                                  "/#= LastEditorId #'>" +
-                                  " #= LastEditorFullName #" +
-                                  "</a>" +
+                                  Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
+                                  "/#= LastEditorId #'>#= LastEditorFullName #</a>" +
                                   "# } #");
           cols.Template(pr => pr.IsApproved).Title("Approved by")
                 .ClientTemplate("#if(IsApproved){#" +
                                   "<a href='" +
-                                  Url.Action("UserProfile", Controllers.Account, new { area = Areas.Default }, null) +
-                                  "/#= ApproverId #'>" +
-                                  " #= ApproverFullName #" +
-                                  "</a>" +
+                                  Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
+                                  "/#= ApproverId #'>#= ApproverFullName #</a>" +
                                   "# } #");
           cols.Template(pr => pr.IsApproved).Title("Status").Width(130)
                 .ClientTemplate("#if(!IsApproved){#" +
                                   "<a class='k-button k-button-icontext' href='" +
                                   Url.Action("ApproveArticle", Controllers.Articles) +
-                                  "/#= Id #'" +
-                                  "><span class='k-icon k-add'></span>Approve</a>" +
+                                  "/#= Id #'><span class='k-icon k-add'></span>Approve</a>" +
                                   "#} else {#" +
                                   "Approved" +
                                   "# } #");
           cols.Template(pr => pr.IsApproved).Title("Edit").Width(95)
                 .ClientTemplate("<a class='k-button k-button-icontext' href='" +
                                   Url.Action("Edit", Controllers.Articles, new { area = Areas.Contribution }) +
-                                  "/#= Id #'" +
-                                  "><span class='k-icon k-edit'></span>Edit</a>");
+                                  "/#= Id #'><span class='k-icon k-edit'></span>Edit</a>");
           cols.Command(commands =>
           {
               commands.Destroy();

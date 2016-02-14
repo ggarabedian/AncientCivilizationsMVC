@@ -1,0 +1,38 @@
+﻿@using AncientCivilizations.Web.Models.Administration
+
+<h2>Pictures</h2>
+
+@(Html.CustomGrid<PictureViewModel>("grid")
+      .Columns(cols =>
+      {
+          cols.Bound(pr => pr.Id).Hidden();
+          cols.Template(pr => pr.Url).Title("Picture")
+              .ClientTemplate("<a href='" +
+                                Url.Action("Detailed", Controllers.Pictures, new { area = Areas.Default }) +
+                                "/#= Id #'><img width=200 src='/Content/Pictures/#= Url #' /></a>");         
+          cols.Bound(pr => pr.Title);
+          cols.Bound(pr => pr.Description).Hidden();
+          cols.Template(pr => pr.ContributorFullName).Title("Contributed by")
+              .ClientTemplate("<a href='" +
+                                Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
+                                "/#= ContributorId #'> #= ContributorFullName #</a>");
+          cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
+          cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+          cols.Bound(pr => pr.CategoryName);
+          cols.Command(com => { com.Edit(); com.Destroy(); }).Width(190);
+      })
+      .Editable(edit => edit.Mode(GridEditMode.PopUp).TemplateName("PicturesEditor"))
+      .DataSource(data => data.Ajax()
+                              .Model(m => m.Id(u => u.Id))
+                              .Read(read => read.Action("Read", Controllers.Pictures))
+                              .Update(update => update.Action("Update", Controllers.Pictures))
+                              .Destroy(destroy => destroy.Action("Destroy", Controllers.Pictures))
+                              .Events(events => events.RequestEnd("rebindOnEdit"))))
+
+<script>
+    function rebindOnEdit(e) {
+        if (e.type == "update") {
+            this.read();
+        }
+    }
+</script>
