@@ -31,7 +31,7 @@
                                .To<PicturesViewModel>()
                                .ToList();
 
-            var data = new HomePageViewModel() { Articles = articles, Pictures = pictures };
+            var data = new AllContentViewModel() { Articles = articles, Pictures = pictures };
 
             if (data != null)
             {

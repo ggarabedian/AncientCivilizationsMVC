@@ -8,8 +8,10 @@
     using Kendo.Mvc.UI;
 
     using Data.Repositories;
+    using Web.Controllers;
 
-    public abstract class KendoGridAdministrationController : AdminController
+    // [Authorize(Roles = "Admin")]
+    public abstract class KendoGridAdministrationController : BaseController
     {
         public KendoGridAdministrationController(IAncientCivilizationsData data)
             : base(data)

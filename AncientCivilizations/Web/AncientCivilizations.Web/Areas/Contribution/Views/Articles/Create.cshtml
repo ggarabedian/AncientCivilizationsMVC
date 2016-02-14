@@ -1,16 +1,12 @@
 ﻿@model AncientCivilizations.Web.Models.Contribution.ContributeArticleViewModel
 
-<div class="container">
-    <div class="row">
-        <h2>Create new article</h2>
+<h2>Create new article</h2>
+
+@using (Html.BeginForm("Create", Controllers.Articles))
+{
+    @Html.Partial("_ArticleFormPartial")
+
+    <div class="navbar-fixed-bottom bottom-bar">
+        <input type="submit" value="CREATE" class="btn text-center btn-bottom-bar">
     </div>
-
-    @using (Html.BeginForm("Create", Controllers.Articles))
-    {
-        @Html.Partial("_ArticleFormPartial")
-
-        <div class="navbar-fixed-bottom bottom-bar">
-            <input type="submit" value="CREATE" class="btn text-center btn-bottom-bar">
-        </div>
-    }
-</div>
+}

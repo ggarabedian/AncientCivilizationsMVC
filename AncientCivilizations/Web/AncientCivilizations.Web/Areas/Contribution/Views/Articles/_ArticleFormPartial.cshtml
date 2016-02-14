@@ -1,18 +1,36 @@
 ﻿@model AncientCivilizations.Web.Models.Contribution.ContributeArticleViewModel
 
-<div class="row">
-    @Html.LabelFor(m => m.Title)
+@Html.HiddenFor(m => m.HeaderImagePath, new { id = "article-header-image-path" })
+
+<div>
+    @(Html.Kendo().Window()
+            .Name("select-image")
+            .Title("Select Picture")
+            .Scrollable(true)
+            .Draggable()
+            .Events(ev => ev.Close("onClose"))
+            .Visible(false).Width(800).Height(600)
+    )
 </div>
-<div class="row">
-    @Html.EditorFor(m => m.Title)
-    @Html.ValidationMessageFor(m => m.Title)
-</div>
-@Html.HiddenFor(m => m.HeaderImagePath, new { id = "article-header-image-path"})
-<div class="row">
-    Location
-</div>
-<div class="row">
-    @(Html.Kendo().DropDownListFor(m => m.LocationId)
+<div>
+    <div class="col-md-8">
+        <div>
+            @(Html.Kendo().EditorFor(m => m.Content)
+                          .HtmlAttributes(new { style = "height:440px", id = "article-editor" })
+                          .Tools(tools => tools.FontColor())
+                          .Resizable(resizable => resizable.Content(true)
+                          .Toolbar(true)))
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <h3 class="nomargintop">Title</h3>
+            @Html.TextBoxFor(m => m.Title, new { style = "width: 100%" })
+            @Html.ValidationMessageFor(m => m.Title)
+        </div>
+        <div>
+            <h3>Location</h3>
+            @(Html.Kendo().DropDownListFor(m => m.LocationId)
           .OptionLabel("Select location...")
           .DataTextField("Name")
           .DataValueField("Id")
@@ -24,13 +42,12 @@
               });
           })
           .HtmlAttributes(new { style = "width: 100%" })
-    )
-</div>
-<div class="row">
-    Civilization
-</div>
-<div class="row">
-    @(Html.Kendo().DropDownListFor(m => m.CivilizationId)
+            )
+        </div>
+
+        <div>
+            <h3>Civilizations</h3>
+            @(Html.Kendo().DropDownListFor(m => m.CivilizationId)
           .OptionLabel("Select civilization...")
           .DataTextField("Name")
           .DataValueField("Id")
@@ -42,13 +59,11 @@
               });
           })
           .HtmlAttributes(new { style = "width: 100%" })
-    )
-</div>
-<div class="row">
-    Category
-</div>
-<div class="row">
-    @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+            )
+        </div>
+        <div>
+            <h3>Category</h3>
+            @(Html.Kendo().DropDownListFor(m => m.CategoryId)
             .OptionLabel("Select category...")
             .DataTextField("Name")
             .DataValueField("Id")
@@ -60,45 +75,23 @@
                 });
             })
             .HtmlAttributes(new { style = "width: 100%" })
-    )
-</div>
-<div class="row">
-    @Html.LabelFor(m => m.Content)
-
-    @(Html.Kendo().Window()
-            .Name("select-image")
-            .Title("Select Picture")
-            .Scrollable(true)
-            .Draggable()
-            .Events(ev => ev.Close("onClose"))
-            .Visible(false).Width(800).Height(600)
-    )
-</div>
-<div class="row">
-    <div class="col-md-9">
-        <div class="row">
-            @(Html.Kendo().EditorFor(m => m.Content)
-                          .HtmlAttributes(new { style = "height:440px", id = "article-editor" })
-                          .Tools(tools => tools.FontColor())
-                          .Resizable(resizable => resizable.Content(true)
-                          .Toolbar(true)))
+            )
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="row">
-            @Html.TextBox("tb-search", null, new { @class = "col-md-8 col-md-offset-3" })
-            <div id="btn-search" class="btn btn-default pull-right">
+        <div id="contribute-article-content-search-panel">
+            <input type="text" id="tb-search" class="col-md-8" placeholder="Search for picture to add" />
+            <div id="btn-search" class="btn btn-default pull-right col-md-3">
                 Search
             </div>
         </div>
+    </div>
+</div>
 
-        <script>
+<script>
             function onClose() {
                 $("#btn-search").show();
             }
 
             $(document).ready(function () {
-
                 $("#btn-search").bind("click", function () {
                     var searchQuery = $("#tb-search").val();
                     var dialog = $("#select-image").data("kendoWindow");
@@ -108,8 +101,5 @@
                     }).open();
                     $("#undo").hide();
                 });
-           });
-        </script>
-
-    </div>
-</div>
+            });
+</script>

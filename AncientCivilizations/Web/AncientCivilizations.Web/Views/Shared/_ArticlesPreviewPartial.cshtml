@@ -1,14 +1,14 @@
-﻿@model AncientCivilizations.Web.Models.Public.HomePageViewModel
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.ArticleViewModel>
 
 @{
-    foreach (var item in @Model.Articles)
+    foreach (var item in Model)
     {
         <div class="article-item-container">
             <div class="row home-article-header">
                 <div class="col-md-3">
                     <img src="/Content/Pictures/@item.HeaderImagePath" class="home-article-header-img" alt="Alternate Text" />
                 </div>
-                <h3 class="text-center">
+                <h3 class="col-md-9">
                     @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
                 </h3>
             </div>

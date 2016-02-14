@@ -195,12 +195,12 @@
   <ItemGroup>
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\ArticlesController.cs" />
-    <Compile Include="Areas\Administration\Controllers\Base\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CivilizationsController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\LocationsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PicturesController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Contribution\ContributionAreaRegistration.cs" />
     <Compile Include="Areas\Contribution\Controllers\ArticlesController.cs" />
@@ -613,6 +613,7 @@
     <Content Include="Areas\Contribution\Views\Articles\_ArticleFormPartial.cshtml" />
     <Content Include="Areas\Contribution\Views\Pictures\Add.cshtml" />
     <Content Include="Areas\Contribution\Views\Articles\_SelectPicturePartial.cshtml" />
+    <Content Include="Areas\Administration\Views\Pictures\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -669,7 +670,6 @@
     <Content Include="Scripts\Kendo\jquery.min.map" />
     <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
-    <Content Include="Views\Home\_LatestArticlesPartial.cshtml" />
     <Content Include="Views\Articles\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Profile\_UserProfileSettingsPartial.cshtml" />
@@ -678,11 +678,12 @@
     <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
     <Content Include="Views\Profile\_UserProfilePendingPartial.cshtml" />
     <Content Include="Views\Profile\_UserProfileContributionsPartial.cshtml" />
-    <Content Include="Views\Home\_FeaturedPicturesPartial.cshtml" />
+    <Content Include="Views\Home\_LatestPicturesPartial.cshtml" />
     <Content Include="Views\Home\_AboutPartial.cshtml" />
-    <Content Include="Views\Pictures\DetailedView.cshtml" />
+    <Content Include="Views\Pictures\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PictureCreatorAndDate.cshtml" />
     <Content Include="Views\Articles\All.cshtml" />
+    <Content Include="Views\Shared\_ArticlesPreviewPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

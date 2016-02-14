@@ -108,13 +108,14 @@
     <Compile Include="Administration\CategoryViewModel.cs" />
     <Compile Include="Administration\CivilizationViewModel.cs" />
     <Compile Include="Administration\LocationViewModel.cs" />
+    <Compile Include="Administration\PictureViewModel.cs" />
     <Compile Include="Administration\UserViewModel.cs" />
     <Compile Include="Contribution\ContributeArticleViewModel.cs" />
     <Compile Include="Contribution\ContributePictureViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Public\PicturesViewModel.cs" />
     <Compile Include="Public\ArticleViewModel.cs" />
-    <Compile Include="Public\HomePageViewModel.cs" />
+    <Compile Include="Public\AllContentViewModel.cs" />
     <Compile Include="Public\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup />

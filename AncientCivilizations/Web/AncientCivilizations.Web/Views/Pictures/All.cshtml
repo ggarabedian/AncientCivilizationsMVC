@@ -20,7 +20,7 @@
     @foreach (var item in Model)
     {
         <div class="pictures-container">
-            <a href="@Url.Action("DetailedView", Controllers.Pictures, new { id = @item.Id, area = Areas.Default })">
+            <a href="@Url.Action("Detailed", Controllers.Pictures, new { id = @item.Id, area = Areas.Default })">
                 <img class="gallery-picture" src="@Url.Content("~/Content/Pictures/" + @item.Url)" />
             </a>
         </div>

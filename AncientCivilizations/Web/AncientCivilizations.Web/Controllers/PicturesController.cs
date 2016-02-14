@@ -31,7 +31,7 @@
             return View(pictures);
         }
 
-        public ActionResult DetailedView(int? id)
+        public ActionResult Detailed(int? id)
         {
             var picture = this.Data.Pictures.All().Where(p => p.Id == id).To<PicturesViewModel>().FirstOrDefault();
 

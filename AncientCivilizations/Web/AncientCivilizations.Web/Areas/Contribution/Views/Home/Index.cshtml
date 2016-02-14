@@ -1,6 +1,37 @@
-﻿<h2>Contribute</h2>
-@Html.ActionLink("Article", "Create", Controllers.Articles, new { area = Areas.Contribution }, null)
-@Html.ActionLink("Definition", Actions.Index, Controllers.Definitions, new { area = Areas.Contribution }, null)
-@Html.ActionLink("Image", "Add", Controllers.Pictures, new { area = Areas.Contribution }, null)
-@Html.ActionLink("Video", Actions.Index, Controllers.Videos, new { area = Areas.Contribution }, null)
+﻿<h1 class="border-bottom">Contribute</h1>
+<div id="contribute-home-container">
+    <div class="col-md-3 col-sm-4">
+        <h2>Definition</h2>
+        <a href="@Url.Action(Actions.Index, Controllers.Definitions, new { area = Areas.Contribution })">
+            <img src="/Content/Pictures/contribute-definition.jpg" />
+        </a>
+        <div>A definition of the subject, several paragraphs long, like you would find in an encyclopedia.</div>
+        @Html.ActionLink("DEFINITION", Actions.Index, Controllers.Definitions, new { area = Areas.Contribution }, new { @class = "btn btn-navigation text-center" })
+    </div>
+    <div class="col-md-3 col-sm-4">
+        <h2>Article</h2>
+        <a href="@Url.Action("Create", Controllers.Articles, new { area = Areas.Contribution })">
+            <img src="/Content/Pictures/contribute-article.jpg" />
+        </a>
+        <div>An academic article that explores the subject in depth, much longer than a definition.</div>
+        @Html.ActionLink("ARTICLE", "Create", Controllers.Articles, new { area = Areas.Contribution }, new { @class = "btn btn-navigation text-center" })
+    </div>
+    <div class="col-md-3 col-sm-4">
+        <h2>Picture</h2>
+        <a href="@Url.Action("Add", Controllers.Pictures, new { area = Areas.Contribution })">
+            <img src="/Content/Pictures/contribute-illustration.jpg" />
+        </a>
+        <div>A map, photo, or drawing that helps illustrate the subject. A picture is worth a thousand words!</div>
+        @Html.ActionLink("PICTURE", "Add", Controllers.Pictures, new { area = Areas.Contribution }, new { @class = "btn btn-navigation text-center" })
+
+    </div>
+    <div class="col-md-3 col-sm-4">
+        <h2>Video</h2>
+        <a href="@Url.Action(Actions.Index, Controllers.Videos, new { area = Areas.Contribution })">
+            <img src="/Content/Pictures/contribute-video.jpg" />
+        </a>
+        <div>A video can convey information like no other medium can. Why not embed a Youtube video?</div>
+        @Html.ActionLink("VIDEO", Actions.Index, Controllers.Videos, new { area = Areas.Contribution }, new { @class = "btn btn-navigation text-center" })
+    </div>
+</div>
 

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class HomePageViewModel
+    public class AllContentViewModel
     {
         public ICollection<ArticleViewModel> Articles { get; set; }
 

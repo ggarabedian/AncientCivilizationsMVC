@@ -1,4 +1,6 @@
-﻿@section leftPanel{
+﻿@model AncientCivilizations.Web.Models.Public.AllContentViewModel
+
+@section leftPanel{
     <div id="about-container" class="col-md-3">
         <h2 class="section-header">About Us</h2>
         @Html.Partial("_AboutPartial")
@@ -7,12 +9,12 @@
 
 <div id="latest-articles-container" class="col-md-6">
     <h2 class="section-header">Latest Articles</h2>
-    @Html.Partial("_LatestArticlesPartial")
+    @Html.Partial("_ArticlesPreviewPartial", Model.Articles)
 </div>
 
 @section rightPanel{
     <div id="latest-images-container" class="col-md-3">
         <h2 class="section-header">Latest Images</h2>
-        @Html.Partial("_FeaturedPicturesPartial")
+        @Html.Partial("_LatestPicturesPartial")
     </div>
 }

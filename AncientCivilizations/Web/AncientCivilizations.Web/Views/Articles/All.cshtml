@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.ArticleViewModel>
+
+<h2>All</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Search @Html.TextBox("searchQuery")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<div id="latest-articles-container" class="col-md-9">
+    @Html.Partial("_ArticlesPreviewPartial")
+</div>
