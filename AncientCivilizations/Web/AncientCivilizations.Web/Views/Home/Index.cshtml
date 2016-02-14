@@ -1,15 +1,18 @@
 ﻿@section leftPanel{
-    <div id="about-container" class="col-md-2">
+    <div id="about-container" class="col-md-3">
+        <h2 class="section-header">About Us</h2>
         @Html.Partial("_AboutPartial")
     </div>
 }
 
-<div id="latest-articles-container" class="col-md-7">
+<div id="latest-articles-container" class="col-md-6">
+    <h2 class="section-header">Latest Articles</h2>
     @Html.Partial("_LatestArticlesPartial")
 </div>
 
 @section rightPanel{
     <div id="latest-images-container" class="col-md-3">
+        <h2 class="section-header">Latest Images</h2>
         @Html.Partial("_FeaturedPicturesPartial")
     </div>
 }

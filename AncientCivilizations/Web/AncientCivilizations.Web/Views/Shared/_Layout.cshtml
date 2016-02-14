@@ -14,33 +14,31 @@
     @Styles.Render("~/Content/custom")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Ancient Civilizations", Actions.Index, Controllers.Home, new { area = Areas.Default }, new { @class = "navbar-brand" })
+    <header>
+        <a href='@Url.Action(Actions.Index, Controllers.Home, new { area = Areas.Default }, null)'>
+            <img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">
+        </a>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = Areas.Default }, null)</li>
+                        <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
+                        @if (User.IsInRole("User") || User.IsInRole("Administrator"))
+                        {
+                            <li>@Html.ActionLink("Contribute", Actions.Index, Controllers.Home, new { area = Areas.Contribution }, null)</li>
+                        }
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <li>@Html.ActionLink("Administration", Actions.Index, Controllers.Home, new { area = Areas.Administration }, null)</li>
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = Areas.Default }, null)</li>
-                    <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
-                    @if (User.IsInRole("User") || User.IsInRole("Administrator"))
-                    {
-                        <li>@Html.ActionLink("Contribute", Actions.Index, Controllers.Home, new { area = Areas.Contribution }, null)</li>
-                    }
-                    @if (User.IsInRole("Administrator"))
-                    {
-                        <li>@Html.ActionLink("Administration", Actions.Index, Controllers.Home, new { area = Areas.Administration }, null)</li>
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
+        </nav>
+    </header><!-- header role="banner" -->
+
     <div class="container body-content">
         <div class="row">
             @RenderSection("leftPanel", required: false)
@@ -48,9 +46,9 @@
             @RenderSection("rightPanel", required: false)
         </div>
         @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>*@
     </div>
     @Scripts.Render("~/bundles/jqueryunobtrusiveajax")
     @Scripts.Render("~/bundles/jqueryval")

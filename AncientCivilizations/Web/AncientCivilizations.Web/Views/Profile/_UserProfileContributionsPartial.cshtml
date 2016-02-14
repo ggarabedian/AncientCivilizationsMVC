@@ -10,7 +10,7 @@
                         <img class="content-item-header-img" src="~/Content/Pictures/@item.HeaderImagePath" />
                     </div>
                     <h2 class="text-center col-md-8">
-                        @Html.ActionLink(item.Title, "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
+                        @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
                     </h2>
                 </div>            
                 <div class="row content-item-info">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="row content-item-text">
                     <div id="article-content">@Html.Raw(item.Content)</div>
-                    @Html.ActionLink("[Read More]", "DetailedView", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                    @Html.ActionLink("[Read More]", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
                 </div>
             </div>
         </div>

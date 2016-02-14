@@ -29,8 +29,6 @@
         [Required]
         public int CategoryId { get; set; }
 
-        public string CreatorId { get; set; }
-
         public int? TimePeriodFrom { get; set; }
 
         public int? TimePeriodTo { get; set; }

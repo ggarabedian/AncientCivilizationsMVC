@@ -670,7 +670,7 @@
     <Content Include="Scripts\Kendo\kendo.all.min.js.map" />
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Home\_LatestArticlesPartial.cshtml" />
-    <Content Include="Views\Articles\DetailedView.cshtml" />
+    <Content Include="Views\Articles\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Profile\_UserProfileSettingsPartial.cshtml" />
     <Content Include="Views\Profile\_UserProfileInfoPartial.cshtml" />
@@ -682,6 +682,7 @@
     <Content Include="Views\Home\_AboutPartial.cshtml" />
     <Content Include="Views\Pictures\DetailedView.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PictureCreatorAndDate.cshtml" />
+    <Content Include="Views\Articles\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

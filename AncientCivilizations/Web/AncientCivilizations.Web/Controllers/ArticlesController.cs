@@ -12,7 +12,7 @@
         {
         }
 
-        public ActionResult DetailedView(int id)
+        public ActionResult Detailed(int id)
         {
             var data = this.Data.Articles.GetById(id);
             var viewModel = Mapper.Map<ArticleViewModel>(data);
