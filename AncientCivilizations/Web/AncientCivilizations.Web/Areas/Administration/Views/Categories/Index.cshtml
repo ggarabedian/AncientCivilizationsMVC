@@ -2,7 +2,7 @@
 
 <h2>Categories</h2>
 
-@(Html.CustomGrid<CategoryViewModel>("grid")
+@(Html.CustomGrid<CategoryViewModel>("grid", Controllers.Categories, true, m => { m.Id(u => u.Id); })
     .Columns(cols =>
     {
         cols.Bound(pr => pr.Id).Hidden();
@@ -10,13 +10,6 @@
         cols.Bound(pr => pr.Description);
         cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
         cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+
         cols.Command(com => { com.Edit(); com.Destroy(); }).Width(190);
-})
-    .Editable(edit => edit.Mode(GridEditMode.PopUp))
-    .ToolBar(toolbar => toolbar.Create())
-    .DataSource(data => data.Ajax()
-                            .Model(m => m.Id(u => u.Id))
-                            .Read(read => read.Action("Read", Controllers.Categories))
-                            .Create(create => create.Action("Create", Controllers.Categories))
-                            .Update(update => update.Action("Update", Controllers.Categories))
-                            .Destroy(destroy => destroy.Action("Destroy", Controllers.Categories))))
+    }))
