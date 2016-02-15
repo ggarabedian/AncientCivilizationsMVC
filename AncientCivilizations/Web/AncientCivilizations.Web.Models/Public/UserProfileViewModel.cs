@@ -1,6 +1,5 @@
 ﻿namespace AncientCivilizations.Web.Models.Public
 {
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using Data.Models;
@@ -24,7 +23,5 @@
         public byte[] Avatar { get; set; }
 
         public string Photo { get; set; }
-
-        public List<ArticleViewModel> Articles { get; set; }
     }
 }

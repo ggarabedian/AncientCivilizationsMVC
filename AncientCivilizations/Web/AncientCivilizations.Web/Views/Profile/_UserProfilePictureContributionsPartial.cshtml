@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.PicturesViewModel>
+
+<div class="row contributions-container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6">
+            <div class="content-item">
+                <div class="row content-item-header">
+                    <div class="col-md-4">
+                        <img class="content-item-header-img" src="~/Content/Pictures/@item.Url" />
+                    </div>
+                    <h2 class="text-center col-md-8">
+                        @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
+                    </h2>
+                </div>
+                <div class="row content-item-info">
+                    @Html.DisplayFor(m => @item, "PictureCreatorAndDate")
+                </div>
+                <div class="row content-item-text">
+                    <div id="article-content">@Html.Raw(item.Description)</div>
+                    @Html.ActionLink("[View Picture]", "Detailed", Controllers.Pictures, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                </div>
+            </div>
+        </div>
+    }
+</div>

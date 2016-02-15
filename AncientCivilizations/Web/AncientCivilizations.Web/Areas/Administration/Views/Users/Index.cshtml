@@ -13,6 +13,14 @@
           cols.Bound(pr => pr.Email);
           cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
           cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+          //cols.Template(pr => pr.Id).Title("Role").Width(130)
+          //      .ClientTemplate("#if(!IsApproved){#" +
+          //                        "<a class='k-button k-button-icontext' href='" +
+          //                        Url.Action("ApproveArticle", Controllers.Articles) +
+          //                        "/#= Id #'><span class='k-icon k-add'></span>Approve</a>" +
+          //                        "#} else {#" +
+          //                        "Approved" +
+          //                        "# } #");
 
           cols.Command(commands =>
           {

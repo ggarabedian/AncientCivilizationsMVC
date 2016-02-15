@@ -12,7 +12,7 @@
                     <h2 class="text-center col-md-8">
                         @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
                     </h2>
-                </div>            
+                </div>
                 <div class="row content-item-info">
                     @Html.DisplayFor(m => @item, "ArticleCreatorAndDate")
                 </div>

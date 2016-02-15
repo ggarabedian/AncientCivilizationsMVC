@@ -683,13 +683,15 @@
     <Content Include="Views\Pictures\All.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
     <Content Include="Views\Profile\_UserProfilePendingPartial.cshtml" />
-    <Content Include="Views\Profile\_UserProfileContributionsPartial.cshtml" />
+    <Content Include="Views\Profile\_UserProfileAllContributionsPartial.cshtml" />
     <Content Include="Views\Home\_LatestPicturesPartial.cshtml" />
     <Content Include="Views\Home\_AboutPartial.cshtml" />
     <Content Include="Views\Pictures\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PictureCreatorAndDate.cshtml" />
     <Content Include="Views\Articles\All.cshtml" />
     <Content Include="Views\Shared\_ArticlesPreviewPartial.cshtml" />
+    <Content Include="Views\Profile\_UserProfileArticleContributionsPartial.cshtml" />
+    <Content Include="Views\Profile\_UserProfilePictureContributionsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

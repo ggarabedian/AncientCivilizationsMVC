@@ -8,9 +8,9 @@
                 <div class="col-md-3">
                     <img src="/Content/Pictures/@item.HeaderImagePath" class="home-article-header-img" alt="Alternate Text" />
                 </div>
-                <h3 class="col-md-9">
+                <h2 class="col-md-9 text-center nopadding">
                     @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
-                </h3>
+                </h2>
             </div>
             <div class="row home-article-user-image">
                 <div>

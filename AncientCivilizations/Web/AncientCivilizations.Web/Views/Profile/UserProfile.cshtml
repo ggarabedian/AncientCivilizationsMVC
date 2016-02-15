@@ -2,7 +2,7 @@
 @model AncientCivilizations.Web.Models.Public.UserProfileViewModel
 
 <h1 class="border-bottom">@Model.FullName</h1>
-<div class="col-md-3">
+<div class="col-md-2">
     <div class="row">
         <h2 class="menu-header">Navigation</h2>
         @Ajax.ActionLink("PROFILE", "_UserProfileInfoPartial", new { id = Model.Id },
@@ -33,6 +33,6 @@
         }
     </div>
 </div>
-<div class="col-md-9" id="profile-container">
+<div class="col-md-10" id="profile-container">
     @Html.Partial("_UserProfileInfoPartial")
 </div>
