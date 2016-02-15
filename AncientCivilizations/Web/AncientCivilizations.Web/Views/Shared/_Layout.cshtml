@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ancient Civilizations</title>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/kendo")
 
     @RenderSection("styles", required: false)
     @Styles.Render("~/Content/css")
@@ -65,6 +63,7 @@
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
             </footer>*@
     </div>
+    @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryunobtrusiveajax")
     @Scripts.Render("~/bundles/jqueryval")
 

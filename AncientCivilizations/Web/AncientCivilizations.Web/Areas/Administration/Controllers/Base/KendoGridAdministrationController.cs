@@ -10,7 +10,7 @@
     using Data.Repositories;
     using Web.Controllers;
 
-    // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Administrator")]
     public abstract class KendoGridAdministrationController : BaseController
     {
         public KendoGridAdministrationController(IAncientCivilizationsData data)

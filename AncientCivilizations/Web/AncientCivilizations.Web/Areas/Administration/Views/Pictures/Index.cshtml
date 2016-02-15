@@ -28,11 +28,3 @@
                               .Update(update => update.Action("Update", Controllers.Pictures))
                               .Destroy(destroy => destroy.Action("Destroy", Controllers.Pictures))
                               .Events(events => events.RequestEnd("rebindOnEdit"))))
-
-<script>
-    function rebindOnEdit(e) {
-        if (e.type == "update") {
-            this.read();
-        }
-    }
-</script>

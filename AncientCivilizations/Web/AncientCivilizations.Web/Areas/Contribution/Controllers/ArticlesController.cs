@@ -26,6 +26,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(ContributeArticleViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -44,21 +45,6 @@
             return View(model);
         }
 
-        public ActionResult GetPictures(string query)
-        {
-            var dbPictures = this.Data.Pictures.All();
-
-            if (!string.IsNullOrEmpty(query))
-            {
-                dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
-            }
-
-            var pictures = dbPictures.To<ContributePictureViewModel>()
-                                     .ToList();
-
-            return PartialView("_SelectPicturePartial", pictures);
-        }
-
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -67,6 +53,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(ContributeArticleViewModel model)
         {
             if (model != null && ModelState.IsValid)
@@ -81,6 +68,21 @@
             }
 
             return View(model);
+        }
+
+        public ActionResult GetPictures(string query)
+        {
+            var dbPictures = this.Data.Pictures.All();
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
+            }
+
+            var pictures = dbPictures.To<ContributePictureViewModel>()
+                                     .ToList();
+
+            return PartialView("_SelectPicturePartial", pictures);
         }
     }
 }

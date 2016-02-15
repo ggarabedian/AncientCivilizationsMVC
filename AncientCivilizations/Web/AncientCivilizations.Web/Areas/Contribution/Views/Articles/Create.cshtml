@@ -4,9 +4,12 @@
 
 @using (Html.BeginForm("Create", Controllers.Articles))
 {
+    @Html.AntiForgeryToken()
     @Html.Partial("_ArticleFormPartial")
 
     <div class="navbar-fixed-bottom bottom-bar">
         <input type="submit" value="CREATE" class="btn text-center btn-bottom-bar">
     </div>
 }
+
+

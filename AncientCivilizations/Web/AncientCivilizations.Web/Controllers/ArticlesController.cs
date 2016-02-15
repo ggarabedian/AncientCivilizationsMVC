@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using Common.Extensions;
     using Data.Repositories;
     using Infrastructure.Mapping;
     using Models.Public;
@@ -17,21 +18,29 @@
 
         public ActionResult All(string searchQuery)
         {
-            var viewModel = this.Data.Articles.All();
+            var data = this.Data.Articles.All();
 
             if (!String.IsNullOrEmpty(searchQuery))
             {
-                viewModel = viewModel.Where(s => s.Title.Contains(searchQuery)
+                data = data.Where(s => s.Title.Contains(searchQuery)
                                        || s.KeyWords.Contains(searchQuery));
             }
 
-            return View(viewModel.To<ArticleViewModel>().ToList());
+            var viewModel = data.To<ArticleViewModel>().ToList();
+
+            foreach (var item in viewModel)
+            {
+                item.Content = Sanitizer.Sanitize(item.Content);
+            }            
+
+            return View(viewModel);
         }
 
         public ActionResult Detailed(int id)
         {
             var data = this.Data.Articles.GetById(id);
             var viewModel = Mapper.Map<ArticleViewModel>(data);
+            //viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
 
             return View(viewModel);
         }

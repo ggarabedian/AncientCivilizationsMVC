@@ -30,8 +30,11 @@
         private static void RegisterScriptBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/kendo")
-                        .Include("~/Scripts/Kendo/kendo.all.min.js", "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
-
+                        .Include("~/Scripts/Kendo/kendo.all.min.js",
+                                 "~/Scripts/Kendo/kendo.aspnetmvc.min.js",
+                                 "~/Scripts/Custom/kendo-form-validator.js",
+                                 "~/Scripts/Custom/kendo-grid-rebind.js"));
+            
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                         .Include("~/Scripts/Kendo/jquery.min.js"));
 

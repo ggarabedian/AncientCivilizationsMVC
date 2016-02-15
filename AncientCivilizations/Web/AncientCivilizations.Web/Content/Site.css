@@ -5,6 +5,10 @@
     line-height: 18px;
 }
 
+body header .row{
+    width: 100%;
+}
+
 a {
     color: #B52600;
     font-weight: bold;

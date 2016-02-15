@@ -20,6 +20,7 @@
                           .Tools(tools => tools.FontColor())
                           .Resizable(resizable => resizable.Content(true)
                           .Toolbar(true)))
+            @Html.ValidationMessageFor(m => m.Content)
         </div>
     </div>
     <div class="col-md-4">
@@ -41,8 +42,8 @@
                   read.Action("GetLocations", Controllers.Articles);
               });
           })
-          .HtmlAttributes(new { style = "width: 100%" })
-            )
+          .HtmlAttributes(new { style = "width: 100%" }))
+            @Html.ValidationMessageFor(m => m.LocationId)
         </div>
 
         <div>
@@ -58,8 +59,8 @@
                   read.Action("GetCivilizations", Controllers.Articles);
               });
           })
-          .HtmlAttributes(new { style = "width: 100%" })
-            )
+          .HtmlAttributes(new { style = "width: 100%" }))
+            @Html.ValidationMessageFor(m => m.CivilizationId)
         </div>
         <div>
             <h3>Category</h3>
@@ -74,8 +75,8 @@
                     read.Action("GetCategories", Controllers.Articles);
                 });
             })
-            .HtmlAttributes(new { style = "width: 100%" })
-            )
+            .HtmlAttributes(new { style = "width: 100%" }))
+            @Html.ValidationMessageFor(m => m.CategoryId)
         </div>
         <div id="contribute-article-content-search-panel">
             <input type="text" id="tb-search" class="col-md-8" placeholder="Search for picture to add" />
@@ -87,19 +88,19 @@
 </div>
 
 <script>
-            function onClose() {
-                $("#btn-search").show();
-            }
+    function onClose() {
+        $("#btn-search").show();
+    }
 
-            $(document).ready(function () {
-                $("#btn-search").bind("click", function () {
-                    var searchQuery = $("#tb-search").val();
-                    var dialog = $("#select-image").data("kendoWindow");
-                    dialog.refresh({
-                        url: '@Url.Action("GetPictures", "Articles", new { area = Areas.Contribution })',
-                        data: { query: searchQuery }
-                    }).open();
-                    $("#undo").hide();
-                });
-            });
+    $(document).ready(function () {
+        $("#btn-search").bind("click", function () {
+            var searchQuery = $("#tb-search").val();
+            var dialog = $("#select-image").data("kendoWindow");
+            dialog.refresh({
+                url: '@Url.Action("GetPictures", "Articles", new { area = Areas.Contribution })',
+                data: { query: searchQuery }
+            }).open();
+            $("#undo").hide();
+        });
+    });
 </script>

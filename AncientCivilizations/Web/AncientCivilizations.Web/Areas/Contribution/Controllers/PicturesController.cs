@@ -27,6 +27,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(ContributePictureViewModel model, IEnumerable<HttpPostedFileBase> images)
         {
             if (model != null || images.Count() != 0)

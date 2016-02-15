@@ -7,6 +7,7 @@
 
     @using (Html.BeginForm("Edit", Controllers.Articles))
     {
+        @Html.AntiForgeryToken()
         @Html.Partial("_ArticleFormPartial")
 
         <div class="navbar-fixed-bottom bottom-bar">

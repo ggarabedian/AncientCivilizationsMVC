@@ -24,6 +24,7 @@
         [HiddenInput(DisplayValue = false)]
         public string Url { get; set; }
 
+        [Display(Name = "Key Words")]
         public string KeyWords { get; set; }
 
         [HiddenInput(DisplayValue = false)]
@@ -36,6 +37,7 @@
         public string CategoryName { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        [Display(Name = "Category")]
         public string CategoryId { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
