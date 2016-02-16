@@ -1,48 +1,30 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
-    using System;
-    using System.Linq;
     using System.Web.Mvc;
 
-    using Common.Extensions;
     using Data.Repositories;
-    using Infrastructure.Mapping;
-    using Models.Public;
+    using Services.Contracts;
 
     public class ArticlesController : BaseController
     {
-        public ArticlesController(IAncientCivilizationsData data) 
+        private IArticleServices articlesServices;
+
+        public ArticlesController(IAncientCivilizationsData data, IArticleServices articlesServices) 
             : base(data)
         {
+            this.articlesServices = articlesServices;
         }
 
         public ActionResult All(string searchQuery)
         {
-            var data = this.Data.Articles.All();
-
-            if (!String.IsNullOrEmpty(searchQuery))
-            {
-                data = data.Where(s => s.Title.Contains(searchQuery)
-                                       || s.KeyWords.Contains(searchQuery));
-            }
-
-            var viewModel = data.To<ArticleViewModel>().ToList();
-
-            foreach (var item in viewModel)
-            {
-                item.Content = Sanitizer.Sanitize(item.Content);
-            }            
-
-            return View(viewModel);
+            var articles = this.articlesServices.AllBySearchQuery(searchQuery);
+            return View(articles);
         }
 
         public ActionResult Detailed(int id)
         {
-            var data = this.Data.Articles.GetById(id);
-            var viewModel = Mapper.Map<ArticleViewModel>(data);
-            //viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
-
-            return View(viewModel);
+            var article = this.articlesServices.GetById(id);
+            return View(article);
         }
     }
 }

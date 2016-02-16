@@ -69,8 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticleServices.cs" />
     <Compile Include="Base\BaseServices.cs" />
+    <Compile Include="Contracts\IArticleServices.cs" />
+    <Compile Include="Contracts\IPictureServices.cs" />
     <Compile Include="Contracts\IUserProfileServices.cs" />
+    <Compile Include="PictureServices.cs" />
     <Compile Include="UserProfileServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

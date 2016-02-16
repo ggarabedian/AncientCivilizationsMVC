@@ -40,28 +40,28 @@
 
         public ActionResult _UserProfilePendingPartial(string id)
         {
-            var articles = this.userServices.GetUsersPendingArticles(id);
+            var articles = this.userServices.GetPendingArticles(id);
             return PartialView(articles);
         }
 
         [AllowAnonymous]
         public ActionResult _UserProfileAllContributionsPartial(string id)
         {
-            var allContent = this.userServices.GetUsersAllApprovedContributions(id);
+            var allContent = this.userServices.GetAllApprovedContributions(id);
             return PartialView(allContent);
         }
 
         [AllowAnonymous]
         public ActionResult _UserProfileArticleContributionsPartial(string id)
         {
-            var articles = this.userServices.GetUsersApprovedArticleContributions(id);
+            var articles = this.userServices.GetApprovedArticleContributions(id);
             return PartialView(articles);
         }
 
         [AllowAnonymous]
         public ActionResult _UserProfilePictureContributionsPartial(string id)
         {
-            var pictures = this.userServices.GetUsersApprovedPictureContributions(id);
+            var pictures = this.userServices.GetApprovedPictureContributions(id);
             return PartialView(pictures);
         }
 

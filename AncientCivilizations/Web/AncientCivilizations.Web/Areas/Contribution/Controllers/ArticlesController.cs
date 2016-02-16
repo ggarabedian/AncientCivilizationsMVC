@@ -1,22 +1,24 @@
 ﻿namespace AncientCivilizations.Web.Areas.Contribution.Controllers
 {
-    using System.Web;
     using System.Web.Mvc;
-    using System.Linq;
 
     using Microsoft.AspNet.Identity;
 
     using Base;
-    using Data.Models;
     using Data.Repositories;
-    using Infrastructure.Mapping;
     using Models.Contribution;
+    using Services.Contracts;
 
     public class ArticlesController : ContributionsController
     {
-        public ArticlesController(IAncientCivilizationsData data)
+        private IArticleServices articleServices;
+        private IPictureServices pictureServices;
+
+        public ArticlesController(IAncientCivilizationsData data, IArticleServices articlesServices, IPictureServices pictureServices)
             : base(data)
         {
+            this.articleServices = articlesServices;
+            this.pictureServices = pictureServices;
         }
 
         [HttpGet]
@@ -31,14 +33,7 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                model.Content = HttpUtility.HtmlDecode(model.Content);
-
-                var dbModel = Mapper.Map<Article>(model);
-                dbModel.CreatorId = this.User.Identity.GetUserId();
-
-                this.Data.Articles.Add(dbModel);
-                this.Data.SaveChanges();
-
+                this.articleServices.Create(model, this.User.Identity.GetUserId());
                 return this.RedirectToAction("Index", "Home", new { area = "Contribution" });
             }
 
@@ -48,10 +43,10 @@
         [HttpGet]
         public ActionResult Edit(int? id)
         {
-            var requestUrl = this.HttpContext.Request.UrlReferrer;
-            TempData["requestUrl"] = requestUrl;
-            var model = this.Data.Articles.All().Where(a => a.Id == id).To<ContributeArticleViewModel>().FirstOrDefault();
-            return View(model);
+            TempData["requestUrl"] = this.HttpContext.Request.UrlReferrer;
+
+            var article = this.articleServices.GetArticleForEditing(id);
+            return View(article);
         }
 
         [HttpPost]
@@ -60,30 +55,16 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var dbModel = this.Data.Articles.GetById(model.Id);
-                model.Content = HttpUtility.HtmlDecode(model.Content);
-                model.LastEditorId = this.User.Identity.GetUserId();
-                this.Mapper.Map(model, dbModel);
-                this.Data.SaveChanges();
-
+                this.articleServices.Edit(model, this.User.Identity.GetUserId());
                 return this.Redirect(TempData["requestUrl"].ToString());
             }
 
             return View(model);
         }
 
-        public ActionResult GetPictures(string query)
+        public ActionResult GetPictures(string searchQuery)
         {
-            var dbPictures = this.Data.Pictures.All();
-
-            if (!string.IsNullOrEmpty(query))
-            {
-                dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
-            }
-
-            var pictures = dbPictures.To<ContributePictureViewModel>()
-                                     .ToList();
-
+            var pictures = this.pictureServices.AllBySearchQuery(searchQuery);
             return PartialView("_SelectPicturePartial", pictures);
         }
     }

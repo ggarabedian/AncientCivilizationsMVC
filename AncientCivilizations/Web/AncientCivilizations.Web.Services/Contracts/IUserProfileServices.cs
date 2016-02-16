@@ -13,14 +13,14 @@
 
         UserProfileViewModel GetById(string id);
 
-        IEnumerable<ArticleViewModel> GetUsersPendingArticles(string id);
+        IEnumerable<ArticleViewModel> GetPendingArticles(string id);
 
         void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images, string id);
 
-        IEnumerable<ArticleViewModel> GetUsersApprovedArticleContributions(string id);
+        IEnumerable<ArticleViewModel> GetApprovedArticleContributions(string id);
 
-        IEnumerable<PicturesViewModel> GetUsersApprovedPictureContributions(string id);
+        IEnumerable<PicturesViewModel> GetApprovedPictureContributions(string id);
 
-        AllContentViewModel GetUsersAllApprovedContributions(string id);
+        AllContentViewModel GetAllApprovedContributions(string id);
     }
 }

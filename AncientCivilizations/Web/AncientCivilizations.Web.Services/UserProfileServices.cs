@@ -1,22 +1,19 @@
 ﻿namespace AncientCivilizations.Web.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Base;
+    using Common.Extensions;
     using Contracts;
     using Data.Models;
     using Data.Repositories;
     using Infrastructure.Mapping;
     using Models.Public;
     using System.Web;
-    using Common.Extensions;
 
     public class UserProfileServices : BaseServices, IUserProfileServices
     {
-        private IAncientCivilizationsData data;
-
         public UserProfileServices(IAncientCivilizationsData data)
             : base(data)
         {
@@ -36,7 +33,7 @@
             return viewModel;
         }
 
-        public IEnumerable<ArticleViewModel> GetUsersPendingArticles(string id)
+        public IEnumerable<ArticleViewModel> GetPendingArticles(string id)
         {
             return this.Data
                        .Articles
@@ -46,7 +43,7 @@
                        .ToList();
         }
 
-        public IEnumerable<ArticleViewModel> GetUsersApprovedArticleContributions(string id)
+        public IEnumerable<ArticleViewModel> GetApprovedArticleContributions(string id)
         {
             return this.Data
                        .Articles
@@ -56,7 +53,7 @@
                        .ToList();
         }
 
-        public IEnumerable<PicturesViewModel> GetUsersApprovedPictureContributions(string id)
+        public IEnumerable<PicturesViewModel> GetApprovedPictureContributions(string id)
         {
             return this.Data
                        .Pictures
@@ -66,11 +63,11 @@
                        .ToList();
         }
 
-        public AllContentViewModel GetUsersAllApprovedContributions(string id)
+        public AllContentViewModel GetAllApprovedContributions(string id)
         {
             var allContributions = new AllContentViewModel();
-            allContributions.Articles = this.GetUsersApprovedArticleContributions(id);
-            allContributions.Pictures = this.GetUsersApprovedPictureContributions(id);
+            allContributions.Articles = this.GetApprovedArticleContributions(id);
+            allContributions.Pictures = this.GetApprovedPictureContributions(id);
 
             return allContributions;
         }
