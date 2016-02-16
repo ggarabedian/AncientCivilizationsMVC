@@ -48,6 +48,8 @@
         [HttpGet]
         public ActionResult Edit(int? id)
         {
+            var requestUrl = this.HttpContext.Request.UrlReferrer;
+            TempData["requestUrl"] = requestUrl;
             var model = this.Data.Articles.All().Where(a => a.Id == id).To<ContributeArticleViewModel>().FirstOrDefault();
             return View(model);
         }
@@ -63,8 +65,8 @@
                 model.LastEditorId = this.User.Identity.GetUserId();
                 this.Mapper.Map(model, dbModel);
                 this.Data.SaveChanges();
-                return this.Redirect(Request.UrlReferrer.ToString());
-                //TODO : Fix redirecting
+
+                return this.Redirect(TempData["requestUrl"].ToString());
             }
 
             return View(model);

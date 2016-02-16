@@ -25,7 +25,7 @@
                 dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
             }
 
-            var pictures = dbPictures.To<PicturesViewModel>()
+            var pictures = dbPictures.Take(40).To<PicturesViewModel>()
                                      .ToList();
 
             return View(pictures);

@@ -55,11 +55,5 @@
 
             return this.GridOperation(model, request);
         }
-
-        public ActionResult GetCategories()
-        {
-            var categories = this.Data.Categories.All();
-            return Json(categories, JsonRequestBehavior.AllowGet);
-        }
     }
 }

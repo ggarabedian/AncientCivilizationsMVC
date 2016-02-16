@@ -9,6 +9,10 @@
         width: 100%;
     }
 
+h2 {
+    color: #444444;
+}
+
 a {
     color: #B52600;
     font-weight: bold;
@@ -17,6 +21,7 @@ a {
 
 p {
     font-size: 14px;
+    line-height: 25px;
 }
 
 .nopadding {
@@ -28,7 +33,29 @@ p {
     margin-top: 0;
 }
 
-/*used in thead entire project*/
+/*used in the entire project*/
+
+/*#logoutForm a:hover{
+    background-color: transparent;
+}
+
+.btn-user-navbar {
+    font-size: 1.1em;
+    color: #B52600;
+    border: 2px solid #B52600;
+    border-radius: 50px;
+    padding: 10px;
+    background-color: white;
+}
+
+    .btn-user-navbar:hover {
+        font-size: 1.1em;
+        color: white;
+        border: 2px solid #B52600;
+        border-radius: 50px;
+        padding: 10px;
+        background-color: #B52600;
+    }*/
 
 .btn-navigation {
     display: block;
@@ -176,7 +203,7 @@ p {
     padding-left: 80px;
 }
 
-.btn-user-contributions{
+.btn-user-contributions {
     margin-right: 20px;
 }
 
@@ -225,6 +252,12 @@ p {
 
 #contribute-article-content-search-panel {
     margin-top: 20px;
+}
+
+/*detailed article start*/
+
+#detailed-article-user-image{
+    margin-bottom: 20px;
 }
 
 /*image gallery start*/

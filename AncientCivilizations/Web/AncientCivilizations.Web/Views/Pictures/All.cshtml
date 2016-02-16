@@ -2,10 +2,7 @@
 @model IEnumerable<PicturesViewModel>
 
 <div id="gallery-header" class="row">
-    <h2 class="col-md-6">
-        Latest Images
-    </h2>
-    <div id="gallery-search" class="col-md-6">
+    <div id="gallery-search" class="col-md-6 col-md-offset-6">
         @using (Html.BeginForm("All", Controllers.Pictures))
         {
             @Html.TextBox("query", null, new { @class = "col-md-8 col-md-offset-3", placeholder = "Search" })

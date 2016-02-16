@@ -8,7 +8,11 @@
         Article
     </h2>
 
-    @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
+    <div class="detailed-article-user-image">
+        @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
+
+
+    </div>
     @Html.Raw(Model.Content)
 </div>
 
