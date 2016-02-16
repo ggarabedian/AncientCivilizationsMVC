@@ -24,7 +24,7 @@
             return fileName;
         }
 
-        public static byte[] ResizeImageToBitArray(IEnumerable<HttpPostedFileBase> images)
+        public static byte[] ResizeImageAndConvertToBitArray(IEnumerable<HttpPostedFileBase> images)
         {
             using (MemoryStream ms = new MemoryStream())
             {

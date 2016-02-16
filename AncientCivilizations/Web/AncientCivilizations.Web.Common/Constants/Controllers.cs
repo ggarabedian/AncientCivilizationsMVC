@@ -8,7 +8,7 @@
         public const string Civilizations = "Civilizations";
         public const string Definitions = "Definitions";
         public const string Pictures = "Pictures";
-        public const string Profile = "Profile";
+        public const string UserProfile = "UserProfile";
         public const string Home = "Home";
         public const string Locations = "Locations";
         public const string Videos = "Videos";

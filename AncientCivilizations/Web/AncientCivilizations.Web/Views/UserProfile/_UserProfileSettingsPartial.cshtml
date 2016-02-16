@@ -8,8 +8,9 @@
     <h2>User Control Panel</h2>
 </div>
 <div>
-    @using (Html.BeginForm("UpdateUserProfile", Controllers.Profile, new { id = Model.Id }))
+    @using (Html.BeginForm("UpdateUserProfile", Controllers.UserProfile, new { id = Model.Id }))
     {
+        @Html.AntiForgeryToken()
         <div class="row">
             <h3>
                 @Html.LabelFor(m => m.FullName)

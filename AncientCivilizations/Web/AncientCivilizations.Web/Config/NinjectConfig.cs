@@ -13,6 +13,8 @@ namespace AncientCivilizations.Web.Config
 
     using Data;
     using Data.Repositories;
+    using Services;
+    using Services.Contracts;
 
     public static class NinjectConfig 
     {
@@ -52,6 +54,8 @@ namespace AncientCivilizations.Web.Config
         {
             kernel.Bind<IAncientCivilizationsData>().To<AncientCivilizationsData>();
             kernel.Bind<IAncientCivilizationsDbContext>().To<AncientCivilizationsDbContext>();
+
+            kernel.Bind<IUserProfileServices>().To<UserProfileServices>();
         }        
     }
 }

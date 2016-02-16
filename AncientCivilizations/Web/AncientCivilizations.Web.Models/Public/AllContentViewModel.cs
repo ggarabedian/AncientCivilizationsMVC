@@ -4,10 +4,10 @@
 
     public class AllContentViewModel
     {
-        public ICollection<ArticleViewModel> Articles { get; set; }
+        public IEnumerable<ArticleViewModel> Articles { get; set; }
 
-        public ICollection<PicturesViewModel> Pictures { get; set; }
+        public IEnumerable<PicturesViewModel> Pictures { get; set; }
 
-        public ICollection<ArticleViewModel> Videos { get; set; }
+        public IEnumerable<ArticleViewModel> Videos { get; set; }
     }
 }

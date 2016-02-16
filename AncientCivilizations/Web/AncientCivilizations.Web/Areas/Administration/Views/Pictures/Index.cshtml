@@ -13,9 +13,7 @@
         cols.Bound(pr => pr.Title);
         cols.Bound(pr => pr.Description).Hidden();
         cols.Template(pr => pr.ContributorFullName).Title("Contributed by")
-        .ClientTemplate("<a href='" +
-                                  Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
-                                  "/#= ContributorId #'>#= ContributorFullName #</a>");
+                .ClientTemplate("<a href='/UserProfile/Index/#= ContributorId #'>#= ContributorFullName #</a>");
         cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
         cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
         cols.Bound(pr => pr.CategoryName);

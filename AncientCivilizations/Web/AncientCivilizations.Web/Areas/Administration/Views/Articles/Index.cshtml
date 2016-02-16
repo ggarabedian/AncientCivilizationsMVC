@@ -12,15 +12,11 @@
         cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
         cols.Template(pr => pr.IsApproved).Hidden().Title("Last edited by")
               .ClientTemplate("#if(LastEditorFullName != null){#" +
-                                "<a href='" +
-                                Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
-                                "/#= LastEditorId #'>#= LastEditorFullName #</a>" +
+                                "<a href='/UserProfile/Index/#= LastEditorId #'>#= LastEditorFullName #</a>" +
                                 "# } #");
         cols.Template(pr => pr.IsApproved).Title("Approved by")
               .ClientTemplate("#if(IsApproved){#" +
-                                "<a href='" +
-                                Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
-                                "/#= ApproverId #'>#= ApproverFullName #</a>" +
+                                "<a href='/UserProfile/Index/#= ApproverId #'>#= ApproverFullName #</a>" +
                                 "# } #");
         cols.Template(pr => pr.IsApproved).Title("Status").Width(130)
               .ClientTemplate("#if(!IsApproved){#" +

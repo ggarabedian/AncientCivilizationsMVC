@@ -224,7 +224,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -667,7 +667,7 @@
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Profile\UserProfile.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
@@ -678,20 +678,20 @@
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Articles\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
-    <Content Include="Views\Profile\_UserProfileSettingsPartial.cshtml" />
-    <Content Include="Views\Profile\_UserProfileInfoPartial.cshtml" />
+    <Content Include="Views\UserProfile\_UserProfileSettingsPartial.cshtml" />
+    <Content Include="Views\UserProfile\_UserProfileInfoPartial.cshtml" />
     <Content Include="Views\Pictures\All.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
-    <Content Include="Views\Profile\_UserProfilePendingPartial.cshtml" />
-    <Content Include="Views\Profile\_UserProfileAllContributionsPartial.cshtml" />
+    <Content Include="Views\UserProfile\_UserProfilePendingPartial.cshtml" />
+    <Content Include="Views\UserProfile\_UserProfileAllContributionsPartial.cshtml" />
     <Content Include="Views\Home\_LatestPicturesPartial.cshtml" />
     <Content Include="Views\Home\_AboutPartial.cshtml" />
     <Content Include="Views\Pictures\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PictureCreatorAndDate.cshtml" />
     <Content Include="Views\Articles\All.cshtml" />
     <Content Include="Views\Shared\_ArticlesPreviewPartial.cshtml" />
-    <Content Include="Views\Profile\_UserProfileArticleContributionsPartial.cshtml" />
-    <Content Include="Views\Profile\_UserProfilePictureContributionsPartial.cshtml" />
+    <Content Include="Views\UserProfile\_UserProfileArticleContributionsPartial.cshtml" />
+    <Content Include="Views\UserProfile\_UserProfilePictureContributionsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -729,6 +729,10 @@
     <ProjectReference Include="..\AncientCivilizations.Web.Models\AncientCivilizations.Web.Models.csproj">
       <Project>{f35ca2e8-6189-49f0-90b4-70fee201bf8e}</Project>
       <Name>AncientCivilizations.Web.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AncientCivilizations.Web.Services\AncientCivilizations.Web.Services.csproj">
+      <Project>{f7bd7eb4-3bef-4e96-ad24-1587e4d8c629}</Project>
+      <Name>AncientCivilizations.Web.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

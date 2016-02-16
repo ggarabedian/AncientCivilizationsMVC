@@ -7,9 +7,7 @@
     {
         cols.Bound(pr => pr.Id).Hidden();
         cols.Template(pr => pr.FullName).Title("Full Name")
-            .ClientTemplate("<a href='" +
-                              Url.Action("UserProfile", Controllers.Profile, new { area = Areas.Default }, null) +
-                              "/#= Id #'>#= FullName #</a>");
+            .ClientTemplate("<a href='/UserProfile/Index/#= Id #'>#= FullName #</a>");
         cols.Bound(pr => pr.Email);
         cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
         cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);

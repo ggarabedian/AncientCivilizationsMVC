@@ -13,7 +13,7 @@
 <div class="col-md-10 nopadding article-info">
     <div class="row">
         by
-        @Html.ActionLink(Model.CreatorName, "UserProfile", Controllers.Account, new { id = Model.CreatorId, area = Areas.Default }, null)
+        @Html.ActionLink(Model.CreatorName, Actions.Index, Controllers.UserProfile, new { id = Model.CreatorId, area = Areas.Default }, null)
     </div>
     <div class="row">
         published on
