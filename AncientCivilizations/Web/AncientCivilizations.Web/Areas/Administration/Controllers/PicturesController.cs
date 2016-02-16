@@ -37,7 +37,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, PictureViewModel model)
         {
             var updatedModel = base.Update(model, model.Id);
-            return this.GridOperation(updatedModel, request);
+            return this.GridOperation(model, request);
         }
 
         [HttpPost]

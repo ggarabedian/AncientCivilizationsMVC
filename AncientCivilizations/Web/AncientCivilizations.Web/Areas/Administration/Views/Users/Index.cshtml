@@ -11,6 +11,9 @@
         cols.Bound(pr => pr.Email);
         cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
         cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+        cols.Bound(pr => pr.ArticlesCount).Hidden();
+        cols.Bound(pr => pr.PicturesCount).Hidden();
+        cols.Bound(pr => pr.VideosCount).Hidden();
 
         cols.Command(commands => { commands.Edit(); commands.Destroy(); }).Width(190);
     }))

@@ -7,9 +7,9 @@
     {
         cols.Bound(pr => pr.Id).Hidden();
         cols.Template(pr => pr.Url).Title("Picture")
-        .ClientTemplate("<a href='" +
-                                  Url.Action("Detailed", Controllers.Pictures, new { area = Areas.Default }) +
-                                  "/#= Id #'><img width=200 src='/Content/Pictures/#= Url #' /></a>");
+                .ClientTemplate("<a href='" +
+                        Url.Action("Detailed", Controllers.Pictures, new { area = Areas.Default }) +
+                        "/#= Id #'><img width=200 src='/Content/Pictures/#= Url #' /></a>");
         cols.Bound(pr => pr.Title);
         cols.Bound(pr => pr.Description).Hidden();
         cols.Template(pr => pr.ContributorFullName).Title("Contributed by")

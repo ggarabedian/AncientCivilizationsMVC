@@ -11,12 +11,15 @@
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string Title { get; set; }
 
         [Required]
+        [MaxLength(1000)]
         public string Description { get; set; }
 
         [Required]
+        [MaxLength(300)]
         public string Url { get; set; }
 
         [Required]
@@ -31,6 +34,7 @@
         [ForeignKey("ContributorId")]
         public virtual User Contributor { get; set; }
 
+        [MaxLength(200)]
         public string KeyWords { get; set; }
     }
 }

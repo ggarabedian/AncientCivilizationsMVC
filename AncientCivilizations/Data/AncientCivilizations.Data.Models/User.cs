@@ -14,11 +14,25 @@
 
     public class User : IdentityUser, IAuditInfo
     {
+        private ICollection<Article> articles;
+        private ICollection<Picture> pictures;
+        private ICollection<Video> videos;
+
+        public User()
+        {
+            this.articles = new HashSet<Article>();
+            this.pictures = new HashSet<Picture>();
+            this.videos = new HashSet<Video>();
+        }
+
         [Required]
+        [MaxLength(50)]
         public string FullName { get; set; }
 
+        [MaxLength(500)]
         public string Summary { get; set; }
 
+        [MaxLength(700)]
         public string Biography { get; set; }
 
         public byte[] Avatar { get; set; }
@@ -31,9 +45,7 @@
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
             return userIdentity;
         }
 
@@ -41,7 +53,27 @@
         public string TwitterAccountLink { get; set; }
         public string GoogleAccountLink { get; set; }
         public string LinkedInAccountLink { get; set; }
-        //Social media accounts
         //Last modified from
+
+        [InverseProperty("Creator")]
+        public virtual ICollection<Article> Articles
+        {
+            get { return this.articles; }
+            set { this.articles = value; }
+        }
+
+        [InverseProperty("Contributor")]
+        public virtual ICollection<Picture> Pictures
+        {
+            get { return this.pictures; }
+            set { this.pictures = value; }
+        }
+
+        [InverseProperty("Contributor")]
+        public virtual ICollection<Video> Videos
+        {
+            get { return this.videos; }
+            set { this.videos = value; }
+        }
     }
 }

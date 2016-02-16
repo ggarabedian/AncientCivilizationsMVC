@@ -11,6 +11,7 @@
     using Base;
     using Data.Models;
     using Data.Repositories;
+    using Infrastructure.Mapping;
     using Models.Administration;
 
     public class UsersController : KendoGridAdministrationController
@@ -27,7 +28,7 @@
 
         protected override IEnumerable GetData()
         {
-            return this.Data.Users.All();
+            return this.Data.Users.All().To<UserViewModel>();
         }
 
 
@@ -40,7 +41,7 @@
         public ActionResult Update([DataSourceRequest]DataSourceRequest request, UserViewModel model)
         {
             var updatedModel = base.Update(model, model.Id);
-            return this.GridOperation(updatedModel, request);
+            return this.GridOperation(model, request);
         }
 
         [HttpPost]
@@ -51,14 +52,14 @@
             return this.GridOperation(model, request);
         }
 
-        public ActionResult GiveAdminRights(string id)
-        {
-            var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var user = this.Data.Users.GetById(id);
-            userManager.AddToRole(user.Id, "Administrator");
+        //public ActionResult GiveAdminRights(string id)
+        //{
+        //    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    var user = this.Data.Users.GetById(id);
+        //    userManager.AddToRole(user.Id, "Administrator");
 
-            return this.RedirectToAction("Index");
-        }
+        //    return this.RedirectToAction("Index");
+        //}
 
         //public ActionResult RevokeAdminRights(int id)
         //{
