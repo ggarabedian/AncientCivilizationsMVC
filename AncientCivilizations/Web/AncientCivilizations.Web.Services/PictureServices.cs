@@ -1,0 +1,74 @@
+﻿namespace AncientCivilizations.Web.Services
+{
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+
+    using Base;
+    using Common.Extensions;
+    using Contracts;
+    using Data.Models;
+    using Data.Repositories;
+    using Infrastructure.Mapping;
+    using Models.Public;
+    using Models.Contribution;
+
+    public class PictureServices : BaseServices, IPictureServices
+    {
+        public PictureServices(IAncientCivilizationsData data)
+            : base(data)
+        {
+        }
+
+        public IQueryable<Picture> All()
+        {
+            return this.Data.Pictures.All();
+        }
+
+        public IEnumerable<ContributePictureViewModel> AllBySearchQueryToAddToArticle(string searchQuery, int take = 50)
+        {
+            var viewModel = this.GetAllBySearchQuery(searchQuery, take)
+                                .To<ContributePictureViewModel>()
+                                .ToList();
+            return viewModel;
+        }
+
+        public void Add(ContributePictureViewModel model, IEnumerable<HttpPostedFileBase> images, string userId)
+        {
+            // TODO: Add ModelState validation
+            model.Url = ImageEditor.SaveImageToServer(images, userId);
+            model.ContributorId = userId;
+            var picture = Mapper.Map<Picture>(model);
+
+            this.Data.Pictures.Add(picture);
+            this.Data.SaveChanges();
+        }
+
+        public IEnumerable<PicturesViewModel> AllBySearchQuery(string searchQuery, int take = 50)
+        {
+            var viewModel = this.GetAllBySearchQuery(searchQuery, take)
+                                .To<PicturesViewModel>()
+                                .ToList();
+            return viewModel;
+        }
+
+        public PicturesViewModel GetById(int? id)
+        {
+            var picture = this.Data.Pictures.GetById(id);
+            var viewModel = this.Mapper.Map<PicturesViewModel>(picture);
+            return viewModel;
+        }
+
+        private IQueryable<Picture> GetAllBySearchQuery(string searchQuery, int take)
+        {
+            var pictures = this.Data.Pictures.All().Take(take);
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                pictures = pictures.Where(p => p.Title.Contains(searchQuery) || p.KeyWords.Contains(searchQuery));
+            }
+
+            return pictures;
+        }
+    }
+}

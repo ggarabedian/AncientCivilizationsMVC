@@ -64,7 +64,7 @@
 
         public ActionResult GetPictures(string searchQuery)
         {
-            var pictures = this.pictureServices.AllBySearchQuery(searchQuery);
+            var pictures = this.pictureServices.AllBySearchQueryToAddToArticle(searchQuery);
             return PartialView("_SelectPicturePartial", pictures);
         }
     }

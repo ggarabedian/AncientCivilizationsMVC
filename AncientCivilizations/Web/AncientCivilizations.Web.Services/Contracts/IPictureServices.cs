@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
 
     using Data.Models;
     using Models.Contribution;
@@ -11,8 +12,12 @@
     {
         IQueryable<Picture> All();
 
-        IEnumerable<ContributePictureViewModel> AllBySearchQuery(string searchQuery);
+        IEnumerable<ContributePictureViewModel> AllBySearchQueryToAddToArticle(string searchQuery, int take = 50);
 
-        PicturesViewModel GetById(int id);
+        void Add(ContributePictureViewModel model, IEnumerable<HttpPostedFileBase> images, string userId);
+
+        IEnumerable<PicturesViewModel> AllBySearchQuery(string searchQuery, int take = 50);
+
+        PicturesViewModel GetById(int? id);
     }
 }

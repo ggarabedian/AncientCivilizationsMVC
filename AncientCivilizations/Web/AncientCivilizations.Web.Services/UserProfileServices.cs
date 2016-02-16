@@ -72,10 +72,10 @@
             return allContributions;
         }
 
-        public void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images, string id)
+        public void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images)
         {
             // TODO: Add ModelState validation
-            var user = this.Data.Users.GetById(id);
+            var user = this.Data.Users.GetById(model.Id);
             this.Mapper.Map(model, user);
 
             if (images != null)

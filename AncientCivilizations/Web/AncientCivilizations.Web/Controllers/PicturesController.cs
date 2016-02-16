@@ -1,40 +1,29 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
-    using System.Linq;
     using System.Web.Mvc;
 
-    using Kendo.Mvc.Extensions;
-
     using Data.Repositories;
-    using Infrastructure.Mapping;
-    using Models.Public;
+    using Services.Contracts;
 
     public class PicturesController : BaseController
     {
-        public PicturesController(IAncientCivilizationsData data)
+        private IPictureServices pictureServices;
+
+        public PicturesController(IAncientCivilizationsData data, IPictureServices pictureServices)
             : base(data)
         {
+            this.pictureServices = pictureServices;
         }
 
-        public ActionResult All(string query)
+        public ActionResult All(string searchQuery)
         {
-            var dbPictures = this.Data.Pictures.All();
-
-            if (!string.IsNullOrEmpty(query))
-            {
-                dbPictures = dbPictures.Where(p => p.Title.Contains(query) || p.Description.Contains(query) || p.KeyWords.Contains(query));
-            }
-
-            var pictures = dbPictures.Take(40).To<PicturesViewModel>()
-                                     .ToList();
-
+            var pictures = this.pictureServices.AllBySearchQuery(searchQuery);
             return View(pictures);
         }
 
         public ActionResult Detailed(int? id)
         {
-            var picture = this.Data.Pictures.All().Where(p => p.Id == id).To<PicturesViewModel>().FirstOrDefault();
-
+            var picture = this.pictureServices.GetById(id);
             return View(picture);
         }
     }

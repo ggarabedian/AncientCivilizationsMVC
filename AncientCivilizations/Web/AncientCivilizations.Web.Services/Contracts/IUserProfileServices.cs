@@ -13,9 +13,9 @@
 
         UserProfileViewModel GetById(string id);
 
-        IEnumerable<ArticleViewModel> GetPendingArticles(string id);
+        void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images);
 
-        void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images, string id);
+        IEnumerable<ArticleViewModel> GetPendingArticles(string id);
 
         IEnumerable<ArticleViewModel> GetApprovedArticleContributions(string id);
 

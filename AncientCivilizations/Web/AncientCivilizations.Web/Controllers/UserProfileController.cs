@@ -71,7 +71,7 @@
         {
             if (model != null)
             {
-                this.userServices.UpdateUserProfile(model, images, id);
+                this.userServices.UpdateUserProfile(model, images);
                 return RedirectToAction("Index", new { id = id });
             }
 
