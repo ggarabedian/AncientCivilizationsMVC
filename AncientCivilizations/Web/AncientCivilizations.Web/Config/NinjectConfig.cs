@@ -58,6 +58,7 @@ namespace AncientCivilizations.Web.Config
             kernel.Bind<IUserProfileServices>().To<UserProfileServices>();
             kernel.Bind<IArticleServices>().To<ArticleServices>();
             kernel.Bind<IPictureServices>().To<PictureServices>();
+            kernel.Bind<IHomeServices>().To<HomeServices>();
         }
     }
 }
