@@ -1,6 +1,6 @@
-﻿namespace AncientCivilizations.Web.Common.Constants
+﻿namespace AncientCivilizations.Common.GlobalConstants
 {
-    public class Globals
+    public class Common
     {
         public const string TimeFormat = "{0:dd/MM/yyyy HH:mm}";
     }

@@ -15,8 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{3B99704C-6C1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web", "Web\AncientCivilizations.Web\AncientCivilizations.Web.csproj", "{6F1B07E4-2F6B-4201-94B9-20A4FD20CAE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Common", "Web\AncientCivilizations.Web.Common\AncientCivilizations.Web.Common.csproj", "{0AD61DC7-8D69-48FB-941E-40BD27F210D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Models", "Web\AncientCivilizations.Web.Models\AncientCivilizations.Web.Models.csproj", "{F35CA2E8-6189-49F0-90B4-70FEE201BF8E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Infrastructure", "Web\AncientCivilizations.Web.Infrastructure\AncientCivilizations.Web.Infrastructure.csproj", "{50B20BCF-4668-4F44-BDFB-50A87B981FA9}"
@@ -28,6 +26,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Controllers.Tests", "Tests\AncientCivilizations.Web.Controllers.Tests\AncientCivilizations.Web.Controllers.Tests.csproj", "{D6A2CEB8-270B-47E8-8DE8-B61B12284B03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Web.Services", "Web\AncientCivilizations.Web.Services\AncientCivilizations.Web.Services.csproj", "{F7BD7EB4-3BEF-4E96-AD24-1587E4D8C629}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{64E4FF6F-995E-457A-A2C4-695E2FB37AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AncientCivilizations.Common", "Common\AncientCivilizations.Common\AncientCivilizations.Common.csproj", "{B2E8801C-2242-44DE-9EAE-F2A9F0F02222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +53,6 @@ Global
 		{6F1B07E4-2F6B-4201-94B9-20A4FD20CAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F1B07E4-2F6B-4201-94B9-20A4FD20CAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F1B07E4-2F6B-4201-94B9-20A4FD20CAE0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AD61DC7-8D69-48FB-941E-40BD27F210D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F35CA2E8-6189-49F0-90B4-70FEE201BF8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F35CA2E8-6189-49F0-90B4-70FEE201BF8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F35CA2E8-6189-49F0-90B4-70FEE201BF8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +73,10 @@ Global
 		{F7BD7EB4-3BEF-4E96-AD24-1587E4D8C629}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7BD7EB4-3BEF-4E96-AD24-1587E4D8C629}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7BD7EB4-3BEF-4E96-AD24-1587E4D8C629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2E8801C-2242-44DE-9EAE-F2A9F0F02222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E8801C-2242-44DE-9EAE-F2A9F0F02222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E8801C-2242-44DE-9EAE-F2A9F0F02222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E8801C-2242-44DE-9EAE-F2A9F0F02222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,11 +86,11 @@ Global
 		{B8DEAE0F-1EF6-444C-A705-B5FADAD7D3D1} = {F055DDF2-15DB-431B-8C1D-7CB6679ED0B5}
 		{B977FE27-3DC2-4680-89D5-6135BFF68C4F} = {F055DDF2-15DB-431B-8C1D-7CB6679ED0B5}
 		{6F1B07E4-2F6B-4201-94B9-20A4FD20CAE0} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
-		{0AD61DC7-8D69-48FB-941E-40BD27F210D1} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
 		{F35CA2E8-6189-49F0-90B4-70FEE201BF8E} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
 		{50B20BCF-4668-4F44-BDFB-50A87B981FA9} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
 		{90FC8834-8F8F-42A2-906E-2B3BEAEC2A28} = {4F5E969A-ACFA-4577-A799-F38E185ADFE0}
 		{D6A2CEB8-270B-47E8-8DE8-B61B12284B03} = {4F5E969A-ACFA-4577-A799-F38E185ADFE0}
 		{F7BD7EB4-3BEF-4E96-AD24-1587E4D8C629} = {3B99704C-6C1A-418F-BD32-7B9EECE4C0F5}
+		{B2E8801C-2242-44DE-9EAE-F2A9F0F02222} = {64E4FF6F-995E-457A-A2C4-695E2FB37AF3}
 	EndGlobalSection
 EndGlobal

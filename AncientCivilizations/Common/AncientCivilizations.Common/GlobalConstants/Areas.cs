@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Common.Constants
+﻿namespace AncientCivilizations.Common.GlobalConstants
 {
     public static class Areas
     {

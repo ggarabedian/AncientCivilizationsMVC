@@ -5,10 +5,10 @@
     using System.Web;
 
     using Base;
-    using Common.Extensions;
     using Contracts;
     using Data.Models;
     using Data.Repositories;
+    using Infrastructure.Helpers;
     using Infrastructure.Mapping;
     using Models.Public;
     using Models.Contribution;

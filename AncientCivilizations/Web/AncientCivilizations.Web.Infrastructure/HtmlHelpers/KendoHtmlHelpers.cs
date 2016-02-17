@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Common.HtmlHelperExtensions
+﻿namespace AncientCivilizations.Web.Infrastructure.HtmlHelpers
 {
     using System;
     using System.Web.Mvc;
@@ -6,7 +6,7 @@
     using Kendo.Mvc.UI;
     using Kendo.Mvc.UI.Fluent;
 
-    using Constants;
+    using Common.GlobalConstants;
 
     public static class KendoHtmlHelpers
     {

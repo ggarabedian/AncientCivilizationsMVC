@@ -7,7 +7,7 @@
     using Microsoft.AspNet.Identity;
 
     using Base;
-    using Common.Constants;
+    using Common.GlobalConstants;
     using Data.Repositories;
     using Models.Contribution;
     using Services.Contracts;

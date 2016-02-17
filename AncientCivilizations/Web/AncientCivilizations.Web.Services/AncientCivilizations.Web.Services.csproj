@@ -91,10 +91,6 @@
       <Project>{cdd14d79-2ff0-4f0e-a4ce-5e8264608e2a}</Project>
       <Name>AncientCivilizations.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AncientCivilizations.Web.Common\AncientCivilizations.Web.Common.csproj">
-      <Project>{0ad61dc7-8d69-48fb-941e-40bd27f210d1}</Project>
-      <Name>AncientCivilizations.Web.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AncientCivilizations.Web.Infrastructure\AncientCivilizations.Web.Infrastructure.csproj">
       <Project>{50b20bcf-4668-4f44-bdfb-50a87b981fa9}</Project>
       <Name>AncientCivilizations.Web.Infrastructure</Name>

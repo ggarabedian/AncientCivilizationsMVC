@@ -706,6 +706,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Common\AncientCivilizations.Common\AncientCivilizations.Common.csproj">
+      <Project>{b2e8801c-2242-44de-9eae-f2a9f0f02222}</Project>
+      <Name>AncientCivilizations.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\AncientCivilizations.Data.Contracts\AncientCivilizations.Data.Contracts.csproj">
       <Project>{b977fe27-3dc2-4680-89d5-6135bff68c4f}</Project>
       <Name>AncientCivilizations.Data.Contracts</Name>
@@ -717,10 +721,6 @@
     <ProjectReference Include="..\..\Data\AncientCivilizations.Data\AncientCivilizations.Data.csproj">
       <Project>{cdd14d79-2ff0-4f0e-a4ce-5e8264608e2a}</Project>
       <Name>AncientCivilizations.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AncientCivilizations.Web.Common\AncientCivilizations.Web.Common.csproj">
-      <Project>{0ad61dc7-8d69-48fb-941e-40bd27f210d1}</Project>
-      <Name>AncientCivilizations.Web.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\AncientCivilizations.Web.Infrastructure\AncientCivilizations.Web.Infrastructure.csproj">
       <Project>{50b20bcf-4668-4f44-bdfb-50a87b981fa9}</Project>

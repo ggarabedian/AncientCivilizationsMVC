@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Common.Extensions
+﻿namespace AncientCivilizations.Web.Infrastructure.Helpers
 {
     using Ganss.XSS;
 

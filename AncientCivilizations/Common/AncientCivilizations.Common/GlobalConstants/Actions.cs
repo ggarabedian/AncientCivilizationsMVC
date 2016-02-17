@@ -1,4 +1,4 @@
-﻿namespace AncientCivilizations.Web.Common.Constants
+﻿namespace AncientCivilizations.Common.GlobalConstants
 {
     public class Actions
     {
@@ -7,6 +7,5 @@
         public const string Create = "Create";
         public const string Update = "Update";
         public const string Destroy = "Destroy";
-
     }
 }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AncientCivilizations.Web.Common")]
+[assembly: AssemblyTitle("AncientCivilizations.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AncientCivilizations.Web.Common")]
+[assembly: AssemblyProduct("AncientCivilizations.Common")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0ad61dc7-8d69-48fb-941e-40bd27f210d1")]
+[assembly: Guid("b2e8801c-2242-44de-9eae-f2a9f0f02222")]
 
 // Version information for an assembly consists of the following four values:
 //
