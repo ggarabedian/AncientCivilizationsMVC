@@ -83,15 +83,32 @@
   <ItemGroup>
     <Compile Include="AdministratorArticlesControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicArtcilesControllerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\AncientCivilizations.Data.Contracts\AncientCivilizations.Data.Contracts.csproj">
+      <Project>{b977fe27-3dc2-4680-89d5-6135bff68c4f}</Project>
+      <Name>AncientCivilizations.Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\AncientCivilizations.Data.Models\AncientCivilizations.Data.Models.csproj">
+      <Project>{b8deae0f-1ef6-444c-a705-b5fadad7d3d1}</Project>
+      <Name>AncientCivilizations.Data.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\AncientCivilizations.Data\AncientCivilizations.Data.csproj">
       <Project>{cdd14d79-2ff0-4f0e-a4ce-5e8264608e2a}</Project>
       <Name>AncientCivilizations.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\AncientCivilizations.Web.Models\AncientCivilizations.Web.Models.csproj">
+      <Project>{f35ca2e8-6189-49f0-90b4-70fee201bf8e}</Project>
+      <Name>AncientCivilizations.Web.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\AncientCivilizations.Web.Services\AncientCivilizations.Web.Services.csproj">
+      <Project>{f7bd7eb4-3bef-4e96-ad24-1587e4d8c629}</Project>
+      <Name>AncientCivilizations.Web.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\AncientCivilizations.Web\AncientCivilizations.Web.csproj">
       <Project>{6f1b07e4-2f6b-4201-94b9-20a4fd20cae0}</Project>

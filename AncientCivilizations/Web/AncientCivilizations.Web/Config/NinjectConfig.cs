@@ -13,6 +13,7 @@ namespace AncientCivilizations.Web.Config
 
     using Data;
     using Data.Repositories;
+    using Infrastructure.Caching;
     using Services;
     using Services.Contracts;
 
@@ -59,6 +60,7 @@ namespace AncientCivilizations.Web.Config
             kernel.Bind<IArticleServices>().To<ArticleServices>();
             kernel.Bind<IPictureServices>().To<PictureServices>();
             kernel.Bind<IHomeServices>().To<HomeServices>();
+            kernel.Bind<ICacheService>().To<HttpCacheService>();
         }
     }
 }

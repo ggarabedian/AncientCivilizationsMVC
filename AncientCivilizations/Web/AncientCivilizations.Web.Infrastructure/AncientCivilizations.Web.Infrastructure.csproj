@@ -85,6 +85,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\HttpCacheService.cs" />
+    <Compile Include="Caching\ICacheService.cs" />
     <Compile Include="Helpers\ImageEditor.cs" />
     <Compile Include="Helpers\Sanitizer.cs" />
     <Compile Include="HtmlHelpers\KendoHtmlHelpers.cs" />
