@@ -8,8 +8,8 @@
         cols.Bound(pr => pr.Id).Hidden();
         cols.Bound(pr => pr.Name);
         cols.Bound(pr => pr.Description);
-        cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
-        cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+        cols.Bound(pr => pr.CreatedOn).Format(Common.TimeFormat);
+        cols.Bound(pr => pr.ModifiedOn).Format(Common.TimeFormat);
 
         cols.Command(com => { com.Edit(); com.Destroy(); }).Width(190);
     }))

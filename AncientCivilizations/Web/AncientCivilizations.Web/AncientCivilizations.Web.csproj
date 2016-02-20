@@ -106,6 +106,14 @@
       <HintPath>..\..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -255,6 +263,13 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carousel\demo.css" />
+    <Content Include="Content\carousel\jquery.jscrollpane.css" />
+    <Content Include="Content\carousel\reset.css" />
+    <Content Include="Content\carousel\style.css" />
+    <Content Include="Content\images\arrows.png" />
+    <Content Include="Content\images\cross.png" />
+    <Content Include="Content\images\pattern.png" />
     <Content Include="Content\Kendo\Black\editor.png" />
     <Content Include="Content\Kendo\Black\imagebrowser.png" />
     <Content Include="Content\Kendo\Black\indeterminate.gif" />
@@ -591,6 +606,7 @@
     <Content Include="Content\Kendo\Uniform\sprite_2x.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -639,7 +655,11 @@
     <Content Include="Areas\Contribution\Views\Articles\_SelectPicturePartial.cshtml" />
     <Content Include="Areas\Administration\Views\Pictures\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PicturesEditor.cshtml" />
+    <Content Include="Scripts\Custom\carousel\jquery.contentcarousel.js.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\carousel\jquery.contentcarousel.js" />
+    <Content Include="Scripts\Custom\carousel\jquery.easing.1.3.js" />
+    <Content Include="Scripts\Custom\carousel\jquery.mousewheel.js" />
     <Content Include="Scripts\Custom\kendo-form-validator.js" />
     <Content Include="Scripts\Custom\kendo-grid-rebind.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -704,7 +724,6 @@
     <Content Include="Views\Pictures\All.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
     <Content Include="Views\UserProfile\_UserProfilePendingPartial.cshtml" />
-    <Content Include="Views\UserProfile\_UserProfileAllContributionsPartial.cshtml" />
     <Content Include="Views\Home\_LatestPicturesPartial.cshtml" />
     <Content Include="Views\Home\_AboutPartial.cshtml" />
     <Content Include="Views\Pictures\Detailed.cshtml" />

@@ -4,6 +4,8 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using PagedList;
+
     using Data.Repositories;
     using Models.Public;
     using Services.Contracts;
@@ -45,13 +47,6 @@
         }
 
         [AllowAnonymous]
-        public ActionResult _UserProfileAllContributionsPartial(string id)
-        {
-            var allContent = this.userServices.GetAllApprovedContributions(id);
-            return PartialView(allContent);
-        }
-
-        [AllowAnonymous]
         public ActionResult _UserProfileArticleContributionsPartial(string id)
         {
             var articles = this.userServices.GetApprovedArticleContributions(id);
@@ -61,7 +56,7 @@
         [AllowAnonymous]
         public ActionResult _UserProfilePictureContributionsPartial(string id)
         {
-            var pictures = this.userServices.GetApprovedPictureContributions(id);
+            var pictures = this.userServices.GetPictureContributions(id);
             return PartialView(pictures);
         }
 

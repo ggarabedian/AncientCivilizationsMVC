@@ -49,27 +49,20 @@
                        .Articles
                        .All()
                        .Where(a => a.CreatorId == id && a.IsApproved)
+                       .OrderByDescending(a => a.CreatedOn)
                        .To<ArticleViewModel>()
                        .ToList();
         }
 
-        public IEnumerable<PicturesViewModel> GetApprovedPictureContributions(string id)
+        public IEnumerable<PicturesViewModel> GetPictureContributions(string id)
         {
             return this.Data
                        .Pictures
                        .All()
                        .Where(a => a.ContributorId == id)
+                       .OrderByDescending(a => a.CreatedOn)
                        .To<PicturesViewModel>()
                        .ToList();
-        }
-
-        public AllContentViewModel GetAllApprovedContributions(string id)
-        {
-            var allContributions = new AllContentViewModel();
-            allContributions.Articles = this.GetApprovedArticleContributions(id);
-            allContributions.Pictures = this.GetApprovedPictureContributions(id);
-
-            return allContributions;
         }
 
         public void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images)

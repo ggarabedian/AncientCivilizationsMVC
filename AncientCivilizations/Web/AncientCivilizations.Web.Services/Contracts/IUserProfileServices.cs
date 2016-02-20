@@ -19,8 +19,6 @@
 
         IEnumerable<ArticleViewModel> GetApprovedArticleContributions(string id);
 
-        IEnumerable<PicturesViewModel> GetApprovedPictureContributions(string id);
-
-        AllContentViewModel GetAllApprovedContributions(string id);
+        IEnumerable<PicturesViewModel> GetPictureContributions(string id);
     }
 }

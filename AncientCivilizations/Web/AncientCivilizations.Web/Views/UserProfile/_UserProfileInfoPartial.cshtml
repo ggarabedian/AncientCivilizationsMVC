@@ -22,13 +22,6 @@
 
 <div class="row">
     <h2 class="menu-header">Contributions</h2>
-    @Ajax.ActionLink("ALL", "_UserProfileAllContributionsPartial", new { id = Model.Id },
-                        new AjaxOptions
-                        {
-                            UpdateTargetId = "contributions-container",
-                            HttpMethod = "GET",
-                            InsertionMode = InsertionMode.Replace
-                        }, new { @class = "btn btn-navigation btn-user-contributions col-md-3" })
     @Ajax.ActionLink("ARTICLES", "_UserProfileArticleContributionsPartial", new { id = Model.Id },
                         new AjaxOptions
                         {

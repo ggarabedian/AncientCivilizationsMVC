@@ -14,8 +14,8 @@
         cols.Bound(pr => pr.Description).Hidden();
         cols.Template(pr => pr.ContributorFullName).Title("Contributed by")
                 .ClientTemplate("<a href='/UserProfile/Index/#= ContributorId #'>#= ContributorFullName #</a>");
-        cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
-        cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+        cols.Bound(pr => pr.CreatedOn).Format(Common.TimeFormat);
+        cols.Bound(pr => pr.ModifiedOn).Format(Common.TimeFormat);
         cols.Bound(pr => pr.CategoryName);
 
         cols.Command(com => { com.Edit(); com.Destroy(); }).Width(190);

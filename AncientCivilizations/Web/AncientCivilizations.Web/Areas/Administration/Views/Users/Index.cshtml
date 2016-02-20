@@ -9,8 +9,8 @@
         cols.Template(pr => pr.FullName).Title("Full Name")
             .ClientTemplate("<a href='/UserProfile/Index/#= Id #'>#= FullName #</a>");
         cols.Bound(pr => pr.Email);
-        cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
-        cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+        cols.Bound(pr => pr.CreatedOn).Format(Common.TimeFormat);
+        cols.Bound(pr => pr.ModifiedOn).Format(Common.TimeFormat);
         cols.Bound(pr => pr.ArticlesCount).Hidden();
         cols.Bound(pr => pr.PicturesCount).Hidden();
         cols.Bound(pr => pr.VideosCount).Hidden();

@@ -8,8 +8,8 @@
         cols.Bound(pr => pr.Id).Hidden();
         cols.Bound(pr => pr.Title);
         cols.Bound(pr => pr.Content).Hidden();
-        cols.Bound(pr => pr.CreatedOn).Format(Globals.TimeFormat);
-        cols.Bound(pr => pr.ModifiedOn).Format(Globals.TimeFormat);
+        cols.Bound(pr => pr.CreatedOn).Format(Common.TimeFormat);
+        cols.Bound(pr => pr.ModifiedOn).Format(Common.TimeFormat);
         cols.Template(pr => pr.IsApproved).Hidden().Title("Last edited by")
               .ClientTemplate("#if(LastEditorFullName != null){#" +
                                 "<a href='/UserProfile/Index/#= LastEditorId #'>#= LastEditorFullName #</a>" +
