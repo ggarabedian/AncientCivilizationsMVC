@@ -5,22 +5,17 @@
     {
         <div class="article-item-container">
             <div class="row home-article-header">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <img src="/Content/Pictures/@item.HeaderImagePath" class="home-article-header-img" alt="Alternate Text" />
                 </div>
-                <h2 class="col-md-9 text-center nopadding">
-                    @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
-                </h2>
-            </div>
-            <div class="row home-article-user-image">
-                <div>
-                    @Html.DisplayFor(m => item, "ArticleCreatorAndDate")
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <div id="article-content">@Html.Raw(item.Content)</div>
-                    @Html.ActionLink("[Read More]", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                <div class="col-md-6 nopadding">
+                    <h2 class="text-center">
+                        @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
+                    </h2>
+                    <div>
+                        <div id="article-content">@Html.Raw(item.Content)</div>
+                        @Html.ActionLink("read more...", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right a-more" })
+                    </div>
                 </div>
             </div>
         </div>

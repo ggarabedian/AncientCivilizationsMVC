@@ -1,21 +1,23 @@
 ﻿@model AncientCivilizations.Web.Models.Public.ArticleViewModel
 
-<div class="col-md-8">
-    <h1 class="border-bottom">
-        @Model.Title
-    </h1>
-    <h2>
-        Article
-    </h2>
-
-    <div class="detailed-article-user-image">
-        @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
-
-
+<h1 class="border-bottom">
+    @Model.Title
+</h1>
+<div class="row">
+    <div class="col-md-9">
+        <div class="detailed-article-user-image">
+            @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
+        </div>
+        <div class="article-content">
+            @Html.Raw(Model.Content)
+        </div>
+        <div class="detailed-article-about-author">
+            <h3>About The Author</h3>
+        </div>
     </div>
-    @Html.Raw(Model.Content)
+
+    @section rightPanel{
+        <div class="col-md-3"></div>
+    }
 </div>
 
-@section rightPanel{
-    <div class="col-md-4">Might interest you</div>
-}

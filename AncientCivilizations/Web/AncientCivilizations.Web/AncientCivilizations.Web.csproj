@@ -263,10 +263,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\carousel\demo.css" />
-    <Content Include="Content\carousel\jquery.jscrollpane.css" />
-    <Content Include="Content\carousel\reset.css" />
-    <Content Include="Content\carousel\style.css" />
     <Content Include="Content\images\arrows.png" />
     <Content Include="Content\images\cross.png" />
     <Content Include="Content\images\pattern.png" />
@@ -606,7 +602,6 @@
     <Content Include="Content\Kendo\Uniform\sprite_2x.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi_2x.png" />
-    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -655,11 +650,7 @@
     <Content Include="Areas\Contribution\Views\Articles\_SelectPicturePartial.cshtml" />
     <Content Include="Areas\Administration\Views\Pictures\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PicturesEditor.cshtml" />
-    <Content Include="Scripts\Custom\carousel\jquery.contentcarousel.js.bak" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Custom\carousel\jquery.contentcarousel.js" />
-    <Content Include="Scripts\Custom\carousel\jquery.easing.1.3.js" />
-    <Content Include="Scripts\Custom\carousel\jquery.mousewheel.js" />
     <Content Include="Scripts\Custom\kendo-form-validator.js" />
     <Content Include="Scripts\Custom\kendo-grid-rebind.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -10,7 +10,7 @@
 }
 
 <img src="@imgSrc" class="col-md-1 nopadding user-image-small" alt="img" />
-<div class="col-md-10 nopadding article-info">
+<div class="col-md-10 article-info">
     <div class="row">
         by
         @Html.ActionLink(Model.ContrubitorFullName, Actions.Index, Controllers.UserProfile, new { id = Model.ContributorId, area = Areas.Default }, null)
