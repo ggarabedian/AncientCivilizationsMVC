@@ -29,7 +29,7 @@
         public void DetailedShouldReturnCorrectModel()
         {
             articlesServiceMock.Setup(x => x.GetById(It.IsAny<int>()))
-                               .Returns(new ArticleViewModel() { Title = ArticleTitle, Content = ArticleContent });
+                               .Returns(new DetailedArticleViewModel() { Title = ArticleTitle, Content = ArticleContent });
 
             controller = new ArticlesController(dataMock.Object, articlesServiceMock.Object);
 

@@ -26,14 +26,33 @@
             return this.Data.Articles.All();
         }
 
-        public IEnumerable<ArticleViewModel> AllBySearchQuery(string searchQuery)
+        public IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter)
         {
             var articles = this.Data.Articles.All();
 
-            if (!String.IsNullOrEmpty(searchQuery))
+            if (!String.IsNullOrEmpty(civilizationFilter) && civilizationFilter != "All")
             {
-                articles = articles.Where(s => s.Title.Contains(searchQuery)
-                                       || s.KeyWords.Contains(searchQuery));
+                int id = int.Parse(civilizationFilter);
+                articles = articles.Where(a => a.CivilizationId == id);
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Title.Contains(searchString)
+                                       || s.KeyWords.Contains(searchString));
+            }
+
+            switch (orderBy)
+            {
+                case "Name":
+                    articles = articles.OrderBy(a => a.Title);
+                    break;
+                case "Date":
+                    articles = articles.OrderByDescending(a => a.CreatedOn);
+                    break;
+                default:
+                    articles = articles.OrderByDescending(s => s.CreatedOn);
+                    break;
             }
 
             var viewModel = articles.To<ArticleViewModel>().ToList();
@@ -46,10 +65,10 @@
             return viewModel;
         }
 
-        public ArticleViewModel GetById(int id)
+        public DetailedArticleViewModel GetById(int id)
         {
             var article = this.Data.Articles.GetById(id);
-            var viewModel = this.Mapper.Map<ArticleViewModel>(article);
+            var viewModel = this.Mapper.Map<DetailedArticleViewModel>(article);
             viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
 
             return viewModel;

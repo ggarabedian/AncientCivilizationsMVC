@@ -602,6 +602,7 @@
     <Content Include="Content\Kendo\Uniform\sprite_2x.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

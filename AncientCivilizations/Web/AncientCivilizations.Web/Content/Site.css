@@ -29,6 +29,11 @@ a {
 
 p {
     font-size: 14px !important;
+}
+
+p span {
+    font-family: "hypatia-sans-pro", "Verdana", "Arial", "Helvetica", "sans-serif";
+    font-size: 14px !important;
     line-height: 25px;
 }
 
@@ -68,7 +73,7 @@ p {
 .btn-navigation {
     display: block;
     margin-bottom: 10px;
-    width: 190px;
+    width: 200px;
     font-weight: bold;
     border: 2px solid #B52600;
     background-color: white;

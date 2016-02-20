@@ -11,9 +11,9 @@
     {
         IQueryable<Article> All();
 
-        IEnumerable<ArticleViewModel> AllBySearchQuery(string searchQuery);
+        IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter);
 
-        ArticleViewModel GetById(int id);
+        DetailedArticleViewModel GetById(int id);
 
         void Create(ContributeArticleViewModel model, string userId);
 
