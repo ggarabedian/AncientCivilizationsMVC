@@ -4,11 +4,10 @@
     using System.Web;
     using System.Web.Mvc;
 
-    using Microsoft.AspNet.Identity;
-
     using Base;
     using Common.GlobalConstants;
     using Data.Repositories;
+    using Microsoft.AspNet.Identity;
     using Models.Contribution;
     using Services.Contracts;
 
@@ -25,7 +24,7 @@
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -38,7 +37,7 @@
                 return this.RedirectToAction(Actions.Index, Controllers.Home, new { area = Areas.Contribution });
             }
 
-            return View(model);
+            return this.View(model);
         }
     }
 }

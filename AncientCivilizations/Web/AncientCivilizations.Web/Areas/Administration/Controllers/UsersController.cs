@@ -1,17 +1,13 @@
 ﻿namespace AncientCivilizations.Web.Areas.Administration.Controllers
 {
     using System.Collections;
-    using System.Web;
     using System.Web.Mvc;
-
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
-    using Kendo.Mvc.UI;
 
     using Base;
     using Data.Models;
     using Data.Repositories;
     using Infrastructure.Mapping;
+    using Kendo.Mvc.UI;
     using Models.Administration;
 
     public class UsersController : KendoGridAdministrationController
@@ -23,18 +19,7 @@
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        protected override IEnumerable GetData()
-        {
-            return this.Data.Users.All().To<UserViewModel>();
-        }
-
-
-        protected override object GetById(object id)
-        {
-            return this.Data.Users.GetById(id);
+            return this.View();
         }
 
         [HttpPost]
@@ -52,24 +37,35 @@
             return this.GridOperation(model, request);
         }
 
-        //public ActionResult GiveAdminRights(string id)
-        //{
-        //    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    var user = this.Data.Users.GetById(id);
-        //    userManager.AddToRole(user.Id, "Administrator");
+        protected override IEnumerable GetData()
+        {
+            return this.Data.Users.All().To<UserViewModel>();
+        }
 
-        //    return this.RedirectToAction("Index");
-        //}
 
-        //public ActionResult RevokeAdminRights(int id)
-        //{
-        //    var article = this.Data.Articles.GetById(id);
-        //    article.IsApproved = true;
-        //    article.ApproverId = User.Identity.GetUserId();
-        //    this.Data.Articles.Update(article);
-        //    this.Data.Articles.SaveChanges();
+        protected override object GetById(object id)
+        {
+            return this.Data.Users.GetById(id);
+        }
 
-        //    return this.RedirectToAction("Index");
-        //}
+        ////public ActionResult GiveAdminRights(string id)
+        ////{
+        ////    var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        ////    var user = this.Data.Users.GetById(id);
+        ////    userManager.AddToRole(user.Id, "Administrator");
+
+        ////    return this.RedirectToAction("Index");
+        ////}
+
+        ////public ActionResult RevokeAdminRights(int id)
+        ////{
+        ////    var article = this.Data.Articles.GetById(id);
+        ////    article.IsApproved = true;
+        ////    article.ApproverId = User.Identity.GetUserId();
+        ////    this.Data.Articles.Update(article);
+        ////    this.Data.Articles.SaveChanges();
+
+        ////    return this.RedirectToAction("Index");
+        ////}
     }
 }

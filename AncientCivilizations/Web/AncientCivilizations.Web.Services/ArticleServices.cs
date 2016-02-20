@@ -30,13 +30,13 @@
         {
             var articles = this.Data.Articles.All();
 
-            if (!String.IsNullOrEmpty(civilizationFilter) && civilizationFilter != "All")
+            if (!string.IsNullOrEmpty(civilizationFilter) && civilizationFilter != "All")
             {
                 int id = int.Parse(civilizationFilter);
                 articles = articles.Where(a => a.CivilizationId == id);
             }
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 articles = articles.Where(s => s.Title.Contains(searchString)
                                        || s.KeyWords.Contains(searchString));

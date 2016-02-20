@@ -1,8 +1,9 @@
 namespace AncientCivilizations.Data.Migrations
 {
     using System;
-    using System.Linq;
     using System.Data.Entity.Migrations;
+    using System.Linq;
+
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -13,7 +14,7 @@ namespace AncientCivilizations.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
-            // TODO: Remove
+            //// TODO: Remove
             this.AutomaticMigrationDataLossAllowed = true;
         }
 

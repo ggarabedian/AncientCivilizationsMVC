@@ -3,9 +3,8 @@
     using System.Collections;
     using System.Web.Mvc;
 
-    using Microsoft.AspNet.Identity;
-
     using Kendo.Mvc.UI;
+    using Microsoft.AspNet.Identity;
 
     using Base;
     using Data.Models;
@@ -22,18 +21,7 @@
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        protected override IEnumerable GetData()
-        {
-            return this.Data.Articles.All().To<ArticlesViewModel>();
-        }
-
-
-        protected override object GetById(object id)
-        {
-            return this.Data.Articles.GetById(id);
+            return this.View();
         }
 
         public ActionResult ApproveArticle(int id)
@@ -54,6 +42,16 @@
             base.Delete<Article>(model);
 
             return this.GridOperation(model, request);
+        }
+
+        protected override IEnumerable GetData()
+        {
+            return this.Data.Articles.All().To<ArticlesViewModel>();
+        }
+
+        protected override object GetById(object id)
+        {
+            return this.Data.Articles.GetById(id);
         }
     }
 }

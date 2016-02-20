@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace AncientCivilizations.Web.Areas.Contribution
+﻿namespace AncientCivilizations.Web.Areas.Contribution
 {
+    using System.Web.Mvc;
+
     public class ContributionAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
@@ -18,8 +18,7 @@ namespace AncientCivilizations.Web.Areas.Contribution
                 name: "Contribution_default",
                 url: "Contribution/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "AncientCivilizations.Web.Areas.Contribution.Controllers" }
-            );
+                namespaces: new[] { "AncientCivilizations.Web.Areas.Contribution.Controllers" });
         }
     }
 }

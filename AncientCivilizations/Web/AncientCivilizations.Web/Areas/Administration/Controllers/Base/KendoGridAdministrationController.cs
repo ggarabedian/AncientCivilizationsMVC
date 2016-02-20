@@ -63,19 +63,19 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var dbModel = Mapper.Map<T>(model);
-                this.ChangeEntityStateAndSave(dbModel, EntityState.Deleted);
+                var modelToDelete = Mapper.Map<T>(model);
+                this.ChangeEntityStateAndSave(modelToDelete, EntityState.Deleted);
             }
         }
 
         protected JsonResult GridOperation<T>(T model, [DataSourceRequest]DataSourceRequest request)
         {
-            return this.Json(new[] { model }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
         }
 
-        private void ChangeEntityStateAndSave(object dbModel, EntityState state)
+        private void ChangeEntityStateAndSave(object model, EntityState state)
         {
-            var entry = this.Data.Context.Entry(dbModel);
+            var entry = this.Data.Context.Entry(model);
             entry.State = state;
             this.Data.SaveChanges();
         }

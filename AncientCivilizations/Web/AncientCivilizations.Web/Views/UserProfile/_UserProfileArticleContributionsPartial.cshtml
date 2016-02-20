@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.ArticleViewModel>
 
-<div class="row contributions-container">
     @foreach (var item in Model)
     {
         <div class="col-md-6">
@@ -15,9 +14,8 @@
                 </div>
                 <div class="row content-item-text">
                     <div id="article-content">@Html.Raw(item.Content)</div>
-                    @Html.ActionLink("[Read More]", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                    @Html.ActionLink("read more...", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "a-more" })
                 </div>
             </div>
         </div>
     }
-</div>

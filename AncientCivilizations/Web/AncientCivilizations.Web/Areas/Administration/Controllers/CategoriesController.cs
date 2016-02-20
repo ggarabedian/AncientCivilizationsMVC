@@ -19,25 +19,18 @@
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        protected override IEnumerable GetData()
-        {
-            return this.Data.Categories.All();
-        }
-
-
-        protected override object GetById(object id)
-        {
-            return this.Data.Categories.GetById(id);
+            return this.View();
         }
 
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, CategoryViewModel model)
         {
-            var dbModel = base.Create<Category>(model);
-            if (dbModel != null) model.Id = dbModel.Id;
+            var createdModel = base.Create<Category>(model);
+            if (createdModel != null)
+            {
+                model.Id = createdModel.Id;
+            }
+
             return this.GridOperation(model, request);
         }
 
@@ -54,6 +47,16 @@
             base.Delete<Category>(model);
 
             return this.GridOperation(model, request);
+        }
+
+        protected override IEnumerable GetData()
+        {
+            return this.Data.Categories.All();
+        }
+
+        protected override object GetById(object id)
+        {
+            return this.Data.Categories.GetById(id);
         }
     }
 }

@@ -18,8 +18,7 @@
                 name: "Administration_default",
                 url: "Administration/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "AncientCivilizations.Web.Areas.Administration.Controllers" }
-            );
+                namespaces: new[] { "AncientCivilizations.Web.Areas.Administration.Controllers" });
         }
     }
 }

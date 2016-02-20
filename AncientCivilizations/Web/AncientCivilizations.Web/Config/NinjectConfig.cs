@@ -6,14 +6,12 @@ namespace AncientCivilizations.Web.Config
     using System;
     using System.Web;
 
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
-
     using Data;
     using Data.Repositories;
     using Infrastructure.Caching;
+    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+    using Ninject;
+    using Ninject.Web.Common;
     using Services;
     using Services.Contracts;
 

@@ -8,6 +8,6 @@
 
         public IEnumerable<PicturesViewModel> Pictures { get; set; }
 
-        //public IEnumerable<ArticleViewModel> Videos { get; set; }
+        //// public IEnumerable<ArticleViewModel> Videos { get; set; }
     }
 }

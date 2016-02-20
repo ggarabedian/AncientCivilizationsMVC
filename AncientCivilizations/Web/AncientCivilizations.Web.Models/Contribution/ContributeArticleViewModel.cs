@@ -40,7 +40,7 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Article, ContributeArticleViewModel>("")
+            configuration.CreateMap<Article, ContributeArticleViewModel>(string.Empty)
                 .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id));
         }
     }

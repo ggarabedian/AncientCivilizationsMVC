@@ -29,9 +29,9 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Picture, ContributePictureViewModel>("")
+            configuration.CreateMap<Picture, ContributePictureViewModel>(string.Empty)
                 .ForMember(m => m.ContributorId, opt => opt.MapFrom(u => u.Contributor.Id));
-            configuration.CreateMap<Picture, ContributePictureViewModel>("")
+            configuration.CreateMap<Picture, ContributePictureViewModel>(string.Empty)
                 .ForMember(m => m.CategoryId, opt => opt.MapFrom(u => u.Category.Id));
         }
     }

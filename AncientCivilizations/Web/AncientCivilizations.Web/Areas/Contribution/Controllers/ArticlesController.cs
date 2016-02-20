@@ -2,10 +2,9 @@
 {
     using System.Web.Mvc;
 
-    using Microsoft.AspNet.Identity;
-
     using Base;
     using Data.Repositories;
+    using Microsoft.AspNet.Identity;
     using Models.Contribution;
     using Services.Contracts;
 
@@ -24,7 +23,7 @@
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -37,16 +36,16 @@
                 return this.RedirectToAction("Index", "Home", new { area = "Contribution" });
             }
 
-            return View(model);
+            return this.View(model);
         }
 
         [HttpGet]
         public ActionResult Edit(int? id)
         {
-            TempData["requestUrl"] = this.HttpContext.Request.UrlReferrer;
+            this.TempData["requestUrl"] = this.HttpContext.Request.UrlReferrer;
 
             var article = this.articleServices.GetArticleForEditing(id);
-            return View(article);
+            return this.View(article);
         }
 
         [HttpPost]
@@ -59,13 +58,13 @@
                 return this.Redirect(TempData["requestUrl"].ToString());
             }
 
-            return View(model);
+            return this.View(model);
         }
 
         public ActionResult GetPictures(string searchQuery)
         {
             var pictures = this.pictureServices.AllBySearchQueryToAddToArticle(searchQuery);
-            return PartialView("_SelectPicturePartial", pictures);
+            return this.PartialView("_SelectPicturePartial", pictures);
         }
     }
 }

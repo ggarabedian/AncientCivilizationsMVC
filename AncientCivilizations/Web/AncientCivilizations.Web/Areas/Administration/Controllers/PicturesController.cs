@@ -4,12 +4,11 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using Kendo.Mvc.UI;
-
     using Base;
     using Data.Models;
     using Data.Repositories;
     using Infrastructure.Mapping;
+    using Kendo.Mvc.UI;
     using Models.Administration;
 
     public class PicturesController : KendoGridAdministrationController
@@ -20,17 +19,7 @@
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        protected override object GetById(object id)
-        {
-            return this.Data.Pictures.GetById(id);
-        }
-
-        protected override IEnumerable GetData()
-        {
-            return this.Data.Pictures.All().To<PictureViewModel>();
+            return this.View();
         }
 
         [HttpPost]
@@ -50,7 +39,17 @@
         public ActionResult GetCategories()
         {
             var categories = this.Data.Categories.All().To<CategoryViewModel>().ToList();
-            return Json(categories, JsonRequestBehavior.AllowGet);
+            return this.Json(categories, JsonRequestBehavior.AllowGet);
+        }
+
+        protected override object GetById(object id)
+        {
+            return this.Data.Pictures.GetById(id);
+        }
+
+        protected override IEnumerable GetData()
+        {
+            return this.Data.Pictures.All().To<PictureViewModel>();
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web;
 
     using Base;
     using Contracts;
@@ -10,7 +11,6 @@
     using Infrastructure.Helpers;
     using Infrastructure.Mapping;
     using Models.Public;
-    using System.Web;
 
     public class UserProfileServices : BaseServices, IUserProfileServices
     {

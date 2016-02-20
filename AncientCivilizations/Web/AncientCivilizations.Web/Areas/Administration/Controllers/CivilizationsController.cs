@@ -3,12 +3,11 @@
     using System.Collections;
     using System.Web.Mvc;
 
-    using Kendo.Mvc.UI;
-
     using Base;
     using Data.Models;
     using Data.Repositories;
     using Models.Administration;
+    using Kendo.Mvc.UI;
 
     public class CivilizationsController : KendoGridAdministrationController
     {
@@ -22,22 +21,15 @@
             return View();
         }
 
-        protected override IEnumerable GetData()
-        {
-            return this.Data.Civilizations.All();
-        }
-
-
-        protected override object GetById(object id)
-        {
-            return this.Data.Civilizations.GetById(id);
-        }
-
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, CivilizationViewModel model)
         {
-            var dbModel = base.Create<Civilization>(model);
-            if (dbModel != null) model.Id = dbModel.Id;
+            var createdModel = base.Create<Civilization>(model);
+            if (createdModel != null)
+            {
+                model.Id = createdModel.Id;
+            }
+
             return this.GridOperation(model, request);
         }
 
@@ -54,6 +46,16 @@
             base.Delete<Civilization>(model);
 
             return this.GridOperation(model, request);
+        }
+
+        protected override IEnumerable GetData()
+        {
+            return this.Data.Civilizations.All();
+        }
+
+        protected override object GetById(object id)
+        {
+            return this.Data.Civilizations.GetById(id);
         }
     }
 }

@@ -3,10 +3,9 @@
     using System.Web.Mvc;
     using System.Web.Routing;
 
+    using Areas.Administration;
     using MvcRouteTester;
     using NUnit.Framework;
-
-    using Areas.Administration;
 
     [TestFixture]
     public class AdministrationRouteTests

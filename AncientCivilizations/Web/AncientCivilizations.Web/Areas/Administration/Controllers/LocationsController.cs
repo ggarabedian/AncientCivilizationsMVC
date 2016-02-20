@@ -19,25 +19,18 @@
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        protected override IEnumerable GetData()
-        {
-            return this.Data.Locations.All();
-        }
-
-
-        protected override object GetById(object id)
-        {
-            return this.Data.Locations.GetById(id);
+            return this.View();
         }
 
         [HttpPost]
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, LocationViewModel model)
         {
-            var dbModel = base.Create<Location>(model);
-            if (dbModel != null) model.Id = dbModel.Id;
+            var createdModel = base.Create<Location>(model);
+            if (createdModel != null)
+            {
+                model.Id = createdModel.Id;
+            }
+
             return this.GridOperation(model, request);
         }
 
@@ -54,6 +47,16 @@
             base.Delete<Location>(model);
 
             return this.GridOperation(model, request);
+        }
+
+        protected override IEnumerable GetData()
+        {
+            return this.Data.Locations.All();
+        }
+
+        protected override object GetById(object id)
+        {
+            return this.Data.Locations.GetById(id);
         }
     }
 }

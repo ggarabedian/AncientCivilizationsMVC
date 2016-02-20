@@ -4,9 +4,8 @@
     using System.Data.Entity;
     using System.Linq;
 
-    using Microsoft.AspNet.Identity.EntityFramework;
-
     using Contracts;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
 
     public class AncientCivilizationsDbContext : IdentityDbContext<User>, IAncientCivilizationsDbContext
@@ -33,15 +32,15 @@
             return new AncientCivilizationsDbContext();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
 
         private void ApplyAuditInfoRules()

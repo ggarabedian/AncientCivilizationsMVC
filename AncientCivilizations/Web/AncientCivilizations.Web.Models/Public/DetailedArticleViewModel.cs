@@ -29,11 +29,11 @@
 
         public void CreateMappings(IMapperConfiguration configuration)
         {
-            configuration.CreateMap<Article, DetailedArticleViewModel>("")
+            configuration.CreateMap<Article, DetailedArticleViewModel>(string.Empty)
                 .ForMember(m => m.CreatorName, opt => opt.MapFrom(u => u.Creator.FullName));
-            configuration.CreateMap<Article, DetailedArticleViewModel>("")
+            configuration.CreateMap<Article, DetailedArticleViewModel>(string.Empty)
                 .ForMember(m => m.CreatorAvatar, opt => opt.MapFrom(u => u.Creator.Avatar));
-            configuration.CreateMap<Article, DetailedArticleViewModel>("")
+            configuration.CreateMap<Article, DetailedArticleViewModel>(string.Empty)
                 .ForMember(m => m.CreatorId, opt => opt.MapFrom(u => u.Creator.Id));
         }
     }

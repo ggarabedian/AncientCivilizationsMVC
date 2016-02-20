@@ -7,12 +7,12 @@
 
     public abstract class BaseServices
     {
-        protected IAncientCivilizationsData Data { get; private set; }
-
         public BaseServices(IAncientCivilizationsData data)
         {
             this.Data = data;
         }
+
+        protected IAncientCivilizationsData Data { get; private set; }
 
         protected IMapper Mapper
         {
