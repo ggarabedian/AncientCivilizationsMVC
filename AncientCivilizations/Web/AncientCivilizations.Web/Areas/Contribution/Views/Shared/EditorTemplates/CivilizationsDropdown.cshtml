@@ -1,0 +1,18 @@
+﻿@model int?
+
+<div>
+    <h3>Civilizations</h3>
+    @(Html.Kendo().DropDownListFor(m => m)
+                          .OptionLabel("Select civilization...")
+                          .DataTextField("Name")
+                          .DataValueField("Id")
+                          .DataSource(source =>
+                          {
+                              source.Read(read =>
+                              {
+                                  read.Action("GetCivilizations", Controllers.Articles);
+                              });
+                          })
+                          .HtmlAttributes(new { style = "width: 100%" }))
+    @Html.ValidationMessageFor(m => m)
+</div>

@@ -14,19 +14,25 @@
         public int Id { get; set; }
 
         [Required]
+        [UIHint("ArticleTitle")]
         public string Title { get; set; }
 
-        [AllowHtml]
         [Required]
+        [AllowHtml]
+        [UIHint("ArticleContent")]
         public string Content { get; set; }
 
         [Required]
+        [UIHint("LocationsDropdown")]
         public int LocationId { get; set; }
 
+        
         [Required]
+        [UIHint("CivilizationsDropdown")]
         public int CivilizationId { get; set; }
-
+        
         [Required]
+        [UIHint("CategoriesDropdown")]
         public int CategoryId { get; set; }
 
         public int? TimePeriodFrom { get; set; }

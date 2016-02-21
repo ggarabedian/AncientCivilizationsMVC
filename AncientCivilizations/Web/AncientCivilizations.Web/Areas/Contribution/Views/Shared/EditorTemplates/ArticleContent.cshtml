@@ -1,0 +1,10 @@
+﻿@model string
+
+<div>
+    @(Html.Kendo().EditorFor(m => m)
+                          .HtmlAttributes(new { style = "height:440px", id = "article-editor" })
+                          .Tools(tools => tools.FontColor())
+                          .Resizable(resizable => resizable.Content(true)
+                          .Toolbar(true)))
+    @Html.ValidationMessageFor(m => m)
+</div>

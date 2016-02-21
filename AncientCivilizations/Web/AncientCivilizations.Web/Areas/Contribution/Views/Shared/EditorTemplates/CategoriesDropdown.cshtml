@@ -1,0 +1,18 @@
+﻿@model int?
+
+<div>
+    <h3>Category</h3>
+    @(Html.Kendo().DropDownListFor(m => m)
+                          .OptionLabel("Select category...")
+                          .DataTextField("Name")
+                          .DataValueField("Id")
+                          .DataSource(source =>
+                          {
+                              source.Read(read =>
+                              {
+                                  read.Action("GetCategories", Controllers.Articles);
+                              });
+                          })
+            .HtmlAttributes(new { style = "width: 100%" }))
+    @Html.ValidationMessageFor(m => m)
+</div>

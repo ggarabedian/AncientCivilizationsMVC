@@ -1,20 +1,17 @@
 ﻿@model AncientCivilizations.Web.Models.Contribution.ContributeArticleViewModel
 
-<div class="container">
-    <div>
-        <h2>Edit Article</h2>
+<h2>Edit Article</h2>
+
+@using (Html.BeginForm("Edit", Controllers.Articles))
+{
+    @Html.AntiForgeryToken()
+    @Html.Partial("_ArticleFormPartial")
+
+    <div class="navbar-fixed-bottom bottom-bar">
+        <input type="submit" value="SAVE CHANGES" class="btn text-center btn-bottom-bar">
     </div>
+}
 
-    @using (Html.BeginForm("Edit", Controllers.Articles))
-    {
-        @Html.AntiForgeryToken()
-        @Html.Partial("_ArticleFormPartial")
-
-        <div class="navbar-fixed-bottom bottom-bar">
-            <input type="submit" value="SAVE CHANGES" class="btn text-center btn-bottom-bar">
-        </div>
-    }
-</div>
 
 
 

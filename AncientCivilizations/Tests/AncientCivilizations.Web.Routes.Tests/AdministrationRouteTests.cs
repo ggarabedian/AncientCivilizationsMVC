@@ -11,7 +11,20 @@
     public class AdministrationRouteTests
     {
         [Test]
-        public void TestAdministrationAreaRoute()
+        public void AdministrationAreaHomeIndexRouteShouldBeValid()
+        {
+            const string Url = "/Administration/Home/Index/";
+            var routeCollection = new RouteCollection();
+            var areaRegistration = new AdministrationAreaRegistration();
+
+            var areaRegistrationContext = new AreaRegistrationContext(areaRegistration.AreaName, routeCollection);
+            areaRegistration.RegisterArea(areaRegistrationContext);
+
+            RouteAssert.HasRoute(routeCollection, Url, new { area = "Administration", controller = "Home", action = "Index", });
+        }
+
+        [Test]
+        public void AdministrationAreaArticlesIndexRouteShouldBeValid()
         {
             const string Url = "/Administration/Articles/Index/";
             var routeCollection = new RouteCollection();

@@ -1,0 +1,7 @@
+﻿@model string
+
+<div>
+    <h3 class="nomargintop">Title</h3>
+    @Html.TextBoxFor(m => m, new { style = "width: 100%" })
+    @Html.ValidationMessageFor(m => m)
+</div>

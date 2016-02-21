@@ -1,19 +1,23 @@
 ﻿namespace AncientCivilizations.Web.Controllers.Tests
 {
+    using Areas.Administration.Controllers;
+    using Data.Repositories;
     using Moq;
     using NUnit.Framework;
-
-    using AncientCivilizations.Data.Repositories;
 
     [TestFixture]
     public class AdministratorArticlesControllerTests
     {
-        [Test]
-        public void ByIdShouldReturnCorrectModel()
+        private const string ArticleTitle = "Random Article Title";
+        private const string ArticleContent = "Random Article Content";
+
+        private ArticlesController controller;
+        private Mock<IAncientCivilizationsData> dataMock;
+
+        [SetUp]
+        public void Setup()
         {
-            //var dataMock = new Mock<I>();
-            //dataMock.Setup(x => x.)
-            //var controller = new ArticlesController();
+            this.dataMock = new Mock<IAncientCivilizationsData>();
         }
     }
 }

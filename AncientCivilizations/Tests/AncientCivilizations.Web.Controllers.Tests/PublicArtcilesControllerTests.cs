@@ -1,6 +1,5 @@
 ﻿namespace AncientCivilizations.Web.Controllers.Tests
 {
-    using Data.Repositories;
     using Models.Public;
     using Moq;
     using NUnit.Framework;
@@ -16,12 +15,10 @@
         private ArticlesController controller;
         private Mock<IArticleServices> articlesServiceMock;
         private Mock<ICivilizationServices> civilizationsServiceMock;
-        //private Mock<IAncientCivilizationsData> dataMock;
 
         [SetUp]
         public void Setup()
         {
-            //this.dataMock = new Mock<IAncientCivilizationsData>();
             this.articlesServiceMock = new Mock<IArticleServices>();      
             this.civilizationsServiceMock = new Mock<ICivilizationServices>();
         }
@@ -36,29 +33,12 @@
 
             this.controller.WithCallTo(x => x.Detailed(5))
                            .ShouldRenderView("Detailed")
-                           .WithModel<ArticleViewModel>(
+                           .WithModel<DetailedArticleViewModel>(
                                 viewModel =>
                                 {
                                     Assert.AreEqual(ArticleTitle, viewModel.Title);
                                     Assert.AreEqual(ArticleContent, viewModel.Content);
                                 }).AndNoModelErrors();
         }
-
-        ////[Test]
-        ////public void DetailedShouldThrowOnMissingRequiredTitle()
-        ////{
-        ////    articlesServiceMock.Setup(x => x.GetById(It.IsAny<int>()))
-        ////                       .Returns(new ArticleViewModel() { Title = ArticleTitle });
-
-        ////    controller = new ArticlesController(dataMock.Object, articlesServiceMock.Object);
-
-        ////    controller.WithCallTo(x => x.Detailed(5))
-        ////              .ShouldRenderView("Detailed")
-        ////              .WithModel<ArticleViewModel>(
-        ////                    viewModel =>
-        ////                    {
-        ////                        Assert.AreEqual(ArticleTitle, viewModel.Title);
-        ////                    }).AndModelErrorFor(m => m.Content);
-        ////}
     }
 }

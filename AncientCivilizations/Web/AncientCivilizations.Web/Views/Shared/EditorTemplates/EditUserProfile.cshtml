@@ -1,0 +1,59 @@
+﻿@model AncientCivilizations.Web.Models.Public.UserProfileViewModel
+
+<div class="row">
+    <h3>
+        @Html.LabelFor(m => m.FullName)
+    </h3>
+    <h5>
+        Please enter your real name, using first and last names.
+    </h5>
+    <div>
+        @Html.EditorFor(m => m.FullName)
+    </div>
+</div>
+<div class="row">
+    <h3>
+        @Html.LabelFor(m => m.Summary)
+    </h3>
+    <h5>
+        Please write a short summary of who you are. This will be displayed below each of your submissions.
+    </h5>
+    <div>
+        @Html.TextAreaFor(m => m.Summary, new { rows = "6", cols = "80", id = "ta-user-settings" })
+    </div>
+</div>
+<div class="row">
+    <h3>
+        @Html.LabelFor(m => m.Biography)
+    </h3>
+    <h5>
+        Please tell us a bit about yourself, your profession and why you love ancient history. This will be displayed on your profile page.
+    </h5>
+    <div>
+        @Html.TextAreaFor(m => m.Biography, new { rows = "10", cols = "80", id = "ta-user-settings" })
+    </div>
+</div>
+<div class="row">
+    <h3>
+        @Html.LabelFor(m => m.Photo)
+    </h3>
+    <h5>
+        Please upload a photo of yourself.
+    </h5>
+    <div class="col-md-4 nopadding">
+        @(Html.Kendo().Upload()
+                    .Name("images")
+        )
+    </div>
+</div>
+<div class="row">
+    <h3>
+        @Html.LabelFor(m => m.Email)
+    </h3>
+    <h5>
+        We will never reveal your email address to the public. Editors need to be able to contact you if you send us a submission, and you'll need it if you forget your password.
+    </h5>
+    <div>
+        @Html.EditorFor(m => m.Email)
+    </div>
+</div>

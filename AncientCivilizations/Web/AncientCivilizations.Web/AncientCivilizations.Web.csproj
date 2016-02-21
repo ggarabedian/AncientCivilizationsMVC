@@ -645,6 +645,11 @@
     <Content Include="Areas\Contribution\Views\Articles\_SelectPicturePartial.cshtml" />
     <Content Include="Areas\Administration\Views\Pictures\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\PicturesEditor.cshtml" />
+    <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\ArticleContent.cshtml" />
+    <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\LocationsDropdown.cshtml" />
+    <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\CivilizationsDropdown.cshtml" />
+    <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\CategoriesDropdown.cshtml" />
+    <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\ArticleTitle.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\kendo-form-validator.js" />
     <Content Include="Scripts\Custom\kendo-grid-rebind.js" />
@@ -711,7 +716,6 @@
     <Content Include="Views\Shared\DisplayTemplates\ArticleCreatorAndDate.cshtml" />
     <Content Include="Views\UserProfile\_UserProfilePendingPartial.cshtml" />
     <Content Include="Views\Home\_LatestPicturesPartial.cshtml" />
-    <Content Include="Views\Home\_AboutPartial.cshtml" />
     <Content Include="Views\Pictures\Detailed.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PictureCreatorAndDate.cshtml" />
     <Content Include="Views\Articles\All.cshtml" />
@@ -720,6 +724,7 @@
     <Content Include="Views\UserProfile\_UserProfilePictureContributionsPartial.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Articles\ExploreMap.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EditUserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

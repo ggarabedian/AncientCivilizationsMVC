@@ -14,70 +14,17 @@
 </div>
 <div>
     <div class="col-md-8">
-        <div>
-            @(Html.Kendo().EditorFor(m => m.Content)
-                          .HtmlAttributes(new { style = "height:440px", id = "article-editor" })
-                          .Tools(tools => tools.FontColor())
-                          .Resizable(resizable => resizable.Content(true)
-                          .Toolbar(true)))
-            @Html.ValidationMessageFor(m => m.Content)
-        </div>
+        @Html.EditorFor(m => m.Content)
     </div>
     <div class="col-md-4">
-        <div>
-            <h3 class="nomargintop">Title</h3>
-            @Html.TextBoxFor(m => m.Title, new { style = "width: 100%" })
-            @Html.ValidationMessageFor(m => m.Title)
-        </div>
-        <div>
-            <h3>Location</h3>
-            @(Html.Kendo().DropDownListFor(m => m.LocationId)
-                          .OptionLabel("Select location...")
-                          .DataTextField("Name")
-                          .DataValueField("Id")
-                          .DataSource(source =>
-                          {
-                              source.Read(read =>
-                              {
-                                  read.Action("GetLocations", Controllers.Articles);
-                              });
-                          })
-                          .HtmlAttributes(new { style = "width: 100%" }))
-            @Html.ValidationMessageFor(m => m.LocationId)
-        </div>
+        @Html.EditorFor(m => m.Title)
 
-        <div>
-            <h3>Civilizations</h3>
-            @(Html.Kendo().DropDownListFor(m => m.CivilizationId)
-                          .OptionLabel("Select civilization...")
-                          .DataTextField("Name")
-                          .DataValueField("Id")
-                          .DataSource(source =>
-                          {
-                              source.Read(read =>
-                              {
-                                  read.Action("GetCivilizations", Controllers.Articles);
-                              });
-                          })
-                          .HtmlAttributes(new { style = "width: 100%" }))
-            @Html.ValidationMessageFor(m => m.CivilizationId)
-        </div>
-        <div>
-            <h3>Category</h3>
-            @(Html.Kendo().DropDownListFor(m => m.CategoryId)
-                          .OptionLabel("Select category...")
-                          .DataTextField("Name")
-                          .DataValueField("Id")
-                          .DataSource(source =>
-                          {
-                              source.Read(read =>
-                              {
-                                  read.Action("GetCategories", Controllers.Articles);
-                              });
-                          })
-            .HtmlAttributes(new { style = "width: 100%" }))
-            @Html.ValidationMessageFor(m => m.CategoryId)
-        </div>
+        @Html.EditorFor(m => m.LocationId)
+
+        @Html.EditorFor(m => m.CivilizationId)
+
+        @Html.EditorFor(m => m.CategoryId)
+
         <div id="contribute-article-content-search-panel">
             <input type="text" id="tb-search" class="col-md-8" placeholder="Search for picture to add" />
             <div id="btn-search" class="btn btn-default pull-right col-md-3">

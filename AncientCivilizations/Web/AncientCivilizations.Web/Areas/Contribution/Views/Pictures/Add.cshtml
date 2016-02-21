@@ -36,17 +36,17 @@
             </div>
             <div>
                 @(Html.Kendo().DropDownListFor(m => m.CategoryId)
-            .OptionLabel("Select category...")
-            .DataTextField("Name")
-            .DataValueField("Id")
-            .DataSource(source =>
-            {
-                source.Read(read =>
-                {
-                    read.Action("GetCategories", Controllers.Pictures);
-                });
-            })
-            .HtmlAttributes(new { style = "col-md-6" })
+                              .OptionLabel("Select category...")
+                              .DataTextField("Name")
+                              .DataValueField("Id")
+                              .DataSource(source =>
+                              {
+                                source.Read(read =>
+                                {
+                                    read.Action("GetCategories", Controllers.Pictures);
+                                });
+                              })
+                              .HtmlAttributes(new { style = "col-md-6" })
                 )
                 @Html.ValidationMessageFor(m => m.CategoryId)
             </div>
