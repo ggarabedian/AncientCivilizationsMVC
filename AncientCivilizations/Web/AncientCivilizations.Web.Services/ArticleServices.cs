@@ -28,7 +28,7 @@
 
         public IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter)
         {
-            var articles = this.Data.Articles.All();
+            var articles = this.Data.Articles.All().Where(a => a.IsApproved);
 
             if (!string.IsNullOrEmpty(civilizationFilter) && civilizationFilter != "All")
             {

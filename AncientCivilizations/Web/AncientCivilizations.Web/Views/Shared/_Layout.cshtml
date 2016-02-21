@@ -13,21 +13,35 @@
 </head>
 <body>
     <header>
-        <div class="row">
-            <div class="col-md-4">
-                <a href='@Url.Action(Actions.Index, Controllers.Home, new { area = Areas.Default }, null)'>
-                    <img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">
-                </a>
-            </div>
+        <div class="text-center">
+            <a href='@Url.Action(Actions.Index, Controllers.Home, new { area = Areas.Default })'>
+                <img id="logo-main" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png" width="200" alt="Logo Thing main logo">
+            </a>
         </div>
-        <div class="container">
-            <nav class="navbar navbar-inverse">
-                <div class="navbar-collapse collapse">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = Areas.Default }, null)</li>
-                        <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
-                        <li>@Html.ActionLink("Articles", "All", Controllers.Articles, new { area = Areas.Default }, null)</li>
-                        <li>@Html.ActionLink("Map", "ExploreMap", Controllers.Articles, new { area = Areas.Default }, null)</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                Explore <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, new { @class = "text-center" })</li>
+                                <li>@Html.ActionLink("Articles", "All", Controllers.Articles, new { area = Areas.Default }, new { @class = "text-center" })</li>
+                                <li>@Html.ActionLink("Map", "ExploreMap", Controllers.Articles, new { area = Areas.Default }, new { @class = "text-center" })</li>
+                            </ul>
+                        </li>
                         @if (User.IsInRole("User") || User.IsInRole("Administrator"))
                         {
                             <li>@Html.ActionLink("Contribute", Actions.Index, Controllers.Home, new { area = Areas.Contribution }, null)</li>
@@ -38,10 +52,12 @@
                         }
                     </ul>
                     @Html.Partial("_LoginPartial")
-                </div>
-            </nav>
-        </div>
+                </div><!--/.nav-collapse -->
+            </div><!--/.container-fluid -->
+        </nav>
     </header><!-- header role="banner" -->
+
+    @*<img src="/Content/Pictures/Separator.jpg" alt="Alternate Text" />*@
 
     <div class="container body-content">
         @RenderSection("leftPanel", required: false)
