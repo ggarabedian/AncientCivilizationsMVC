@@ -13,7 +13,6 @@
 
     using Data.Models;
     using Models.Account;
-    using Data.Repositories;
 
     [Authorize]
     public class AccountController : BaseController
@@ -21,15 +20,14 @@
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IAncientCivilizationsData data)
-            : base(data)
+        public AccountController()
+        {
+        }
+
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
-        }
-
-        public AccountController(IAncientCivilizationsData data) : base(data)
-        {
         }
 
         public ApplicationSignInManager SignInManager

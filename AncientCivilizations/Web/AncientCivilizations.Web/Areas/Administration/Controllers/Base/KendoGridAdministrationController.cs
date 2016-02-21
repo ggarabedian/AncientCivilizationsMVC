@@ -14,9 +14,11 @@
     public abstract class KendoGridAdministrationController : BaseController
     {
         public KendoGridAdministrationController(IAncientCivilizationsData data)
-            : base(data)
         {
+            this.Data = data;
         }
+
+        protected IAncientCivilizationsData Data { get; set; }
 
         protected abstract IEnumerable GetData();
 

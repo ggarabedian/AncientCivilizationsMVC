@@ -9,9 +9,11 @@
     public abstract class ContributionsController : BaseController
     {
         public ContributionsController(IAncientCivilizationsData data)
-            : base(data)
         {
+            this.Data = data;
         }
+
+        protected IAncientCivilizationsData Data { get; set; }
 
         [OutputCache(Duration = 30 * 60)]
         public ActionResult GetCategories()

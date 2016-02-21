@@ -9,12 +9,12 @@
 
     public abstract class BaseController : Controller
     {
-        public BaseController(IAncientCivilizationsData data)
-        {
-            this.Data = data;
-        }
+        //public BaseController(IAncientCivilizationsData data)
+        //{
+        //    this.Data = data;
+        //}
 
-        protected IAncientCivilizationsData Data { get; set; }
+        //protected IAncientCivilizationsData Data { get; set; }
 
         protected IMapper Mapper
         {

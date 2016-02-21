@@ -15,13 +15,15 @@
 
         private ArticlesController controller;
         private Mock<IArticleServices> articlesServiceMock;
-        private Mock<IAncientCivilizationsData> dataMock;
+        private Mock<ICivilizationServices> civilizationsServiceMock;
+        //private Mock<IAncientCivilizationsData> dataMock;
 
         [SetUp]
         public void Setup()
         {
-            this.dataMock = new Mock<IAncientCivilizationsData>();
-            this.articlesServiceMock = new Mock<IArticleServices>();           
+            //this.dataMock = new Mock<IAncientCivilizationsData>();
+            this.articlesServiceMock = new Mock<IArticleServices>();      
+            this.civilizationsServiceMock = new Mock<ICivilizationServices>();
         }
 
         [Test]
@@ -30,7 +32,7 @@
             this.articlesServiceMock.Setup(x => x.GetById(It.IsAny<int>()))
                                .Returns(new DetailedArticleViewModel() { Title = ArticleTitle, Content = ArticleContent });
 
-            this.controller = new ArticlesController(this.dataMock.Object, this.articlesServiceMock.Object);
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
 
             this.controller.WithCallTo(x => x.Detailed(5))
                            .ShouldRenderView("Detailed")

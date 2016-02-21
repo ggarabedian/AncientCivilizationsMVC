@@ -9,8 +9,7 @@
     {
         private IPictureServices pictureServices;
 
-        public PicturesController(IAncientCivilizationsData data, IPictureServices pictureServices)
-            : base(data)
+        public PicturesController(IPictureServices pictureServices)
         {
             this.pictureServices = pictureServices;
         }

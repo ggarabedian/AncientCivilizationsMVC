@@ -15,7 +15,7 @@
     {
         private IUserProfileServices userServices;
 
-        public UserProfileController(IAncientCivilizationsData data, IUserProfileServices userServices) : base(data)
+        public UserProfileController(IUserProfileServices userServices)
         {
             this.userServices = userServices;
         }

@@ -3,7 +3,6 @@
     using System.Linq;
     using System.Web.Mvc;
 
-    using Data.Repositories;
     using Models.Public.Articles;
     using PagedList;
     using Services.Contracts;
@@ -11,11 +10,12 @@
     public class ArticlesController : BaseController
     {
         private IArticleServices articlesServices;
+        private ICivilizationServices civilizationServices;
 
-        public ArticlesController(IAncientCivilizationsData data, IArticleServices articlesServices) 
-            : base(data)
+        public ArticlesController(IArticleServices articlesServices, ICivilizationServices civilizationServices) 
         {
             this.articlesServices = articlesServices;
+            this.civilizationServices = civilizationServices;
         }
 
         public ActionResult All(string orderBy, string currentFilter, string searchString, int? page, string civilizationFilter)
@@ -56,8 +56,7 @@
         [NonAction]
         private SelectList GetCivilizations(string civilizationFilter)
         {
-            var civilizations = this.Data
-                                    .Civilizations
+            var civilizations = this.civilizationServices
                                     .All()
                                     .Select(c => new SelectListItem()
                                     {

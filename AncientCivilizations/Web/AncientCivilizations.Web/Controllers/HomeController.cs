@@ -11,8 +11,7 @@
         private IHomeServices homeServices;
         private ICacheService cacheServices;
 
-        public HomeController(IAncientCivilizationsData data, IHomeServices homeServices, ICacheService cacheServices)
-            : base(data)
+        public HomeController(IHomeServices homeServices, ICacheService cacheServices)
         {
             this.homeServices = homeServices;
             this.cacheServices = cacheServices;
