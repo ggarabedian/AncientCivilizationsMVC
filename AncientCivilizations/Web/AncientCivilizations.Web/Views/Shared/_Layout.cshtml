@@ -20,13 +20,14 @@
                 </a>
             </div>
         </div>
-        <nav class="navbar navbar-inverse">
-            <div class="container">
+        <div class="container">
+            <nav class="navbar navbar-inverse">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = Areas.Default }, null)</li>
                         <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
                         <li>@Html.ActionLink("Articles", "All", Controllers.Articles, new { area = Areas.Default }, null)</li>
+                        <li>@Html.ActionLink("Map", "ExploreMap", Controllers.Articles, new { area = Areas.Default }, null)</li>
                         @if (User.IsInRole("User") || User.IsInRole("Administrator"))
                         {
                             <li>@Html.ActionLink("Contribute", Actions.Index, Controllers.Home, new { area = Areas.Contribution }, null)</li>
@@ -38,14 +39,14 @@
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header><!-- header role="banner" -->
 
     <div class="container body-content">
-            @RenderSection("leftPanel", required: false)
-            @RenderBody()
-            @RenderSection("rightPanel", required: false)
+        @RenderSection("leftPanel", required: false)
+        @RenderBody()
+        @RenderSection("rightPanel", required: false)
         @*<hr />
             <footer>
                 <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

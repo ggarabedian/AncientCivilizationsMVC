@@ -3,6 +3,7 @@
     using System.Linq;
     using System.Web.Mvc;
 
+    using Common.GlobalConstants;
     using Models.Public.Articles;
     using PagedList;
     using Services.Contracts;
@@ -29,15 +30,13 @@
                 searchString = currentFilter;
             }
 
-            // TODO: Extract constants
-            int pageSize = 2;
             int pageNumber = (page ?? 1);
 
             var articles = this.articlesServices.AllBySearchQuery(searchString, orderBy, civilizationFilter);
 
             var viewModel = new AllArticlesViewModel()
             {
-                Articles = articles.ToPagedList(pageNumber, pageSize),
+                Articles = articles.ToPagedList(pageNumber, Common.AllArticlesPageSize),
                 CurrentOrder = orderBy,
                 CurrentFilter = searchString,
                 CivilizationFilter = civilizationFilter,
@@ -51,6 +50,12 @@
         {
             var article = this.articlesServices.GetById(id);
             return View(article);
+        }
+
+        [HttpGet]
+        public ActionResult ExploreMap()
+        {
+            return this.View();
         }
 
         [NonAction]

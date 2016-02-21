@@ -260,9 +260,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\arrows.png" />
-    <Content Include="Content\images\cross.png" />
-    <Content Include="Content\images\pattern.png" />
     <Content Include="Content\Kendo\Black\editor.png" />
     <Content Include="Content\Kendo\Black\imagebrowser.png" />
     <Content Include="Content\Kendo\Black\indeterminate.gif" />
@@ -721,11 +718,12 @@
     <Content Include="Views\Shared\_ArticlesPreviewPartial.cshtml" />
     <Content Include="Views\UserProfile\_UserProfileArticleContributionsPartial.cshtml" />
     <Content Include="Views\UserProfile\_UserProfilePictureContributionsPartial.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Articles\ExploreMap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Pictures\" />
-    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
