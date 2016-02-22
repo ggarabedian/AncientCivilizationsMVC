@@ -11,7 +11,6 @@
         private const string ArticleTitle = "Random Article Title";
         private const string ArticleContent = "Random Article Content";
 
-        private ArticlesController controller;
         private Mock<IAncientCivilizationsData> dataMock;
 
         [SetUp]

@@ -2,10 +2,10 @@
 {
     using System.Linq;
 
-    using Data.Models;
+    using Models.Administration;
 
     public interface ICivilizationServices
     {
-        IQueryable<Civilization> All();
+        IQueryable<CivilizationViewModel> All();
     }
 }

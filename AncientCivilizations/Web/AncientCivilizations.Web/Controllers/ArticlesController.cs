@@ -1,6 +1,7 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
 
     using Common.GlobalConstants;
@@ -9,7 +10,7 @@
     using Models.Public.Articles;
     using PagedList;
     using Services.Contracts;
-    using System.Web;
+
     public class ArticlesController : BaseController
     {
         private IArticleServices articlesServices;
@@ -32,7 +33,7 @@
                 searchString = currentFilter;
             }
 
-            int pageNumber = (page ?? 1);
+            int pageNumber = page ?? 1;
 
             var articles = this.articlesServices.AllBySearchQuery(searchString, orderBy, civilizationFilter);
 
@@ -45,7 +46,7 @@
                 Civilizations = this.GetCivilizations(civilizationFilter)
             };
 
-            return View(viewModel);
+            return this.View(viewModel);
         }
 
         public ActionResult Detailed(int? id)
@@ -62,13 +63,13 @@
                 throw new HttpException(400, "No such article exists in the database");
             }
 
-            return View(article);
+            return this.View(article);
         }
 
         [HttpGet]
         public ActionResult ExploreMap()
         {
-            var civilizations = this.civilizationServices.All().To<CivilizationsViewModel>().ToList();
+            var civilizations = this.civilizationServices.All().ToList();
             return this.View(civilizations);
         }
 

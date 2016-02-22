@@ -32,7 +32,7 @@
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, PictureViewModel model)
         {
-            base.Delete<Picture>(model);
+            this.Delete<Picture>(model);
             return this.GridOperation(model, request);
         }
 

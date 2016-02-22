@@ -4,13 +4,12 @@
     using System.Linq;
     using System.Web;
 
-    using Data.Models;
     using Models.Contribution;
     using Models.Public;
 
     public interface IPictureServices
     {
-        IQueryable<Picture> All();
+        IQueryable<PicturesViewModel> All();
 
         IEnumerable<ContributePictureViewModel> AllBySearchQueryToAddToArticle(string searchQuery, int take = 50);
 

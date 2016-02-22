@@ -32,7 +32,7 @@
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, UserViewModel model)
         {
-            base.Delete<User>(model);
+            this.Delete<User>(model);
 
             return this.GridOperation(model, request);
         }
@@ -41,7 +41,6 @@
         {
             return this.Data.Users.All().To<UserViewModel>();
         }
-
 
         protected override object GetById(object id)
         {

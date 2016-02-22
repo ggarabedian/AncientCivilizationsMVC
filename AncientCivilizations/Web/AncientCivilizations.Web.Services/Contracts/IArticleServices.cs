@@ -9,7 +9,7 @@
 
     public interface IArticleServices
     {
-        IQueryable<Article> All();
+        IQueryable<ArticleViewModel> All();
 
         IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter);
 

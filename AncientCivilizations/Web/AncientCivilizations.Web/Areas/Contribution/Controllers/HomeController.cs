@@ -2,16 +2,10 @@
 {
     using System.Web.Mvc;
 
-    using Base;
-    using Data.Repositories;
+    using Web.Controllers;
 
-    public class HomeController : ContributionsController
+    public class HomeController : BaseController
     {
-        public HomeController(IAncientCivilizationsData data) 
-            : base(data)
-        {
-        }
-
         public ActionResult Index()
         {
             return this.View();

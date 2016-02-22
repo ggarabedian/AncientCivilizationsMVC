@@ -26,7 +26,6 @@
         [UIHint("LocationsDropdown")]
         public int LocationId { get; set; }
 
-        
         [Required]
         [UIHint("CivilizationsDropdown")]
         public int CivilizationId { get; set; }

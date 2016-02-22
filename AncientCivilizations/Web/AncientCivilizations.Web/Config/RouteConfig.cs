@@ -13,8 +13,7 @@
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "AncientCivilizations.Web.Controllers" }
-            );
+                namespaces: new[] { "AncientCivilizations.Web.Controllers" });
         }
     }
 }

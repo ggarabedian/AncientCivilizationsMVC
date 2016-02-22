@@ -6,8 +6,8 @@
     using Base;
     using Data.Models;
     using Data.Repositories;
-    using Models.Administration;
     using Kendo.Mvc.UI;
+    using Models.Administration;
 
     public class CivilizationsController : KendoGridAdministrationController
     {
@@ -18,7 +18,7 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -43,7 +43,7 @@
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, CivilizationViewModel model)
         {
-            base.Delete<Civilization>(model);
+            this.Delete<Civilization>(model);
 
             return this.GridOperation(model, request);
         }

@@ -1,5 +1,4 @@
-/*
-// Uncomment this class to provide custom runtime policy for Glimpse
+/* Uncomment this class to provide custom runtime policy for Glimpse
 
 using Glimpse.AspNet.Extensions;
 using Glimpse.Core.Extensibility;
@@ -28,5 +27,4 @@ namespace AncientCivilizations.Web
             get { return RuntimeEvent.EndRequest | RuntimeEvent.ExecuteResource; }
         }
     }
-}
-*/
+} */

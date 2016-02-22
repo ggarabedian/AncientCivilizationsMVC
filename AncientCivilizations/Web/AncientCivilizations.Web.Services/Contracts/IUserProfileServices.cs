@@ -4,12 +4,11 @@
     using System.Linq;
     using System.Web;
 
-    using Data.Models;
     using Models.Public;
 
     public interface IUserProfileServices
     {
-        IQueryable<User> All();
+        IQueryable<UserProfileViewModel> All();
 
         UserProfileViewModel GetById(string id);
 

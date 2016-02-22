@@ -19,9 +19,9 @@
 
         public ActionResult Index()
         {
-            //var data = this.cacheServices.Get("HomePageData", () => this.homeServices.GetHomePageData(), 30 * 60);
+            //// var data = this.cacheServices.Get("HomePageData", () => this.homeServices.GetHomePageData(), 30 * 60);
             var data = this.homeServices.GetHomePageData();
-            return View(data);
+            return this.View(data);
         }
     }
 }

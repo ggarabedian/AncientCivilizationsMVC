@@ -4,10 +4,9 @@
     using System.Data.Entity;
     using System.Web.Mvc;
 
+    using Data.Repositories;
     using Kendo.Mvc.Extensions;
     using Kendo.Mvc.UI;
-
-    using Data.Repositories;
     using Web.Controllers;
 
     [Authorize(Roles = "Administrator")]
@@ -19,10 +18,6 @@
         }
 
         protected IAncientCivilizationsData Data { get; set; }
-
-        protected abstract IEnumerable GetData();
-
-        protected abstract object GetById(object id);
 
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
@@ -38,9 +33,9 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var dbModel = Mapper.Map<T>(model);
-                this.ChangeEntityStateAndSave(dbModel, EntityState.Added);
-                return dbModel;
+                var createdModel = Mapper.Map<T>(model);
+                this.ChangeEntityStateAndSave(createdModel, EntityState.Added);
+                return createdModel;
             }
 
             return null;
@@ -51,10 +46,10 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var dbModel = this.GetById(id);
-                Mapper.Map(model, dbModel);
-                this.ChangeEntityStateAndSave(dbModel, EntityState.Modified);
-                return dbModel;
+                var modelToUpdate = this.GetById(id);
+                Mapper.Map(model, modelToUpdate);
+                this.ChangeEntityStateAndSave(modelToUpdate, EntityState.Modified);
+                return modelToUpdate;
             }
 
             return null;
@@ -74,6 +69,10 @@
         {
             return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
         }
+
+        protected abstract IEnumerable GetData();
+
+        protected abstract object GetById(object id);
 
         private void ChangeEntityStateAndSave(object model, EntityState state)
         {

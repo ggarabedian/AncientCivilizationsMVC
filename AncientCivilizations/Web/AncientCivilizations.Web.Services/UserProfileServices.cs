@@ -19,10 +19,9 @@
         {
         }
 
-        public IQueryable<User> All()
+        public IQueryable<UserProfileViewModel> All()
         {
-            return this.Data.Users.All();
-
+            return this.Data.Users.All().To<UserProfileViewModel>();
         }
 
         public UserProfileViewModel GetById(string id)

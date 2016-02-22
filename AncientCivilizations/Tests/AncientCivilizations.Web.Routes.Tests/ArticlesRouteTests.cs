@@ -3,8 +3,8 @@
     using System.Web.Routing;
 
     using Controllers;
-    using NUnit.Framework;
     using MvcRouteTester;
+    using NUnit.Framework;
 
     public class ArticlesRouteTests
     {

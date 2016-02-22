@@ -3,11 +3,10 @@
     using System.Collections;
     using System.Web.Mvc;
 
-    using Kendo.Mvc.UI;
-
     using Base;
     using Data.Models;
     using Data.Repositories;
+    using Kendo.Mvc.UI;
     using Models.Administration;
 
     public class LocationsController : KendoGridAdministrationController
@@ -44,7 +43,7 @@
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, LocationViewModel model)
         {
-            base.Delete<Location>(model);
+            this.Delete<Location>(model);
 
             return this.GridOperation(model, request);
         }

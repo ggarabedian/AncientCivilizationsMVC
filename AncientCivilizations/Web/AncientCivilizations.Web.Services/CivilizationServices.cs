@@ -3,8 +3,9 @@
     using System.Linq;
 
     using Base;
-    using Data.Models;
     using Data.Repositories;
+    using Infrastructure.Mapping;
+    using Models.Administration;
     using Services.Contracts;
 
     public class CivilizationServices : BaseServices, ICivilizationServices
@@ -14,9 +15,9 @@
         {
         }
 
-        public IQueryable<Civilization> All()
+        public IQueryable<CivilizationViewModel> All()
         {
-            return this.Data.Civilizations.All();
+            return this.Data.Civilizations.All().To<CivilizationViewModel>();
         }
     }
 }

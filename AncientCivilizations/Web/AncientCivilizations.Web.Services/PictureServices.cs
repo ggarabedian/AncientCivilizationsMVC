@@ -10,8 +10,8 @@
     using Data.Repositories;
     using Infrastructure.Helpers;
     using Infrastructure.Mapping;
-    using Models.Public;
     using Models.Contribution;
+    using Models.Public;
 
     public class PictureServices : BaseServices, IPictureServices
     {
@@ -20,9 +20,9 @@
         {
         }
 
-        public IQueryable<Picture> All()
+        public IQueryable<PicturesViewModel> All()
         {
-            return this.Data.Pictures.All();
+            return this.Data.Pictures.All().To<PicturesViewModel>();
         }
 
         public IEnumerable<ContributePictureViewModel> AllBySearchQueryToAddToArticle(string searchQuery, int take = 40)

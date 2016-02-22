@@ -17,7 +17,7 @@
         public ActionResult All(string searchQuery)
         {
             var pictures = this.pictureServices.AllBySearchQuery(searchQuery);
-            return View(pictures);
+            return this.View(pictures);
         }
 
         public ActionResult Detailed(int? id)
@@ -29,7 +29,7 @@
                 throw new HttpException(400, "No such item exist in the database");
             }
 
-            return View(picture);
+            return this.View(picture);
         }
     }
 }

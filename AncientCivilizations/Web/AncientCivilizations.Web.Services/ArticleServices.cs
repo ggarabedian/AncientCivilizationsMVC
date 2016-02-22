@@ -21,9 +21,9 @@
         {
         }
 
-        public IQueryable<Article> All()
+        public IQueryable<ArticleViewModel> All()
         {
-            return this.Data.Articles.All();
+            return this.Data.Articles.All().To<ArticleViewModel>();
         }
 
         public IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter)

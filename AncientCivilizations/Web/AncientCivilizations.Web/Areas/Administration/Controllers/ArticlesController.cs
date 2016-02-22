@@ -3,13 +3,12 @@
     using System.Collections;
     using System.Web.Mvc;
 
-    using Kendo.Mvc.UI;
-    using Microsoft.AspNet.Identity;
-
     using Base;
     using Data.Models;
     using Data.Repositories;
     using Infrastructure.Mapping;
+    using Kendo.Mvc.UI;
+    using Microsoft.AspNet.Identity;
     using Models.Administration;
 
     public class ArticlesController : KendoGridAdministrationController
@@ -39,7 +38,7 @@
         [HttpPost]
         public ActionResult Destroy([DataSourceRequest]DataSourceRequest request, ArticlesViewModel model)
         {
-            base.Delete<Article>(model);
+            this.Delete<Article>(model);
 
             return this.GridOperation(model, request);
         }
