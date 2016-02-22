@@ -65,7 +65,7 @@
             return viewModel;
         }
 
-        public DetailedArticleViewModel GetById(int id)
+        public DetailedArticleViewModel GetById(int? id)
         {
             var article = this.Data.Articles.GetById(id);
             var viewModel = this.Mapper.Map<DetailedArticleViewModel>(article);

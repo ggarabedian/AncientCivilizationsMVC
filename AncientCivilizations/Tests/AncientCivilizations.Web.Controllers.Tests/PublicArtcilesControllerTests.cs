@@ -1,6 +1,7 @@
 ﻿namespace AncientCivilizations.Web.Controllers.Tests
 {
     using System.Collections.Generic;
+    using System.Web;
 
     using Models.Public;
     using Moq;
@@ -21,7 +22,7 @@
         [SetUp]
         public void Setup()
         {
-            this.articlesServiceMock = new Mock<IArticleServices>();      
+            this.articlesServiceMock = new Mock<IArticleServices>();
             this.civilizationsServiceMock = new Mock<ICivilizationServices>();
         }
 
@@ -77,6 +78,38 @@
                                     Assert.AreEqual(ArticleTitle, viewModel.Title);
                                     Assert.AreEqual(ArticleContent, viewModel.Content);
                                 }).AndNoModelErrors();
+        }
+
+        [Test]
+        public void DetailShouldThrowWhenIdIsNull()
+        {
+            this.articlesServiceMock.Setup(x => x.GetById(It.IsAny<int>()))
+                               .Returns(new DetailedArticleViewModel()
+                               {
+                                   Title = ArticleTitle,
+                                   Content = ArticleContent
+                               });
+
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+
+            var ex = Assert.Throws<HttpException>(() => this.controller.WithCallTo(x => x.Detailed(null)));
+            Assert.IsTrue(ex.Message.Contains("Detailed article requires id"));
+        }
+
+        [Test]
+        public void DetailShoudThrowWhenArticleWithSuchIdDoesNotExist()
+        {
+            this.articlesServiceMock.Setup(x => x.GetById(5))
+                               .Returns(new DetailedArticleViewModel()
+                               {
+                                   Title = ArticleTitle,
+                                   Content = ArticleContent
+                               });
+
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+
+            var ex = Assert.Throws<HttpException>(() => this.controller.WithCallTo(x => x.Detailed(6)));
+            Assert.IsTrue(ex.Message.Contains("No such article exists in the database"));
         }
     }
 }

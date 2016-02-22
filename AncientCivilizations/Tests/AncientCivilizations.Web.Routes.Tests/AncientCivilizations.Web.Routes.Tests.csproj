@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministrationRouteTests.cs" />
+    <Compile Include="ArticlesRouteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Web\AncientCivilizations.Web.Models\AncientCivilizations.Web.Models.csproj">
+      <Project>{f35ca2e8-6189-49f0-90b4-70fee201bf8e}</Project>
+      <Name>AncientCivilizations.Web.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Web\AncientCivilizations.Web\AncientCivilizations.Web.csproj">
       <Project>{6f1b07e4-2f6b-4201-94b9-20a4fd20cae0}</Project>
       <Name>AncientCivilizations.Web</Name>

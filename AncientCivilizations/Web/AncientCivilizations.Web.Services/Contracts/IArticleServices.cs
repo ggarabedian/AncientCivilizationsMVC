@@ -13,7 +13,7 @@
 
         IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter);
 
-        DetailedArticleViewModel GetById(int id);
+        DetailedArticleViewModel GetById(int? id);
 
         void Create(ContributeArticleViewModel model, string userId);
 

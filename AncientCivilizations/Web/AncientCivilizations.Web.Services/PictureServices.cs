@@ -25,7 +25,7 @@
             return this.Data.Pictures.All();
         }
 
-        public IEnumerable<ContributePictureViewModel> AllBySearchQueryToAddToArticle(string searchQuery, int take = 50)
+        public IEnumerable<ContributePictureViewModel> AllBySearchQueryToAddToArticle(string searchQuery, int take = 40)
         {
             var viewModel = this.GetAllBySearchQuery(searchQuery, take)
                                 .To<ContributePictureViewModel>()
@@ -44,7 +44,7 @@
             this.Data.SaveChanges();
         }
 
-        public IEnumerable<PicturesViewModel> AllBySearchQuery(string searchQuery, int take = 50)
+        public IEnumerable<PicturesViewModel> AllBySearchQuery(string searchQuery, int take = 40)
         {
             var viewModel = this.GetAllBySearchQuery(searchQuery, take)
                                 .To<PicturesViewModel>()

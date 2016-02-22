@@ -597,6 +597,16 @@
     <Content Include="Content\Kendo\Uniform\sprite_kpi.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi_2x.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Pictures\contribute-article.jpg" />
+    <Content Include="Content\Pictures\contribute-definition.jpg" />
+    <Content Include="Content\Pictures\contribute-illustration.jpg" />
+    <Content Include="Content\Pictures\contribute-video.jpg" />
+    <Content Include="Content\Pictures\Separator.jpg" />
+    <Content Include="Content\Pictures\Site\Ancient Egypt.jpg" />
+    <Content Include="Content\Pictures\Site\Ancient Rome.jpg" />
+    <Content Include="Content\Pictures\Site\Inca.jpg" />
+    <Content Include="Content\Pictures\Site\Maya.jpg" />
+    <Content Include="Content\Pictures\world.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -650,6 +660,7 @@
     <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\CivilizationsDropdown.cshtml" />
     <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\CategoriesDropdown.cshtml" />
     <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\ArticleTitle.cshtml" />
+    <None Include="Properties\PublishProfiles\AncientCivilizations.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\kendo-form-validator.js" />
     <Content Include="Scripts\Custom\kendo-grid-rebind.js" />
@@ -728,7 +739,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Pictures\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

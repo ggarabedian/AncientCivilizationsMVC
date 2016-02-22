@@ -48,13 +48,18 @@
             return View(viewModel);
         }
 
-        public ActionResult Detailed(int id)
+        public ActionResult Detailed(int? id)
         {
+            if (id == null)
+            {
+                throw new HttpException(400, "Detailed article requires id");
+            }
+
             var article = this.articlesServices.GetById(id);
 
             if (article == null)
             {
-                throw new HttpException(400, "Brr");
+                throw new HttpException(400, "No such article exists in the database");
             }
 
             return View(article);
