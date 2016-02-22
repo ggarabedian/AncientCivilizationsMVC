@@ -1,7 +1,32 @@
-﻿<div class="map-container">
+﻿@model IEnumerable<AncientCivilizations.Web.Models.Public.CivilizationsViewModel>
+
+<div class="map-container">
     <img class="map" src="/Content/Pictures/world.jpg" />
     <div class="map-points">
-        @Html.ActionLink("o", "All", null, new { @class = "map-point"})
+        @foreach (var item in Model)
+        {
+            <div data-civ="@item.Name" class="my-tooltip my-tooltip-effect-1 map-point">
+                <div class="my-tooltip-item"></div>
+                <span class="my-tooltip-content clearfix">
+                    <img src="~/Content/Pictures/Site/@(item.Name).jpg" />
+                    <span class="my-tooltip-header">@item.Name</span>
+                    <span class="my-tooltip-text">
+                        <span>@item.Description</span>
+                        @Html.ActionLink("browse articles", "All", new { civilizationFilter = @item.Id.ToString() }, new { @class = "map-point a-more" })
+                    </span>
+                </span>
+            </div>
+        }
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('*[data-civ="Maya"]').css({top: 46 +"%", left: 20 + "%"});
+        $('*[data-civ="Ancient Egypt"]').css({ top: 42 + "%", left: 54 + "%" });
+        $('*[data-civ="Inca"]').css({ top: 23 + "%", left: 12 + "%" });
+        $('*[data-civ="Ancient Rome"]').css({ top: 28 + "%", left: 50 + "%" });
+    });
+</script>
+
 

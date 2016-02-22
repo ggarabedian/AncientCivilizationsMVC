@@ -4,10 +4,12 @@
     using System.Web.Mvc;
 
     using Common.GlobalConstants;
+    using Infrastructure.Mapping;
+    using Models.Public;
     using Models.Public.Articles;
     using PagedList;
     using Services.Contracts;
-
+    using System.Web;
     public class ArticlesController : BaseController
     {
         private IArticleServices articlesServices;
@@ -49,13 +51,20 @@
         public ActionResult Detailed(int id)
         {
             var article = this.articlesServices.GetById(id);
+
+            if (article == null)
+            {
+                throw new HttpException(400, "Brr");
+            }
+
             return View(article);
         }
 
         [HttpGet]
         public ActionResult ExploreMap()
         {
-            return this.View();
+            var civilizations = this.civilizationServices.All().To<CivilizationsViewModel>().ToList();
+            return this.View(civilizations);
         }
 
         [NonAction]

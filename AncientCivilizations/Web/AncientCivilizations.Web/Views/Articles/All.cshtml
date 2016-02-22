@@ -29,11 +29,11 @@
         <div class="dropdown">
             <a class="btn btn-navigation dropdown-toggle" data-toggle="dropdown">
                 @if (@Model.CivilizationFilter == null || @Model.CivilizationFilter == "All")
-            {
+                {
                     @:All Civilizations
-        }
-            else
-            {
+                }
+                else
+                {
                     @Model.Civilizations.FirstOrDefault(c => c.Value == @Model.CivilizationFilter).Text
                 }
                 <span class="glyphicon glyphicon-chevron-down dropdown-gliph"></span>
@@ -44,7 +44,7 @@
                 </li>
 
                 @foreach (var item in @Model.Civilizations)
-            {
+                {
                     <li>
                         @Html.ActionLink(@item.Text, "All", new { civilizationFilter = @item.Value, orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter })
                     </li>

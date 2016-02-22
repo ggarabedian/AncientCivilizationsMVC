@@ -69,7 +69,11 @@
         {
             var article = this.Data.Articles.GetById(id);
             var viewModel = this.Mapper.Map<DetailedArticleViewModel>(article);
-            viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
+
+            if (viewModel != null)
+            {
+                viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
+            }
 
             return viewModel;
         }

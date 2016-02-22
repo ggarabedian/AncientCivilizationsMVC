@@ -1,8 +1,8 @@
 ﻿namespace AncientCivilizations.Web.Controllers
 {
+    using System.Web;
     using System.Web.Mvc;
 
-    using Data.Repositories;
     using Services.Contracts;
 
     public class PicturesController : BaseController
@@ -23,6 +23,12 @@
         public ActionResult Detailed(int? id)
         {
             var picture = this.pictureServices.GetById(id);
+
+            if (picture == null)
+            {
+                throw new HttpException(400, "No such item exist in the database");
+            }
+
             return View(picture);
         }
     }
