@@ -9,6 +9,7 @@
     </h5>
     <div>
         @Html.EditorFor(m => m.FullName)
+        @Html.ValidationMessageFor(m => m.FullName)
     </div>
 </div>
 <div class="row">
@@ -20,6 +21,7 @@
     </h5>
     <div>
         @Html.TextAreaFor(m => m.Summary, new { rows = "6", cols = "80", id = "ta-user-settings" })
+        @Html.ValidationMessageFor(m => m.Summary)
     </div>
 </div>
 <div class="row">
@@ -31,11 +33,12 @@
     </h5>
     <div>
         @Html.TextAreaFor(m => m.Biography, new { rows = "10", cols = "80", id = "ta-user-settings" })
+        @Html.ValidationMessageFor(m => m.Biography)
     </div>
 </div>
 <div class="row">
     <h3>
-        @Html.LabelFor(m => m.Photo)
+        @Html.LabelFor(m => m.Avatar)
     </h3>
     <h5>
         Please upload a photo of yourself.
@@ -55,5 +58,6 @@
     </h5>
     <div>
         @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
     </div>
 </div>

@@ -6,7 +6,6 @@
 
     using Base;
     using Contracts;
-    using Data.Models;
     using Data.Repositories;
     using Infrastructure.Helpers;
     using Infrastructure.Mapping;
@@ -66,13 +65,17 @@
 
         public void UpdateUserProfile(UserProfileViewModel model, IEnumerable<HttpPostedFileBase> images)
         {
-            // TODO: Add ModelState validation
             var user = this.Data.Users.GetById(model.Id);
+            var userAvatar = user.Avatar;
             this.Mapper.Map(model, user);
 
             if (images != null)
             {
                 user.Avatar = ImageEditor.ResizeImageAndConvertToBitArray(images);
+            }
+            else
+            {
+                user.Avatar = userAvatar;
             }
 
             this.Data.Users.SaveChanges();

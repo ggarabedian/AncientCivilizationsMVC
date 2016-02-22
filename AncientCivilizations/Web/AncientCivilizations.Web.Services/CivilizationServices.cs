@@ -5,7 +5,7 @@
     using Base;
     using Data.Repositories;
     using Infrastructure.Mapping;
-    using Models.Administration;
+    using Models.Public;
     using Services.Contracts;
 
     public class CivilizationServices : BaseServices, ICivilizationServices

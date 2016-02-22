@@ -53,28 +53,6 @@ p {
 
 /*used in the entire project*/
 
-/*#logoutForm a:hover{
-    background-color: transparent;
-}
-
-.btn-user-navbar {
-    font-size: 1.1em;
-    color: #B52600;
-    border: 2px solid #B52600;
-    border-radius: 50px;
-    padding: 10px;
-    background-color: white;
-}
-
-    .btn-user-navbar:hover {
-        font-size: 1.1em;
-        color: white;
-        border: 2px solid #B52600;
-        border-radius: 50px;
-        padding: 10px;
-        background-color: #B52600;
-    }*/
-
 .btn-navigation {
     display: block;
     margin-bottom: 10px;
@@ -516,49 +494,45 @@ p {
 }
 
 /* All Articles Page*/
-#all-articles-container {
+#all-articles-container .article-item-container {
+    margin-bottom: 40px;
+    padding: 20px 60px;
+    border: 1px solid #F5F5F5 !important;
+    box-shadow: 0 7px 10px -10px #555555;
 }
 
-    #all-articles-container .article-item-container {
-        margin-bottom: 40px;
-        padding: 20px 60px;
-        border: 1px solid #F5F5F5 !important;
-        box-shadow: 0 7px 10px -10px #555555;
+    #all-articles-container .article-item-container .home-article-header-img {
+        border: 4px solid #EEE;
+        max-width: 85%;
+        box-shadow: 0 7px 15px -6px #3a3a3a;
+        margin-left: -20px;
     }
 
-        #all-articles-container .article-item-container .home-article-header-img {
-            border: 4px solid #EEE;
-            max-width: 85%;
-            box-shadow: 0 7px 15px -6px #3a3a3a;
-            margin-left: -20px;
+    #all-articles-container .article-item-container .home-article-user-image {
+        margin-bottom: 20px;
+    }
+
+    #all-articles-container .article-item-container .a-more {
+        margin-top: 20px;
+        margin-right: -45px;
+        padding: 4px 15px;
+        font-weight: bold;
+        background: #B52600;
+        text-align: center;
+        color: white;
+        font-style: italic;
+    }
+
+        #all-articles-container .article-item-container .a-more:hover {
+            background: white;
+            color: #B52600;
         }
 
-        #all-articles-container .article-item-container .home-article-user-image {
-            margin-bottom: 20px;
-        }
+    #all-articles-container .article-item-container .home-article-header h2 {
+        margin-top: 5px;
+    }
 
-        #all-articles-container .article-item-container .a-more {
-            margin-top: 20px;
-            margin-right: -45px;
-            padding: 4px 15px;
-            font-weight: bold;
-            background: #B52600;
-            text-align: center;
-            color: white;
-            font-style: italic;
-        }
-
-            #all-articles-container .article-item-container .a-more:hover {
-                background: white;
-                color: #B52600;
-            }
-
-        #all-articles-container .article-item-container .home-article-header h2 {
-            margin-top: 5px;
-        }
-
-/*contribute page start*/
-
+/* Contribute Page*/
 #contribute-home-container img {
     width: 100%;
     margin-bottom: 20px;
@@ -572,24 +546,41 @@ p {
     margin-top: 20px;
 }
 
-/*detailed article start*/
-
-#detailed-article-user-image {
+/* Detailed Article */
+#detailed-article-author-image {
     margin-bottom: 20px;
 }
 
-.detailed-article-about-author {
+.detailed-article-author {
     border-top: 1px solid #e4ded7;
     margin-top: 40px;
 }
+
+    .detailed-article-author .detailed-article-author-summary {
+        margin-top: 20px;
+    }
+
+        .detailed-article-author .detailed-article-author-summary .detailed-article-author-name {
+            font-size: 1.3em;
+        }
+
+        .detailed-article-author .detailed-article-author-summary .detailed-article-author-summary-text {
+            
+        }
 
 .article-info {
     font-style: italic;
     color: #9C9386;
     margin-bottom: 40px;
 }
-/*image gallery start*/
 
+.user-image-summary {
+    border-radius: 50px;
+    width: 96px;
+    height: 96px;
+}
+
+/* Image Gallery*/
 #gallery-header #gallery-search {
     margin-top: 20px;
 }

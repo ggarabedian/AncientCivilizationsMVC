@@ -4,18 +4,14 @@
     using System.Web.Routing;
 
     using Areas.Contribution;
-    using Areas.Contribution.Controllers;
-    using Models.Contribution;
     using Moq;
     using MvcRouteTester;
     using NUnit.Framework;
     using Services.Contracts;
-    using TestStack.FluentMVCTesting;
 
     [TestFixture]
     public class ContributionRouteTests
     {
-        private ArticlesController controller;
         private Mock<IArticleServices> articlesServiceMock;
         private Mock<IPictureServices> pictureServicesMock;
 

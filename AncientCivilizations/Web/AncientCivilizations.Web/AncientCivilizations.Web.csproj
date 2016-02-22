@@ -601,7 +601,6 @@
     <Content Include="Content\Pictures\contribute-definition.jpg" />
     <Content Include="Content\Pictures\contribute-illustration.jpg" />
     <Content Include="Content\Pictures\contribute-video.jpg" />
-    <Content Include="Content\Pictures\Separator.jpg" />
     <Content Include="Content\Pictures\Site\Ancient Egypt.jpg" />
     <Content Include="Content\Pictures\Site\Ancient Rome.jpg" />
     <Content Include="Content\Pictures\Site\Inca.jpg" />
@@ -736,6 +735,7 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\Articles\ExploreMap.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\EditUserProfile.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CreatorImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

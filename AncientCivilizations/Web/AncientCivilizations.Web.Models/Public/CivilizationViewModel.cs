@@ -3,7 +3,7 @@
     using Data.Models;
     using Infrastructure.Mapping;
 
-    public class CivilizationsViewModel : IMapFrom<Civilization>
+    public class CivilizationViewModel : IMapFrom<Civilization>
     {
         public int Id { get; set; }
 

@@ -5,8 +5,6 @@
     using System.Web.Mvc;
 
     using Common.GlobalConstants;
-    using Infrastructure.Mapping;
-    using Models.Public;
     using Models.Public.Articles;
     using PagedList;
     using Services.Contracts;

@@ -21,7 +21,5 @@
         public string Biography { get; set; }
 
         public byte[] Avatar { get; set; }
-
-        public string Photo { get; set; }
     }
 }

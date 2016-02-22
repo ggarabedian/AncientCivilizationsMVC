@@ -5,14 +5,25 @@
 </h1>
 <div class="row">
     <div class="col-md-9">
-        <div class="detailed-article-user-image">
+        <div class="detailed-article-author-image">
             @Html.DisplayFor(m => @Model, "ArticleCreatorAndDate")
         </div>
         <div class="article-content">
             @Html.Raw(Model.Content)
         </div>
-        <div class="detailed-article-about-author">
+        <div class="detailed-article-author">
             <h3>About The Author</h3>
+            <div class="detailed-article-author-summary">
+                <div class="col-md-2 nopadding">
+                    @Html.DisplayFor(m => m.CreatorAvatar, "CreatorImage")
+                </div>
+                <div class="col-md-10 nopadding">
+                    @Html.ActionLink(@Model.CreatorName, Actions.Index, "UserProfile", new { id = Model.CreatorId }, new { @class = "detailed-article-author-name" })
+                    <div class="detailed-article-author-summary-text">
+                        @Model.CreatorSummary
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

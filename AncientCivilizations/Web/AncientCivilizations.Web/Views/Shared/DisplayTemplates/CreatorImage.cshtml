@@ -1,0 +1,12 @@
+﻿@model byte[]
+
+@{
+    var imgSrc = "";
+    if (Model != null)
+    {
+        var base64 = Convert.ToBase64String(Model);
+        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+}
+
+<img src="@imgSrc" class="user-image-summary" alt="img" />

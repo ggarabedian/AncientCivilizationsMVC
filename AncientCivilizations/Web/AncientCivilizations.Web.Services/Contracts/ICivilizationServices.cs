@@ -2,7 +2,7 @@
 {
     using System.Linq;
 
-    using Models.Administration;
+    using Models.Public;
 
     public interface ICivilizationServices
     {
