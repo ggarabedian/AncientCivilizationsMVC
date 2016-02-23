@@ -1,10 +1,10 @@
 ﻿@model AncientCivilizations.Web.Models.Contribution.ContributePictureViewModel
 
-<div class="row">
-    <h2>Submit Picture</h2>
+<div>
+    <h2 class="border-bottom">Submit Picture</h2>
 </div>
 
-<div class="row">
+<div>
     @using (Html.BeginForm("Add", Controllers.Pictures, FormMethod.Post))
     {
         @Html.AntiForgeryToken()
@@ -12,7 +12,7 @@
             @Html.LabelFor(m => m.Title)
         </div>
         <div>
-            @Html.EditorFor(m => m.Title)
+            @Html.TextBoxFor(m => m.Title, new { @class = "tb-title"})
             @Html.ValidationMessageFor(m => m.Title)
         </div>
 
@@ -20,7 +20,7 @@
                 @Html.LabelFor(m => m.Description)
             </div>
             <div>
-                @Html.TextAreaFor(m => m.Description, new { rows = "6", cols = "80", id = "ta-user-settings" })
+                @Html.TextAreaFor(m => m.Description, new { rows = "6", cols = "80", @class = "ta-description" })
                 @Html.ValidationMessageFor(m => m.Description)
             </div>
 
@@ -28,7 +28,7 @@
                 @Html.LabelFor(m => m.KeyWords)
             </div>
             <div>
-                @Html.EditorFor(m => m.KeyWords)
+                @Html.TextBoxFor(m => m.KeyWords, new { @class = "tb-keywords" })
             </div>
 
             <div>
@@ -36,32 +36,28 @@
             </div>
             <div>
                 @(Html.Kendo().DropDownListFor(m => m.CategoryId)
+                              .HtmlAttributes(new { @class = "dd-categories"})
                               .OptionLabel("Select category...")
                               .DataTextField("Name")
                               .DataValueField("Id")
                               .DataSource(source =>
                               {
-                                source.Read(read =>
-                                {
-                                    read.Action("GetCategories", Controllers.Pictures);
-                                });
+                                  source.Read(read =>
+                                  {
+                                      read.Action("GetCategories", Controllers.Pictures);
+                                  });
                               })
-                              .HtmlAttributes(new { style = "col-md-6" })
                 )
                 @Html.ValidationMessageFor(m => m.CategoryId)
             </div>
 
             <div>
-                <h3>
-                    @Html.LabelFor(m => m.Url)
-                </h3>
-                <h5>
+                <h4>
                     Please upload the image.
-                </h5>
-                <div class="col-md-4 nopadding">
+                </h4>
+                <div class="col-md-6 nopadding">
                     @(Html.Kendo().Upload()
-                    .Name("images")
-                    )
+                    .Name("images"))
                 </div>
             </div>
             <div class="placeholder">

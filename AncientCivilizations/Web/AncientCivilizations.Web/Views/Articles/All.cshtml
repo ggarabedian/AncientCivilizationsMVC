@@ -8,8 +8,10 @@
         @using (Html.BeginForm())
         {
             <p>
-                @Html.TextBox("searchString", @Model.CurrentFilter as string)
-                <input type="submit" value="Search" />
+                @Html.TextBox("searchString", @Model.CurrentFilter as string, new { @class = "tb-search"})
+                <button type="submit" class="btn btn-default btn-search">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
             </p>
         }
     </div>
