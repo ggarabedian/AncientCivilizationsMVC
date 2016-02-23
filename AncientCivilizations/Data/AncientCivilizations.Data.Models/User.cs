@@ -29,10 +29,10 @@
         [MaxLength(50)]
         public string FullName { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(800)]
         public string Summary { get; set; }
 
-        [MaxLength(700)]
+        [MaxLength(1000)]
         public string Biography { get; set; }
 
         public byte[] Avatar { get; set; }

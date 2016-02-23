@@ -45,7 +45,7 @@
             var dialog = $("#select-image").data("kendoWindow");
             dialog.refresh({
                 url: '@Url.Action("GetPictures", "Articles", new { area = Areas.Contribution })',
-                data: { query: searchQuery }
+                data: { searchQuery: searchQuery }
             }).open();
             $("#undo").hide();
         });

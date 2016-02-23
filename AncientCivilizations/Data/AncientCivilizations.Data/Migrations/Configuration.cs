@@ -14,7 +14,6 @@ namespace AncientCivilizations.Data.Migrations
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
-            //// TODO: Remove
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
@@ -40,7 +39,7 @@ namespace AncientCivilizations.Data.Migrations
 
                 var user = new User { UserName = "Admin", Email = "admin@admin.com", FullName = "Admin", CreatedOn = DateTime.Now };
 
-                var result = manager.Create(user, "admins");
+                var result = manager.Create(user, "123456");
                 if (result.Succeeded)
                 {
                     manager.AddToRole(user.Id, "Administrator");

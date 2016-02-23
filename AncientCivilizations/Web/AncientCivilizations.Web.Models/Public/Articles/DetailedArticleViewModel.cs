@@ -1,11 +1,10 @@
 ﻿namespace AncientCivilizations.Web.Models.Public
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using AutoMapper;
-
     using Data.Models;
     using Infrastructure.Mapping;
 
