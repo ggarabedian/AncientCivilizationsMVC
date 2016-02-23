@@ -9,6 +9,10 @@
             <li>
                 @Html.ActionLink(User.Identity.GetUserName(), Actions.Index, Controllers.UserProfile, new { id = User.Identity.GetUserId(), area = Areas.Default }, new { title = "Manage" })
             </li>
+            @if (User.IsInRole("Administrator"))
+            {
+                <li>@Html.ActionLink("Administration", Actions.Index, Controllers.Home, new { area = Areas.Administration }, null)</li>
+            }
             <li>
                 <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
             </li>
@@ -18,7 +22,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", Controllers.Account, new { area = Areas.Default }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", Controllers.Account, new { area = Areas.Default }, htmlAttributes: new { id = "registerLink"})</li>
         <li>@Html.ActionLink("Log in", "Login", Controllers.Account, new { area = Areas.Default }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

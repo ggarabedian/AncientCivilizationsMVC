@@ -659,6 +659,7 @@
     <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\CivilizationsDropdown.cshtml" />
     <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\CategoriesDropdown.cshtml" />
     <Content Include="Areas\Contribution\Views\Shared\EditorTemplates\ArticleTitle.cshtml" />
+    <Content Include="fonts\Delicious-Bold.otf" />
     <None Include="Properties\PublishProfiles\AncientCivilizations.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\kendo-form-validator.js" />
