@@ -14,7 +14,7 @@
                 </div>
                 <div class="row content-item-text">
                     <div id="article-content">@Html.Raw(item.Description)</div>
-                    @Html.ActionLink("[View Picture]", "Detailed", Controllers.Pictures, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                    @Html.ActionLink("view image...", "Detailed", Controllers.Pictures, new { id = item.Id, area = Areas.Default }, new { @class = "a-more" })
                 </div>
             </div>
         </div>

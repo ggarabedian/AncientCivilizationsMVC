@@ -62,7 +62,6 @@ p {
 }
 
 /* Used in the entire project*/
-
 .btn-navigation {
     display: block;
     margin-bottom: 10px;
@@ -160,6 +159,15 @@ p {
             background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.5))), #B52600;
         }
 
+.log-panel {
+    margin-top: 35px;
+}
+
+    .log-panel li a {
+        font-family: Delicious;
+        font-size: 1.3em;
+    }
+
 /* Home Page*/
 .section-header {
     margin-bottom: 25px;
@@ -170,58 +178,52 @@ p {
     line-height: 25px;
 }
 
-#latest-articles-container {
+#latest-articles-container .article-item-container {
+    margin-bottom: 40px;
+    padding: 20px 60px;
+    border: 1px solid #F5F5F5 !important;
+    box-shadow: 0 7px 10px -10px #555555;
 }
 
-    #latest-articles-container .article-item-container {
-        margin-bottom: 40px;
-        padding: 20px 60px;
-        border: 1px solid #F5F5F5 !important;
-        box-shadow: 0 7px 10px -10px #555555;
+    #latest-articles-container .article-item-container .home-article-header-img {
+        border: 4px solid #EEE;
+        max-width: 100%;
+        box-shadow: 0 7px 15px -6px #3a3a3a;
+        margin-left: -20px;
     }
 
-        #latest-articles-container .article-item-container .home-article-header-img {
-            border: 4px solid #EEE;
-            max-width: 100%;
-            box-shadow: 0 7px 15px -6px #3a3a3a;
-            margin-left: -20px;
-        }
-
-        #latest-articles-container .article-item-container .home-article-user-image {
-            margin-bottom: 20px;
-        }
-
-        #latest-articles-container .article-item-container .a-more {
-            margin-top: 20px;
-            margin-right: -45px;
-            padding: 4px 15px;
-            font-weight: bold;
-            background: #B52600;
-            text-align: center;
-            color: white;
-            font-style: italic;
-        }
-
-            #latest-articles-container .article-item-container .a-more:hover {
-                background: white;
-                color: #B52600;
-            }
-
-        #latest-articles-container .article-item-container .home-article-header h2 {
-            margin-top: 5px;
-        }
-
-#latest-images-container {
-}
-
-    #latest-images-container .latest-images {
-        border: 1px solid #E7E7E7;
-        box-shadow: 0 7px 10px -10px #555555;
-        padding: 10px;
-        max-width: 100%;
-        height: auto;
+    #latest-articles-container .article-item-container .home-article-user-image {
         margin-bottom: 20px;
     }
+
+    #latest-articles-container .article-item-container .a-more {
+        margin-top: 20px;
+        margin-right: -45px;
+        padding: 4px 15px;
+        font-weight: bold;
+        background: #B52600;
+        text-align: center;
+        color: white;
+        font-style: italic;
+    }
+
+        #latest-articles-container .article-item-container .a-more:hover {
+            background: white;
+            color: #B52600;
+        }
+
+    #latest-articles-container .article-item-container .home-article-header h2 {
+        margin-top: 5px;
+    }
+
+#latest-images-container .latest-images {
+    border: 1px solid #E7E7E7;
+    box-shadow: 0 7px 10px -10px #555555;
+    padding: 10px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
 
 .dl-horizontal dt {
     white-space: normal;
@@ -330,13 +332,13 @@ p {
         }
 
         .contributions-container .content-item .content-item-text {
-            padding: 12px;
+            padding: 20px;
         }
 
             .contributions-container .content-item .content-item-text .a-more {
                 position: absolute;
                 right: 15px;
-                bottom: 75px;
+                bottom: 45px;
                 padding: 4px 15px;
                 font-weight: bold;
                 background: #B52600;
@@ -355,6 +357,9 @@ p {
     .map-container .map {
         display: block;
         width: 100%;
+        border: 1px solid #E7E7E7;
+        box-shadow: 0 7px 10px -10px #555555;
+        padding: 10px;
     }
 
     .map-container .map-points {
@@ -592,9 +597,6 @@ p {
             font-size: 1.3em;
         }
 
-        .detailed-article-author .detailed-article-author-summary .detailed-article-author-summary-text {
-        }
-
 .article-info {
     font-style: italic;
     color: #9C9386;
@@ -606,6 +608,53 @@ p {
     width: 96px;
     height: 96px;
 }
+
+.sidebar-container {
+    margin-top: 20px;
+}
+
+    .sidebar-container .content-item {
+        position: relative;
+        border: 1px solid #F5F5F5 !important;
+        box-shadow: 0 7px 10px -10px #555555;
+        padding: 0 20px 20px 20px;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        min-height: 350px;
+    }
+
+        .sidebar-container .content-item .content-item-header {
+            margin-bottom: 10px;
+        }
+
+            .sidebar-container .content-item .content-item-header .content-item-header-img {
+                border: 4px solid #EEE;
+                max-width: 120px;
+                box-shadow: 0 7px 15px -6px #3a3a3a;
+                margin-top: -10px;
+                margin-left: -5px;
+            }
+
+        .sidebar-container .content-item .content-item-text {
+            padding: 20px;
+        }
+
+            .sidebar-container .content-item .content-item-text .sidebar-article-content {
+                overflow: hidden;
+                height: 175px;
+            }
+
+        .sidebar-container .content-item .a-more {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            padding: 4px 15px;
+            font-weight: bold;
+            background: #B52600;
+            text-align: center;
+            color: white;
+            font-style: italic;
+        }
 
 /* Image Gallery*/
 #gallery-header #gallery-search {
@@ -621,6 +670,14 @@ p {
     column-count: 4;
     column-gap: 0;
 }
+
+    #gallery-container .pictures-container .gallery-picture {
+        border: 1px solid #E7E7E7;
+        box-shadow: 0 7px 10px -10px #555555;
+        padding: 10px;
+        max-width: 100%;
+        height: auto;
+    }
 
 @media (max-width: 1000px) {
     #gallery-container {
@@ -642,11 +699,6 @@ p {
     padding: 2px;
 }
 
-    #gallery-container .pictures-container .gallery-picture {
-        width: 100%;
-        height: auto;
-    }
-
 /* Detailed Image */
 
 #detailed-picture-header {
@@ -657,6 +709,9 @@ p {
     padding-left: 30px;
     width: 70%;
     height: auto;
+    border: 1px solid #E7E7E7;
+    box-shadow: 0 7px 10px -10px #555555;
+    padding: 10px;
 }
 
 #example {

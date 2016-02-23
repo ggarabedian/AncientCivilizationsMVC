@@ -15,7 +15,7 @@
         public string Title { get; set; }
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(2000)]
         public string Description { get; set; }
 
         [Required]
@@ -34,7 +34,7 @@
         [ForeignKey("ContributorId")]
         public virtual User Contributor { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(250)]
         public string KeyWords { get; set; }
     }
 }

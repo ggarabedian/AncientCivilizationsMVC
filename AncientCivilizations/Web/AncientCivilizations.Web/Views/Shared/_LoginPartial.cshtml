@@ -5,7 +5,7 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right class="col-md-6"">
+        <ul class="nav navbar-nav navbar-right pull-right log-panel class="col-md-6"">
             <li>
                 @Html.ActionLink(User.Identity.GetUserName(), Actions.Index, Controllers.UserProfile, new { id = User.Identity.GetUserId(), area = Areas.Default }, new { title = "Manage" })
             </li>
@@ -21,7 +21,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right class="col-md-6"">
+    <ul class="nav navbar-nav navbar-right pull-right log-panel class="col-md-6"">
         <li>@Html.ActionLink("Register", "Register", Controllers.Account, new { area = Areas.Default }, htmlAttributes: new { id = "registerLink"})</li>
         <li>@Html.ActionLink("Log in", "Login", Controllers.Account, new { area = Areas.Default }, htmlAttributes: new { id = "loginLink" })</li>
     </ul>

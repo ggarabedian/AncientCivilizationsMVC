@@ -13,14 +13,19 @@
     {
         private IArticleServices articlesServices;
         private ICivilizationServices civilizationServices;
+        private ICategoryServices categoryServices;
 
-        public ArticlesController(IArticleServices articlesServices, ICivilizationServices civilizationServices) 
+        public ArticlesController(
+            IArticleServices articlesServices, 
+            ICivilizationServices civilizationServices,
+            ICategoryServices categoryServices) 
         {
             this.articlesServices = articlesServices;
             this.civilizationServices = civilizationServices;
+            this.categoryServices = categoryServices;
         }
 
-        public ActionResult All(string orderBy, string currentFilter, string searchString, int? page, string civilizationFilter)
+        public ActionResult All(string orderBy, string currentFilter, string searchString, int? page, string civilizationFilter, string categoryFilter)
         {
             if (searchString != null)
             {
@@ -33,7 +38,7 @@
 
             int pageNumber = page ?? 1;
 
-            var articles = this.articlesServices.AllBySearchQuery(searchString, orderBy, civilizationFilter);
+            var articles = this.articlesServices.AllBySearchQuery(searchString, orderBy, civilizationFilter, categoryFilter);
 
             var viewModel = new AllArticlesViewModel()
             {
@@ -41,7 +46,9 @@
                 CurrentOrder = orderBy,
                 CurrentFilter = searchString,
                 CivilizationFilter = civilizationFilter,
-                Civilizations = this.GetCivilizations(civilizationFilter)
+                Civilizations = this.GetCivilizations(civilizationFilter),
+                CategoryFilter = categoryFilter,
+                Categories = this.GetCategories(categoryFilter)
             };
 
             return this.View(viewModel);
@@ -83,6 +90,20 @@
                                     });
 
             return new SelectList(civilizations, "Value", "Text", civilizationFilter);
+        }
+
+        [NonAction]
+        private SelectList GetCategories(string categoryFilter)
+        {
+            var categories = this.categoryServices
+                                    .All()
+                                    .Select(c => new SelectListItem()
+                                    {
+                                        Text = c.Name,
+                                        Value = c.Id.ToString()
+                                    });
+
+            return new SelectList(categories, "Value", "Text", categoryFilter);
         }
     }
 }

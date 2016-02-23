@@ -3,31 +3,19 @@
 @using AncientCivilizations.Web.Models.Public;
 @using PagedList.Mvc;
 
-<div class="row">
-    <div class="col-md-4">
-        @using (Html.BeginForm())
-        {
-            <p>
-                @Html.TextBox("searchString", @Model.CurrentFilter as string, new { @class = "tb-search"})
-                <button type="submit" class="btn btn-default btn-search">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </p>
-        }
-    </div>
-
-    <div class="col-md-4">
+<div class="row nopadding">
+    <div class="col-md-3">
         @if (@Model.CurrentOrder == "Name")
         {
-            @Html.ActionLink("Order by Date", "All", new { orderBy = "Date", currentFilter = @Model.CurrentFilter, civilizationFilter = @Model.CivilizationFilter }, new { @class = "btn btn-navigation" })
+            @Html.ActionLink("Order by Date", "All", new { orderBy = "Date", currentFilter = @Model.CurrentFilter, civilizationFilter = @Model.CivilizationFilter, categoryFilter = Model.CategoryFilter }, new { @class = "btn btn-navigation" })
         }
         else
         {
-            @Html.ActionLink("Order by Name", "All", new { orderBy = "Name", currentFilter = @Model.CurrentFilter, civilizationFilter = @Model.CivilizationFilter }, new { @class = "btn btn-navigation" })
+            @Html.ActionLink("Order by Name", "All", new { orderBy = "Name", currentFilter = @Model.CurrentFilter, civilizationFilter = @Model.CivilizationFilter, categoryFilter = Model.CategoryFilter }, new { @class = "btn btn-navigation" })
         }
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="dropdown">
             <a class="btn btn-navigation dropdown-toggle" data-toggle="dropdown">
                 @if (@Model.CivilizationFilter == null || @Model.CivilizationFilter == "All")
@@ -42,17 +30,57 @@
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    @Html.ActionLink("All Civilizations", "All", new { civilizationFilter = "All", orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter })
+                    @Html.ActionLink("All Civilizations", "All", new { civilizationFilter = "All", orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter, categoryFilter = Model.CategoryFilter })
                 </li>
 
                 @foreach (var item in @Model.Civilizations)
                 {
                     <li>
-                        @Html.ActionLink(@item.Text, "All", new { civilizationFilter = @item.Value, orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter })
+                        @Html.ActionLink(@item.Text, "All", new { civilizationFilter = @item.Value, orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter, categoryFilter = Model.CategoryFilter })
                     </li>
                 }
             </ul>
         </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="dropdown">
+            <a class="btn btn-navigation dropdown-toggle" data-toggle="dropdown">
+                @if (@Model.CategoryFilter == null || @Model.CategoryFilter == "All")
+                {
+                    @:All Categories
+                }
+                else
+                {
+                    @Model.Categories.FirstOrDefault(c => c.Value == @Model.CategoryFilter).Text
+                }
+                <span class="glyphicon glyphicon-chevron-down dropdown-gliph"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    @Html.ActionLink("All Categories", "All", new { categoryFilter = "All", orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter, civilizationFilter= Model.CivilizationFilter })
+                </li>
+
+                @foreach (var item in @Model.Categories)
+                {
+                    <li>
+                        @Html.ActionLink(@item.Text, "All", new { categoryFilter = @item.Value, orderBy = @Model.CurrentOrder, currentFilter = @Model.CurrentFilter, civilizationFilter = Model.CivilizationFilter })
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Html.TextBox("searchString", @Model.CurrentFilter as string, new { @class = "tb-search" })
+                <button type="submit" class="btn btn-default btn-search">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </p>
+        }
     </div>
 </div>
 

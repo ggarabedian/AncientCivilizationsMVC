@@ -13,6 +13,10 @@
 
         public string CivilizationFilter { get; set; }
 
+        public string CategoryFilter { get; set; }
+
         public SelectList Civilizations { get; set; }
+
+        public SelectList Categories { get; set; }
     }
 }

@@ -18,27 +18,30 @@
         private ArticlesController controller;
         private Mock<IArticleServices> articlesServiceMock;
         private Mock<ICivilizationServices> civilizationsServiceMock;
+        private Mock<ICategoryServices> categoriesServiceMock;
 
         [SetUp]
         public void Setup()
         {
             this.articlesServiceMock = new Mock<IArticleServices>();
             this.civilizationsServiceMock = new Mock<ICivilizationServices>();
+            this.categoriesServiceMock = new Mock<ICategoryServices>();
+
         }
 
         [Test]
         public void AllWithoutParametersShouldRenderCorrectView()
         {
-            this.articlesServiceMock.Setup(x => x.AllBySearchQuery(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+            this.articlesServiceMock.Setup(x => x.AllBySearchQuery(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
                                .Returns(new List<ArticleViewModel>()
                                {
                                    new ArticleViewModel(),
                                    new ArticleViewModel(),
                                });
 
-            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object, this.categoriesServiceMock.Object);
 
-            this.controller.WithCallTo(x => x.All(null, null, null, null, null))
+            this.controller.WithCallTo(x => x.All(null, null, null, null, null, null))
                            .ShouldRenderView("All");
         }
 
@@ -52,7 +55,7 @@
                                    Content = ArticleContent
                                });
 
-            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object, this.categoriesServiceMock.Object);
 
             this.controller.WithCallTo(x => x.Detailed(5))
                            .ShouldRenderView("Detailed");
@@ -68,7 +71,7 @@
                                    Content = ArticleContent
                                });
 
-            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object, this.categoriesServiceMock.Object);
 
             this.controller.WithCallTo(x => x.Detailed(5))
                            .ShouldRenderView("Detailed")
@@ -90,7 +93,7 @@
                                    Content = ArticleContent
                                });
 
-            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object, this.categoriesServiceMock.Object);
 
             var ex = Assert.Throws<HttpException>(() => this.controller.WithCallTo(x => x.Detailed(null)));
             Assert.IsTrue(ex.Message.Contains("Detailed article requires id"));
@@ -106,7 +109,7 @@
                                    Content = ArticleContent
                                });
 
-            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object);
+            this.controller = new ArticlesController(this.articlesServiceMock.Object, this.civilizationsServiceMock.Object, this.categoriesServiceMock.Object);
 
             var ex = Assert.Throws<HttpException>(() => this.controller.WithCallTo(x => x.Detailed(6)));
             Assert.IsTrue(ex.Message.Contains("No such article exists in the database"));

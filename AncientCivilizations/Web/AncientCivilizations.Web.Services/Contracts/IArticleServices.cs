@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Data.Models;
     using Models.Contribution;
     using Models.Public;
 
@@ -11,7 +10,7 @@
     {
         IQueryable<ArticleViewModel> All();
 
-        IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter);
+        IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter, string categoryFilter);
 
         DetailedArticleViewModel GetById(int? id);
 

@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.Collections.Generic;
 
     using AutoMapper;
 
@@ -28,6 +29,10 @@
         public string CreatorSummary { get; set; }
 
         public string HeaderImagePath { get; set; }
+
+        public int CivilizationId { get; set; }
+
+        public IEnumerable<ArticleViewModel> FiveSimilarArticles { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

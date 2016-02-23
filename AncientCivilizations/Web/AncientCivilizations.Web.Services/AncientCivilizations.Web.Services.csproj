@@ -71,8 +71,10 @@
   <ItemGroup>
     <Compile Include="ArticleServices.cs" />
     <Compile Include="Base\BaseServices.cs" />
+    <Compile Include="CategoryServices.cs" />
     <Compile Include="CivilizationServices.cs" />
     <Compile Include="Contracts\IArticleServices.cs" />
+    <Compile Include="Contracts\ICategoryServices.cs" />
     <Compile Include="Contracts\ICivilizationServices.cs" />
     <Compile Include="Contracts\IHomeServices.cs" />
     <Compile Include="Contracts\IPictureServices.cs" />

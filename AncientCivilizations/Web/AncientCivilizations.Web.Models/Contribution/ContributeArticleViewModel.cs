@@ -15,11 +15,13 @@
 
         [Required]
         [UIHint("ArticleTitle")]
+        [MaxLength(100)]
         public string Title { get; set; }
 
         [Required]
         [AllowHtml]
         [UIHint("ArticleContent")]
+        [MaxLength(25000)]
         public string Content { get; set; }
 
         [Required]
@@ -34,14 +36,19 @@
         [UIHint("CategoriesDropdown")]
         public int CategoryId { get; set; }
 
+        [Range(-4000, 2020)]
         public int? TimePeriodFrom { get; set; }
 
+        [Range(-4000, 2020)]
         public int? TimePeriodTo { get; set; }
 
         public string HeaderImagePath { get; set; }
 
         [HiddenInput(DisplayValue = false)]
         public string LastEditorId { get; set; }
+
+        [MaxLength(250)]
+        public string KeyWords { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

@@ -38,12 +38,9 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Article, ArticlesViewModel>(string.Empty)
-                .ForMember(m => m.ApproverId, opt => opt.MapFrom(a => a.Approver.Id));
-            configuration.CreateMap<Article, ArticlesViewModel>(string.Empty)
-                .ForMember(m => m.ApproverFullName, opt => opt.MapFrom(u => u.Approver.FullName));
-            configuration.CreateMap<Article, ArticlesViewModel>(string.Empty)
-                .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id));
-            configuration.CreateMap<Article, ArticlesViewModel>(string.Empty)
+                .ForMember(m => m.ApproverId, opt => opt.MapFrom(a => a.Approver.Id))
+                .ForMember(m => m.ApproverFullName, opt => opt.MapFrom(u => u.Approver.FullName)) 
+                .ForMember(m => m.LastEditorId, opt => opt.MapFrom(u => u.LastEditor.Id))
                 .ForMember(m => m.LastEditorFullName, opt => opt.MapFrom(u => u.LastEditor.FullName));
         }
     }

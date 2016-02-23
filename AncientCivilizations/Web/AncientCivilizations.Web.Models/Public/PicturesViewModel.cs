@@ -37,12 +37,9 @@
         public void CreateMappings(IMapperConfiguration configuration)
         {
             configuration.CreateMap<Picture, PicturesViewModel>(string.Empty)
-                .ForMember(m => m.ContributorId, opt => opt.MapFrom(u => u.Contributor.Id));
-            configuration.CreateMap<Picture, PicturesViewModel>(string.Empty)
-                .ForMember(m => m.ContrubitorFullName, opt => opt.MapFrom(u => u.Contributor.FullName));
-            configuration.CreateMap<Picture, PicturesViewModel>(string.Empty)
-                .ForMember(m => m.ContrubitorAvatar, opt => opt.MapFrom(u => u.Contributor.Avatar));
-            configuration.CreateMap<Picture, PicturesViewModel>(string.Empty)
+                .ForMember(m => m.ContributorId, opt => opt.MapFrom(u => u.Contributor.Id))
+                .ForMember(m => m.ContrubitorFullName, opt => opt.MapFrom(u => u.Contributor.FullName))
+                .ForMember(m => m.ContrubitorAvatar, opt => opt.MapFrom(u => u.Contributor.Avatar))
                 .ForMember(m => m.CategoryName, opt => opt.MapFrom(u => u.Category.Name));
         }
     }

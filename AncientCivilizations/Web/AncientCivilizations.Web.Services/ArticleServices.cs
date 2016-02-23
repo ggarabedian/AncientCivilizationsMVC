@@ -26,7 +26,7 @@
             return this.Data.Articles.All().To<ArticleViewModel>();
         }
 
-        public IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter)
+        public IEnumerable<ArticleViewModel> AllBySearchQuery(string searchString, string orderBy, string civilizationFilter, string categoryFilter)
         {
             var articles = this.Data.Articles.All().Where(a => a.IsApproved);
 
@@ -34,6 +34,12 @@
             {
                 int id = int.Parse(civilizationFilter);
                 articles = articles.Where(a => a.CivilizationId == id);
+            }
+
+            if (!string.IsNullOrEmpty(categoryFilter) && categoryFilter != "All")
+            {
+                int id = int.Parse(categoryFilter);
+                articles = articles.Where(a => a.CategoryId == id);
             }
 
             if (!string.IsNullOrEmpty(searchString))
@@ -75,6 +81,7 @@
                 viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
             }
 
+            viewModel.FiveSimilarArticles = this.GetRandomArticles(5, viewModel.CivilizationId).ToList();
             return viewModel;
         }
 
@@ -106,6 +113,17 @@
 
             this.Mapper.Map(model, article);
             this.Data.SaveChanges();
+        }
+
+        private IQueryable<ArticleViewModel> GetRandomArticles(int count, int civilizationId)
+        {
+            return this.Data
+                       .Articles
+                       .All()
+                       .Where(a => a.CivilizationId == civilizationId)
+                       .OrderBy(x => Guid.NewGuid())
+                       .Take(count)
+                       .To<ArticleViewModel>();
         }
     }
 }

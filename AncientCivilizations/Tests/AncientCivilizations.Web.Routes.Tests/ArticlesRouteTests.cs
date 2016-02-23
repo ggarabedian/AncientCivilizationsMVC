@@ -29,7 +29,7 @@
             RouteConfig.RegisterRoutes(routeCollection);
 
             routeCollection.ShouldMap(Url)
-                           .To<ArticlesController>(x => x.All(null, null, null, null, null));
+                           .To<ArticlesController>(x => x.All(null, null, null, null, null, null));
         }
 
         [Test]
@@ -41,7 +41,7 @@
             RouteConfig.RegisterRoutes(routeCollection);
 
             routeCollection.ShouldMap(Url)
-                           .To<ArticlesController>(x => x.All(null, null, null, null, "5"));
+                           .To<ArticlesController>(x => x.All(null, null, null, null, "5", null));
         }
 
         [Test]
@@ -53,7 +53,7 @@
             RouteConfig.RegisterRoutes(routeCollection);
 
             routeCollection.ShouldMap(Url)
-                           .To<ArticlesController>(x => x.All("Name", null, null, 3, "5"));
+                           .To<ArticlesController>(x => x.All("Name", null, null, 3, "5", null));
         }
     }
 }

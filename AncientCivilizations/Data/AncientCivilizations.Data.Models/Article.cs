@@ -15,7 +15,7 @@
         public string Title { get; set; }
 
         [Required]
-        [MaxLength(10000)]
+        [MaxLength(25000)]
         public string Content { get; set; }
 
         [Required]
@@ -62,7 +62,7 @@
         [Range(-4000, 2020)]
         public int? TimePeriodTo { get; set; }
 
-        [MaxLength(200)]
+        [MaxLength(250)]
         public string KeyWords { get; set; }
     }
 }
