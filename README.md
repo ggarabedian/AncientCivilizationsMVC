@@ -16,21 +16,21 @@ Demo: [http://ancientcivilizations.azurewebsites.net/](http://ancientcivilizatio
 ## How it works
 
 You can simply browse and read articles contributed by our users:
-<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/HomePage.PNG" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/HomePage.png" /></p>
 
 Or search for specific article using several filters:
-<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/SearchForArticles.PNG" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/SearchForArticles.png" /></p>
 
 Or browse the picture gallery and read the story of each contributed image:
-<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/PictureGallery.PNG" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/PictureGallery.png" /></p>
 
 Or browse the map and find out about civilizations you didn't know even existed:
-<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/BrowseTheMap.PNG" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/BrowseTheMap.png" /></p>
 
 If you feel you have knowledge you want to share with the community:
-<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/ContributeContent.PNG" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/ContributeContent.png" /></p>
 
 Don't forget to manage your account, so people who read your articles know who you are and why you like writing for Ancient Civilizations.
-<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/ManageAccount.PNG" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ggarabedian/AncientCivilizationsMVC/master/Images/ManageAccount.png" /></p>
 
 The project also includes administration for users, articles and pictures.
