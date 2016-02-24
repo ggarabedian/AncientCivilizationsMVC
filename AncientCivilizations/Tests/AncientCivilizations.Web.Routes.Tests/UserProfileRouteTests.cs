@@ -9,7 +9,7 @@
     public class UserProfileRouteTests
     {
         [Test]
-        public void TestUserProfile()
+        public void UserProfileIndexRouteShouldBeValid()
         {
             const string Url = "/UserProfile/Index/das234-asd123";
 

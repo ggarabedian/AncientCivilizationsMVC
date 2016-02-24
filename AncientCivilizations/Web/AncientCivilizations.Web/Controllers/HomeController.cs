@@ -2,7 +2,6 @@
 {
     using System.Web.Mvc;
 
-    using Data.Repositories;
     using Infrastructure.Caching;
     using Services.Contracts;
 

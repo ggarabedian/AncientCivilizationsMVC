@@ -81,7 +81,7 @@
                 viewModel.Content = Sanitizer.Sanitize(viewModel.Content);
             }
 
-            viewModel.FiveSimilarArticles = this.GetRandomArticles(5, viewModel.CivilizationId).ToList();
+            viewModel.FiveSimilarArticles = this.GetRandomArticles(5, article.CivilizationId, article.CategoryId, id).ToList();
             return viewModel;
         }
 
@@ -115,12 +115,12 @@
             this.Data.SaveChanges();
         }
 
-        private IQueryable<ArticleViewModel> GetRandomArticles(int count, int civilizationId)
+        private IQueryable<ArticleViewModel> GetRandomArticles(int count, int civilizationId, int categoryId, int? articleId)
         {
             return this.Data
                        .Articles
                        .All()
-                       .Where(a => a.CivilizationId == civilizationId)
+                       .Where(a => (a.CivilizationId == civilizationId || a.CategoryId == categoryId) && a.Id != articleId)
                        .OrderBy(x => Guid.NewGuid())
                        .Take(count)
                        .To<ArticleViewModel>();

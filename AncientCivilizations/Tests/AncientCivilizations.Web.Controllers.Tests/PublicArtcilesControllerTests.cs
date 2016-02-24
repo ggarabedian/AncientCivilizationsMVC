@@ -26,7 +26,6 @@
             this.articlesServiceMock = new Mock<IArticleServices>();
             this.civilizationsServiceMock = new Mock<ICivilizationServices>();
             this.categoriesServiceMock = new Mock<ICategoryServices>();
-
         }
 
         [Test]

@@ -82,7 +82,7 @@
                 return this.View(model);
             }
 
-            var user = await UserManager.FindByEmailAsync(model.Email);
+            var user = await this.UserManager.FindByEmailAsync(model.Email);
             var result = await this.SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {

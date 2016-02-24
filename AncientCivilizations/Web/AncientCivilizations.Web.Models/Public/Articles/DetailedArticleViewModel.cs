@@ -29,8 +29,6 @@
 
         public string HeaderImagePath { get; set; }
 
-        public int CivilizationId { get; set; }
-
         public IEnumerable<ArticleViewModel> FiveSimilarArticles { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)

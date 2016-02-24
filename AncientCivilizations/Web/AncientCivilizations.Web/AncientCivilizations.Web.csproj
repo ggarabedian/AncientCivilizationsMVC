@@ -597,8 +597,12 @@
     <Content Include="Content\Kendo\Uniform\sprite_kpi.png" />
     <Content Include="Content\Kendo\Uniform\sprite_kpi_2x.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Pictures\Site\Ancient China.jpg" />
     <Content Include="Content\Pictures\Site\Ancient Egypt.jpg" />
+    <Content Include="Content\Pictures\Site\Ancient Greece.jpg" />
     <Content Include="Content\Pictures\Site\Ancient Rome.jpg" />
+    <Content Include="Content\Pictures\Site\Aztec.jpg" />
+    <Content Include="Content\Pictures\Site\Celtic.jpg" />
     <Content Include="Content\Pictures\Site\contribute-article.jpg" />
     <Content Include="Content\Pictures\Site\contribute-definition.jpg" />
     <Content Include="Content\Pictures\Site\contribute-illustration.jpg" />
@@ -606,6 +610,8 @@
     <Content Include="Content\Pictures\Site\Inca.jpg" />
     <Content Include="Content\Pictures\Site\LogoColor.png" />
     <Content Include="Content\Pictures\Site\Maya.jpg" />
+    <Content Include="Content\Pictures\Site\Olmec.jpg" />
+    <Content Include="Content\Pictures\Site\Sumer.jpg" />
     <Content Include="Content\Pictures\Site\world.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

@@ -17,15 +17,12 @@
                             @Html.ActionLink(item.Title, "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "" })
                         </h2>
                     </div>
-                    <div class="row content-item-info">
-                        @Html.DisplayFor(m => @item, "ArticleCreatorAndDate")
-                    </div>
                     <div class="row content-item-text">
                         <div id="article-content">@Html.Raw(item.Content)</div>
-                        @Html.ActionLink("[Read More]", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "pull-right" })
+                        @Html.ActionLink("read more...", "Detailed", Controllers.Articles, new { id = item.Id, area = Areas.Default }, new { @class = "a-more" })
                     </div>
                     <div class="row content-item-text">
-                        @Html.ActionLink("Edit", "Edit", Controllers.Articles, new { id = item.Id, area = Areas.Contribution }, new { @class = "pull-right" })
+                        @Html.ActionLink("Edit", "Edit", Controllers.Articles, new { id = item.Id, area = Areas.Contribution }, new { @class = "pull-left" })
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@
     public class ArticlesRouteTests
     {
         [Test]
-        public void TestRouteDetailed()
+        public void ArticlesDetailedRouteShouldBeValid()
         {
             const string Url = "/Articles/Detailed/1";
 
@@ -21,7 +21,7 @@
         }
 
         [Test]
-        public void TestRouteAllWithoutFiltration()
+        public void ArticlesAllShouldWorkWithoutFiltrationParameters()
         {
             const string Url = "/Articles/All";
 
@@ -33,7 +33,7 @@
         }
 
         [Test]
-        public void TestRouteAllWithCivilizationFilter()
+        public void ArticlesAllShouldWorkWithOnlyCivilizationFilterParameter()
         {
             const string Url = "/Articles/All?civilizationFilter=5";
 
@@ -45,7 +45,7 @@
         }
 
         [Test]
-        public void TestRouteAllWithMultipleFiltrations()
+        public void ArticlesAllShouldWorkWithMultipleFiltrationParameters()
         {
             const string Url = "/Articles/All?civilizationFilter=5&orderBy=Name&page=3";
 
