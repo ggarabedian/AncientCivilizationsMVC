@@ -33,8 +33,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li>@Html.ActionLink("Home", Actions.Index, Controllers.Home, new { area = Areas.Default }, null)</li>
 
-                        <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
                         <li>@Html.ActionLink("Articles", "All", Controllers.Articles, new { area = Areas.Default }, null)</li>
+                        <li>@Html.ActionLink("Pictures", "All", Controllers.Pictures, new { area = Areas.Default }, null)</li>
                         <li>@Html.ActionLink("Map", "ExploreMap", Controllers.Articles, new { area = Areas.Default }, null)</li>
 
                         @if (User.IsInRole("User") || User.IsInRole("Administrator"))
